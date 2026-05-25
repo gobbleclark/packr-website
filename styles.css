@@ -1,0 +1,1676 @@
+/* Packr — editorial redesign */
+
+:root {
+  /* ===========================================================
+     Packr brand palette — v1.0
+     Per Brand Book §02 · Color
+     =========================================================== */
+
+  /* Core */
+  --linen:      #FAF1E2;  /* Primary surface · backgrounds */
+  --ink:        #494949;  /* Neutral dark gray · primary mark + body text */
+  --moss:       #6B8264;  /* Brand accent · CTAs · success */
+  --moss-soft:  #A6B69D;  /* Logo shadow · secondary surface */
+  --moss-deep:  #4F6249;  /* Dark-mode shadow · hover */
+  --bone:       #F4E8D5;  /* Tertiary surface · panels (use instead of #fff) */
+  --ash:        #7B6F69;  /* Muted text · meta */
+  --charcoal:   #1F1916;  /* Dark-mode background */
+
+  /* Semantic */
+  --success:    var(--moss);
+  --warning:    #C68A3A;
+  --danger:     #B0533C;
+
+  /* Derived linen variants for surface depth (panel layering) */
+  --linen-warm: #FBF4E5;  /* fractionally lighter than linen */
+  --linen-deep: #EFE0BF;  /* deeper linen for active/hover bgs */
+  --linen-rich: #F5EAD2;  /* warm mid linen ≈ bone */
+
+  /* Derived moss tints for chips + soft accent bgs */
+  --moss-tint:      #DCE3D2;  /* light moss for chips/section bgs */
+  --moss-tint-deep: #C5D0B6;  /* deeper moss tint */
+
+  /* Hairlines and shadows keyed off the primary dark color */
+  --hair:        rgba(73, 73, 73, 0.08);
+  --hair-strong: rgba(73, 73, 73, 0.14);
+
+  /* Convenience aliases used throughout the existing CSS */
+  --cream:       var(--linen);
+  --muted:       var(--ash);
+  --accent:      var(--moss-tint);
+  --accent-ink:  var(--ink);
+  --sage:        var(--moss-tint);
+  --sage-ink:    var(--moss);
+  --lavender:    var(--linen-deep);
+  --peach:       var(--linen-rich);
+  --sky:         var(--moss-tint-deep);
+
+  --grain: 0.04;
+
+  /* Type stacks — Outfit for body/UI/numbers, Fraunces for editorial
+     headlines. Defined as variables so a per-page <body> class can swap
+     families later without forking selectors. */
+  --font-display:  'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-headline: 'Fraunces', 'Times New Roman', Georgia, serif;
+
+  /* Page surface — soft warm-gray gradient, used by both <body> and the
+     sticky nav so they merge seamlessly at the top of the viewport. */
+  --page-bg:       linear-gradient(90deg, #f3f2ef 0%, #f7f7f5 100%);
+  --page-bg-solid: #f5f5f3;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--page-bg);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Film grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   PER-PAGE THEME OVERRIDES
+   Body classes that swap brand variables for a single page.
+   Add more page classes here as the site grows.
+   ============================================================ */
+
+/* (Per-page overrides go here. Outfit + Fraunces + warm-gray gradient
+   are the site-wide defaults — every page picks them up automatically.) */
+
+/* Display headlines — Sora 800 ExtraBold (per brand book).
+   Uses --font-headline so a per-page theme can swap to a serif (e.g.
+   Fraunces on /pricing) without touching this selector. */
+.pk-display {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* Brand emphasis — replaces the Fraunces italic pattern.
+   The brand book uses no italics; instead Moss color signals
+   the brand's "10%" accent moment. */
+.pk-display em, .pk-italic {
+  font-style: normal;
+  color: var(--moss);
+  font-weight: 800;
+}
+
+/* Eyebrow / micro labels — JetBrains Mono per brand spec */
+.pk-micro {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pk-muted { color: var(--ash); }
+.pk-mono  { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* Buttons */
+.pk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  border: 0;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pk-btn-ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+.pk-btn-ink:hover { transform: translateY(-1px); background: var(--charcoal); }
+.pk-btn-sage {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.pk-btn-sage:hover { transform: translateY(-1px); }
+.pk-btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 4px;
+}
+.pk-btn-ghost:hover { color: var(--charcoal); }
+
+/* Chips */
+.pk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.pk-chip-outline {
+  background: transparent;
+  border: 1px solid var(--hair-strong);
+  color: var(--ink);
+}
+
+/* Card */
+.pk-card {
+  background: var(--bone);
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06), 0 12px 40px -20px rgba(58,46,42,0.18);
+}
+
+/* Section shell */
+.pk-section {
+  padding: 120px 56px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pk-divider {
+  height: 1px;
+  background: var(--hair);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Nav — uses the same warm-gray gradient as <body>, so at the top of
+   the page the nav visually merges with the page surface. When the
+   user scrolls, a subtle frost + hairline border separates it from
+   the content moving underneath. */
+.pk-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--page-bg);
+  border-bottom: 1px solid transparent;
+  color: var(--ink);
+  transition: background .25s ease, border-color .25s ease, color .25s ease, backdrop-filter .25s ease;
+}
+.pk-nav .pk-wordmark { color: var(--ink); }
+.pk-nav .pk-btn-ink { background: var(--ink); color: var(--linen); }
+.pk-nav .pk-btn-ink:hover { background: var(--charcoal); }
+
+.pk-nav.is-scrolled {
+  background: linear-gradient(90deg, rgba(243, 242, 239, 0.92) 0%, rgba(247, 247, 245, 0.92) 100%);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border-bottom-color: var(--hair);
+}
+
+/* Homepage: nav defaults to moss so it blends with the moss hero.
+   These overrides only apply while the nav has NOT been scrolled — once
+   the user scrolls past the hero, the global gray-gradient state above
+   takes over. */
+body.pk-page-home .pk-nav:not(.is-scrolled) {
+  background: var(--moss);
+  color: var(--linen);
+}
+body.pk-page-home .pk-nav:not(.is-scrolled) .pk-wordmark { color: var(--linen); }
+body.pk-page-home .pk-nav:not(.is-scrolled) .pk-btn-ink { background: var(--linen); color: var(--ink); }
+body.pk-page-home .pk-nav:not(.is-scrolled) .pk-btn-ink:hover { background: var(--bone); }
+.pk-nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 22px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.pk-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 14px;
+}
+.pk-nav-links a {
+  color: currentColor;
+  text-decoration: none;
+  opacity: 0.78;
+  font-weight: 500;
+  transition: opacity .15s;
+}
+.pk-nav-links a:hover,
+.pk-nav-links a[aria-current="page"] { opacity: 1; }
+
+/* ==========================================================
+   Logo lockup — built per Brand Book §01.
+   The horizontal lockup is the transparent bubble-icon PNG
+   plus a Sora 800 ExtraBold wordmark rendered in HTML.
+   This stays crisp at any DPI and re-themes via CSS.
+   The lockup-h-shadow-ink.png file in /assets/ has a baked-in
+   black background, so we don't use it as a single image.
+   ========================================================== */
+.pk-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  line-height: 1;
+  user-select: none;
+}
+.pk-wordmark-icon {
+  display: block;
+  height: 32px;          /* ≈ cap-height of "P" at 30px Sora 800 */
+  width: auto;
+  flex-shrink: 0;
+}
+.pk-wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.045em;   /* per brand book */
+  line-height: 1;
+  color: inherit;
+}
+
+/* Size variants */
+.pk-wordmark.sm .pk-wordmark-icon { height: 24px; }
+.pk-wordmark.sm .pk-wordmark-text { font-size: 22px; }
+
+.pk-wordmark.lg .pk-wordmark-icon { height: 44px; }
+.pk-wordmark.lg .pk-wordmark-text { font-size: 42px; }
+
+/* Color variants — inherit through the wrapper */
+.pk-wordmark.cream { color: var(--linen); }
+.pk-wordmark.moss  { color: var(--moss); }
+
+/* Hero */
+.pk-hero {
+  padding: 80px 56px 100px;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(0, 1.15fr);
+  gap: 80px;
+  align-items: start;
+  position: relative;
+}
+.pk-hero-copy { padding-top: 40px; max-width: 440px; }
+.pk-hero h1 { font-size: 60px; margin: 22px 0 28px; }
+.pk-hero-sub {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 0 0 36px;
+}
+.pk-hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* ==========================================================
+   Moss hero — brand-book cover treatment
+   Full-bleed Moss surface per Brand Book §02.
+   Uses clip-path + box-shadow to extend bg beyond max-width.
+
+   IMPORTANT: cream text colors are scoped to .pk-hero-copy
+   (the left column) only — so the chat / rail / stat cards
+   in the right collage keep their normal ink-on-bone text.
+   ========================================================== */
+.pk-hero-moss {
+  background: var(--moss);
+  box-shadow: 0 0 0 100vmax var(--moss);
+  clip-path: inset(0 -100vmax);
+}
+.pk-hero-moss .pk-hero-copy        { color: var(--linen); }
+.pk-hero-moss .pk-hero-copy h1     { color: var(--linen); }
+/* Moss-color emphasis can't show on Moss — invert to bone for accent */
+.pk-hero-moss .pk-hero-copy h1 em,
+.pk-hero-moss .pk-hero-copy .pk-italic { color: var(--bone); }
+.pk-hero-moss .pk-hero-sub         { color: rgba(250, 241, 226, 0.82); }
+.pk-hero-moss .pk-hero-trust       { color: rgba(250, 241, 226, 0.78); }
+.pk-hero-moss .pk-avatar-stack .pk-avatar { box-shadow: 0 0 0 2px var(--moss); }
+
+/* Chip on Moss — outlined cream */
+.pk-chip-onmoss {
+  background: rgba(250, 241, 226, 0.14);
+  color: var(--linen);
+  border: 1px solid rgba(250, 241, 226, 0.28);
+}
+
+/* Primary CTA on Moss — cream pill, ink text (high contrast) */
+.pk-btn-onmoss {
+  background: var(--linen);
+  color: var(--ink);
+}
+.pk-btn-onmoss:hover { transform: translateY(-1px); background: var(--bone); }
+
+/* Ghost CTA on Moss — cream text only */
+.pk-btn-ghost-onmoss {
+  background: transparent;
+  color: var(--linen);
+  padding: 11px 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity .15s ease;
+}
+.pk-btn-ghost-onmoss:hover { opacity: 0.85; }
+
+/* Hero visual — floating component collage */
+.pk-collage {
+  position: relative;
+  height: 620px;
+  width: 100%;
+}
+.pk-collage > * {
+  position: absolute;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+
+/* Logo bar */
+.pk-logobar {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 56px 40px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.pk-logobar-label {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.pk-logobar-list {
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pk-logo-placeholder {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  opacity: 0.55;
+  font-weight: 600;
+}
+.pk-logo-placeholder.sans {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: 16px;
+}
+
+/* Eyebrow */
+.pk-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ash);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.pk-eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Section header block */
+.pk-section-header {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.pk-section-header h2 {
+  font-size: 44px;
+  margin: 18px 0 0;
+}
+.pk-section-header p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 440px;
+  margin: 0 0 6px auto;
+}
+
+/* Feature grid */
+.pk-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pk-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.pk-feature {
+  background: var(--bone);
+  border-radius: 24px;
+  padding: 28px 28px 32px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+.pk-feature-visual {
+  height: 200px;
+  margin: -28px -28px 24px;
+  background: var(--sage);
+  border-bottom: 1px solid rgba(58,46,42,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.pk-feature h3 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.pk-feature p {
+  color: var(--ash);
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Metrics */
+.pk-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 48px 0;
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+.pk-metric-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 56px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 8px;
+}
+.pk-metric-num em {
+  font-style: normal;
+  color: var(--moss);
+  font-weight: 800;
+}
+.pk-metric-label {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 220px;
+}
+
+/* CTA band */
+.pk-cta-band {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 28px;
+  padding: 80px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.pk-cta-band h2 {
+  font-size: 48px;
+  margin: 0;
+  max-width: 640px;
+}
+.pk-cta-band .pk-btn-sage {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Footer */
+.pk-footer {
+  padding: 80px 56px 56px;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-top: 1px solid var(--hair);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+}
+.pk-footer h5 {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+.pk-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.pk-footer a { color: var(--ink); text-decoration: none; font-size: 14px; }
+.pk-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.pk-footer-bottom {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 56px 40px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--hair);
+}
+
+/* Utility */
+.pk-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: rgba(58,46,42,0.07);
+  border-radius: 4px;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* FAQ */
+.pk-faq { max-width: 880px; margin: 0 auto; }
+.pk-faq-item {
+  border-bottom: 1px solid var(--hair);
+  padding: 26px 0;
+}
+.pk-faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  list-style: none;
+  gap: 24px;
+}
+.pk-faq-q::-webkit-details-marker { display: none; }
+.pk-faq-icon {
+  width: 28px; height: 28px; border-radius: 999px;
+  border: 1px solid var(--hair-strong);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+details[open] .pk-faq-icon { transform: rotate(45deg); background: var(--accent); border-color: var(--accent); }
+.pk-faq-a {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 620px;
+  margin: 14px 0 0;
+}
+
+/* ===========================================================
+   RESPONSIVE
+   Sora 800 carries more visual weight than the previous serif
+   so display sizes step down faster on narrow viewports.
+   =========================================================== */
+
+/* Display headlines should wrap long words gracefully */
+.pk-display, .pk-hero h1, .pk-section-header h2,
+.pk-cta-band h2, .pk-pax-h2, .pk-quote-text {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* Tablet ≤ 1100px */
+@media (max-width: 1100px) {
+  .pk-hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 32px 60px; }
+  .pk-hero h1 { font-size: 48px; }
+  .pk-section { padding: 80px 32px; }
+  .pk-hero, .pk-nav-inner, .pk-logobar, .pk-footer, .pk-footer-bottom { padding-left: 32px; padding-right: 32px; }
+  .pk-section-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  .pk-section-header h2 { font-size: 36px; }
+  .pk-section-header p { margin-left: 0; }
+  .pk-grid-3 { grid-template-columns: 1fr; }
+  .pk-grid-2 { grid-template-columns: 1fr; }
+  .pk-metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .pk-cta-band { grid-template-columns: 1fr; padding: 48px 32px; }
+  .pk-cta-band h2 { font-size: 38px; }
+  .pk-footer { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .pk-collage { height: 480px; }
+  .pk-stat-mini { min-width: 160px; flex: 1 1 160px; }
+}
+
+/* Mobile ≤ 640px */
+@media (max-width: 640px) {
+  .pk-nav-links { display: none; }
+  .pk-nav-inner { padding: 16px 20px; }
+  .pk-wordmark .pk-wordmark-icon { height: 26px; }
+  .pk-wordmark .pk-wordmark-text { font-size: 24px; }
+
+  .pk-hero { padding: 32px 20px 48px; gap: 32px; }
+  .pk-hero h1 { font-size: 36px; margin: 16px 0 20px; }
+  .pk-hero-sub { font-size: 16px; margin-bottom: 28px; }
+  .pk-hero-cta { gap: 8px; }
+  .pk-hero-trust { margin-top: 28px; flex-wrap: wrap; }
+
+  .pk-section { padding: 60px 20px; }
+  .pk-section-header { margin-bottom: 32px; }
+  .pk-section-header h2 { font-size: 30px; }
+
+  .pk-feature { padding: 24px 22px 28px; min-height: 0; }
+  .pk-feature h3 { font-size: 20px; }
+
+  .pk-metrics { grid-template-columns: 1fr 1fr; gap: 20px; padding: 36px 0; }
+  .pk-metric-num { font-size: 38px; }
+
+  .pk-pax-inner { padding: 40px 22px; gap: 32px; }
+  .pk-pax-h2 { font-size: 30px; }
+  .pk-pax-card { padding: 28px 22px 22px; }
+  .pk-pax-greeting { font-size: 22px; }
+
+  .pk-quote-card { padding: 32px 24px; }
+  .pk-quote-text { font-size: 20px; }
+
+  .pk-cta-band { padding: 40px 22px; }
+  .pk-cta-band h2 { font-size: 30px; }
+  .pk-cta-form { width: 100%; min-width: 0; }
+
+  .pk-footer { grid-template-columns: 1fr 1fr; gap: 32px; padding: 56px 20px 40px; }
+  .pk-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 24px 20px 32px;
+  }
+
+  /* Stat strip — wrap to grid so cards never overflow */
+  .pk-stat-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .pk-stat-mini { min-width: 0; flex: none; padding: 12px 14px; }
+  .pk-stat-value { font-size: 24px; }
+
+  /* Dashboard mock — drop fixed height + tighten composer */
+  .pk-dashboard { border-radius: 18px; }
+  .pk-dash-main-head { padding: 12px 16px; }
+  .pk-dash-thread { padding: 16px; gap: 14px; }
+  .pk-dash-msg-text { font-size: 13px; }
+  .pk-dash-msg-reply-row { padding-left: 0; }
+  .pk-dash-composer { margin: 12px; padding: 10px 14px; }
+
+  /* Chat card in hero collage */
+  .pk-chat-card { width: 100% !important; }
+  .pk-chat-msg { padding: 12px 14px 4px; }
+  .pk-chat-text, .pk-chat-reply { font-size: 12.5px; }
+
+  /* FAQ tighter on small screens */
+  .pk-faq-q { font-size: 18px; gap: 16px; }
+}
+
+/* Small phones ≤ 380px (iPhone SE 1st-gen, etc.) */
+@media (max-width: 380px) {
+  .pk-hero h1 { font-size: 32px; }
+  .pk-section-header h2 { font-size: 26px; }
+  .pk-cta-band h2 { font-size: 26px; }
+  .pk-pax-h2 { font-size: 26px; }
+  .pk-quote-text { font-size: 18px; }
+  .pk-metric-num { font-size: 32px; }
+  .pk-stat-strip { grid-template-columns: 1fr; }
+  .pk-footer { grid-template-columns: 1fr; gap: 28px; }
+  .pk-section { padding: 48px 18px; }
+  .pk-hero { padding: 24px 18px 40px; }
+}
+
+
+/* ===========================================================
+   STATIC-HTML COMPONENT STYLES
+   Added for the production rebuild (no React/JSX runtime).
+   Each block recreates one component from the original mockup.
+   =========================================================== */
+
+/* Inline icon helper */
+.ic { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+svg.ic { color: currentColor; }
+
+/* Avatar (used everywhere) */
+.pk-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 999px;
+  color: var(--linen); font-size: 9.5px; font-weight: 600;
+  letter-spacing: 0.02em; flex-shrink: 0;
+}
+.pk-avatar.small { width: 28px; height: 28px; font-size: 10.5px; }
+.pk-avatar.med   { width: 32px; height: 32px; font-size: 12px; }
+.pk-avatar.lg    { width: 40px; height: 40px; font-size: 14px; }
+.pk-avatar-stack {
+  display: inline-flex;
+}
+.pk-avatar-stack .pk-avatar {
+  box-shadow: 0 0 0 2px var(--cream);
+}
+.pk-avatar-stack .pk-avatar + .pk-avatar { margin-left: -8px; }
+
+/* Brand tile (small square initials) */
+.pk-brand-tile {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 6px;
+  font-size: 9px; font-weight: 800; letter-spacing: -0.02em;
+  box-shadow: inset 0 0 0 1px var(--hair-strong);
+  flex-shrink: 0;
+}
+.pk-brand-tile.dark {
+  background: var(--ink); color: var(--linen);
+  font-size: 8.5px;
+  letter-spacing: -0.03em;
+}
+
+/* Chat card (in hero collage) */
+.pk-chat-card {
+  background: var(--bone); border-radius: 18px; width: 460px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06), 0 24px 60px -24px rgba(58,46,42,0.25);
+  overflow: hidden;
+}
+.pk-chat-head {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(58,46,42,0.06);
+  display: flex; align-items: center; gap: 10px;
+}
+.pk-chat-title { font-weight: 600; font-size: 14px; }
+.pk-chat-members {
+  margin-left: auto; font-size: 11px; color: var(--ash);
+  display: flex; align-items: center; gap: 5px;
+}
+.pk-chat-day {
+  text-align: center; padding: 10px 0 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; color: var(--ash);
+  font-weight: 600; letter-spacing: 0.04em;
+}
+.pk-chat-msg {
+  padding: 14px 18px 6px;
+  display: flex; gap: 10px;
+}
+.pk-chat-msg-body { flex: 1; min-width: 0; }
+.pk-chat-meta {
+  display: flex; gap: 8px; align-items: baseline; margin-bottom: 3px;
+}
+.pk-chat-name { font-size: 12.5px; font-weight: 600; }
+.pk-chat-time {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; color: var(--ash); font-weight: 500;
+}
+.pk-chat-text { font-size: 13px; line-height: 1.45; }
+.pk-mention { color: var(--moss); font-weight: 600; }
+.pk-hl { background: rgba(107, 130, 100, 0.18); padding: 1px 4px; border-radius: 3px; }
+.pk-chat-reply-row {
+  padding: 8px 18px 8px 56px;
+  display: flex; justify-content: flex-end;
+}
+.pk-chat-reply {
+  background: var(--moss-tint); color: var(--ink);
+  padding: 10px 14px; border-radius: 16px 16px 4px 16px;
+  font-size: 13px; line-height: 1.45; max-width: 320px;
+}
+.pk-chat-reply-meta {
+  font-size: 10px; color: var(--ash);
+  margin-top: 4px; font-weight: 500;
+}
+.pk-chat-divider {
+  padding: 4px 18px; display: flex; align-items: center; gap: 10px;
+}
+.pk-chat-divider-line { flex: 1; height: 1px; background: rgba(176,83,60,0.3); }
+.pk-chat-divider-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px; font-weight: 600; color: var(--danger);
+  letter-spacing: 0.05em;
+}
+.pk-chat-composer {
+  margin: 0 14px 14px; padding: 10px 14px;
+  background: var(--linen-rich); border-radius: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.pk-chat-composer-input {
+  flex: 1; font-size: 12.5px; color: var(--ash);
+}
+.pk-chat-composer-send {
+  width: 26px; height: 26px; border-radius: 999px;
+  background: var(--ink); color: var(--linen);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* Right-rail card (in hero collage) */
+.pk-rail-card {
+  background: var(--bone); border-radius: 16px; width: 340px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06), 0 24px 60px -24px rgba(58,46,42,0.22);
+  overflow: hidden;
+}
+.pk-rail-card.flat {
+  width: 100%;
+  box-shadow: none;
+  border: 1px solid rgba(58,46,42,0.06);
+}
+.pk-rail-head {
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.pk-rail-title { font-size: 13px; font-weight: 600; }
+.pk-rail-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-top: 1px solid rgba(58,46,42,0.06);
+  font-size: 13px; color: var(--ink);
+}
+.pk-rail-row svg { color: var(--ash); }
+.pk-rail-row > span:nth-of-type(1) { flex: 1; }
+.pk-rail-count {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600;
+  background: var(--danger); color: var(--linen);
+  padding: 2px 7px; border-radius: 999px;
+  min-width: 18px; text-align: center;
+}
+.pk-rail-count.sage { background: var(--moss-tint); color: var(--moss-deep); }
+
+/* Hero collage decorations */
+.pk-collage-blob {
+  position: absolute; right: -40px; top: 20px;
+  width: 420px; height: 420px;
+  background: var(--moss-soft); border-radius: 50%;
+  filter: blur(2px); opacity: 0.45;
+}
+.pk-stat-strip {
+  position: absolute; left: 40px; bottom: 0;
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.pk-stat-mini {
+  background: var(--bone); border-radius: 14px; padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06); min-width: 180px;
+}
+.pk-stat-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ash);
+  text-transform: uppercase;
+}
+.pk-stat-value {
+  font-family: var(--font-display); font-size: 30px; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1; margin-top: 6px;
+}
+.pk-stat-delta {
+  margin-top: 4px; font-size: 11px; color: var(--moss); font-weight: 600;
+}
+
+/* Hero trust strip */
+.pk-hero-trust {
+  margin-top: 38px; display: flex; align-items: center; gap: 14px;
+  color: var(--muted); font-size: 12.5px;
+}
+
+/* ===========================================================
+   PRODUCT SHOWCASE — full dashboard
+   =========================================================== */
+.pk-dashboard {
+  background: var(--bone); border-radius: 24px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.06), 0 40px 80px -40px rgba(58,46,42,0.25);
+  overflow: hidden; height: 580px;
+  display: grid; grid-template-columns: 210px 1fr 340px;
+  border: 1px solid rgba(58,46,42,0.05);
+}
+.pk-dash-sidebar {
+  background: var(--linen-warm);
+  border-right: 1px solid rgba(58,46,42,0.07);
+  padding: 18px 10px;
+  display: flex; flex-direction: column; gap: 2px;
+  font-size: 12.5px;
+  overflow: hidden;
+}
+.pk-dash-brand {
+  padding: 0 10px 16px;
+  display: flex; align-items: center; gap: 6px;
+  color: var(--ink);
+}
+.pk-dash-brand .pk-wordmark-icon { height: 18px; width: auto; display: block; }
+.pk-dash-brand .pk-wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: inherit;
+}
+.pk-dash-nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px; border-radius: 8px;
+  color: var(--ink); font-weight: 500;
+}
+.pk-dash-nav-item.is-active {
+  background: var(--linen-deep); font-weight: 600;
+}
+.pk-dash-badge {
+  margin-left: auto; background: var(--danger); color: var(--linen);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; font-weight: 600;
+  padding: 1px 6px; border-radius: 999px;
+}
+.pk-dash-section-label {
+  margin-top: 18px; padding: 0 10px 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--ash); text-transform: uppercase;
+}
+.pk-dash-section-label + .pk-dash-section-label { margin-top: 10px; }
+.pk-dash-brand-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 10px; font-size: 12.5px;
+}
+
+.pk-dash-main {
+  display: flex; flex-direction: column; background: var(--linen-warm);
+}
+.pk-dash-main-head {
+  padding: 14px 22px;
+  border-bottom: 1px solid rgba(58,46,42,0.06);
+  display: flex; align-items: center; gap: 10px;
+}
+.pk-dash-channel { font-weight: 600; font-size: 14px; }
+.pk-dash-members { font-size: 11px; color: var(--ash); }
+.pk-dash-head-actions {
+  margin-left: auto; display: flex; gap: 10px; color: var(--ash);
+}
+.pk-dash-thread {
+  flex: 1; padding: 20px 22px;
+  display: flex; flex-direction: column; gap: 18px;
+  overflow: hidden;
+}
+.pk-dash-day {
+  text-align: center;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; color: var(--ash);
+  font-weight: 600; letter-spacing: 0.04em;
+}
+.pk-dash-msg { display: flex; gap: 12px; }
+.pk-dash-msg-meta {
+  display: flex; gap: 8px; align-items: baseline; margin-bottom: 2px;
+}
+.pk-dash-msg-name { font-size: 13px; font-weight: 600; }
+.pk-dash-msg-time {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; color: var(--ash); font-weight: 500;
+}
+.pk-dash-msg-text {
+  font-size: 13.5px; line-height: 1.5; max-width: 460px;
+}
+.pk-dash-msg-reply-row {
+  display: flex; justify-content: flex-end; padding-left: 80px;
+}
+.pk-dash-msg-reply {
+  background: var(--moss-tint); color: var(--ink);
+  padding: 11px 15px; border-radius: 18px 18px 4px 18px;
+  font-size: 13.5px; line-height: 1.5; max-width: 400px;
+}
+.pk-dash-msg-reply-meta {
+  font-size: 10.5px; color: var(--ash);
+  margin-top: 4px; font-weight: 500;
+}
+.pk-dash-composer {
+  margin: 16px; padding: 11px 16px;
+  background: var(--linen-rich); border-radius: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.pk-dash-composer-input {
+  flex: 1; font-size: 13px; color: var(--ash);
+}
+.pk-dash-composer-send {
+  width: 28px; height: 28px; border-radius: 999px;
+  background: var(--ink); color: var(--linen);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+.pk-dash-rail {
+  background: var(--linen-warm); border-left: 1px solid rgba(58,46,42,0.07);
+  padding: 14px; overflow: hidden;
+}
+
+/* ===========================================================
+   PAX BAND
+   =========================================================== */
+.pk-pax-band { padding-top: 40px; }
+.pk-pax-inner {
+  background: linear-gradient(180deg, var(--linen-warm) 0%, var(--linen-deep) 100%);
+  border-radius: 28px; padding: 80px 64px;
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px;
+  align-items: center;
+  position: relative; overflow: hidden;
+}
+.pk-pax-h2 { font-size: 44px; margin: 18px 0 20px; }
+.pk-pax-lead {
+  color: var(--muted); font-size: 16px; line-height: 1.5;
+  max-width: 420px; margin: 0 0 28px;
+}
+.pk-pax-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.pk-pax-card-wrap {
+  display: flex; justify-content: center;
+}
+.pk-pax-card {
+  background: linear-gradient(180deg, var(--linen-warm) 0%, var(--linen-rich) 100%);
+  border-radius: 20px; width: 500px;
+  padding: 36px 32px 28px;
+  box-shadow: 0 1px 3px rgba(58,46,42,0.07), 0 24px 60px -24px rgba(58,46,42,0.22);
+}
+.pk-pax-icon-wrap { display: flex; justify-content: center; margin-bottom: 14px; }
+.pk-pax-icon {
+  width: 48px; height: 48px; border-radius: 12px; background: var(--linen-warm);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.06);
+}
+.pk-pax-greeting {
+  text-align: center; font-family: var(--font-display);
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+.pk-pax-sub {
+  text-align: center; font-size: 13px;
+  color: var(--ash); margin-top: 6px;
+}
+.pk-pax-input {
+  margin-top: 22px; background: var(--linen-warm); border-radius: 999px;
+  padding: 11px 16px; display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--hair);
+}
+.pk-pax-input-text { flex: 1; font-size: 13px; color: var(--ash); }
+.pk-pax-input-send {
+  width: 26px; height: 26px; border-radius: 999px;
+  background: var(--ink); color: var(--linen);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.pk-pax-actions-label {
+  margin-top: 22px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--ash); text-transform: uppercase;
+}
+.pk-pax-chips {
+  margin-top: 10px; display: flex; flex-wrap: wrap; gap: 7px;
+}
+.pk-pax-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--linen-warm); border: 1px solid var(--hair);
+  padding: 6px 12px; border-radius: 999px; font-size: 12px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.03);
+}
+.pk-pax-chip-dot {
+  width: 5px; height: 5px; border-radius: 999px; background: var(--moss);
+}
+
+/* ===========================================================
+   FEATURE-CARD VISUALS
+   =========================================================== */
+.pk-fv-stack {
+  padding: 18px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pk-fv-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.pk-fv-channel { font-size: 12px; font-weight: 600; }
+.pk-fv-bubble {
+  background: var(--linen-warm);
+  padding: 9px 12px; border-radius: 12px;
+  font-size: 11.5px; max-width: 220px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-bubble.dark {
+  background: var(--ink); color: var(--linen);
+  margin-left: auto;
+}
+
+/* Pax mini card visual */
+.pk-fv-pax {
+  padding: 22px 18px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.pk-fv-pax-icon {
+  width: 34px; height: 34px; border-radius: 10px; background: var(--linen-warm);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.06);
+}
+.pk-fv-pax-input {
+  background: var(--linen-warm); border-radius: 999px;
+  padding: 8px 14px; font-size: 11.5px;
+  width: 100%; max-width: 240px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-pax-input > span:first-child { flex: 1; color: var(--ash); }
+.pk-fv-pax-send {
+  width: 20px; height: 20px; border-radius: 999px;
+  background: var(--ink); color: var(--linen);
+  display: flex; align-items: center; justify-content: center;
+}
+.pk-fv-pax-tags {
+  display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;
+}
+.pk-fv-pax-tags span {
+  background: var(--linen-warm); border: 1px solid var(--hair);
+  padding: 4px 10px; border-radius: 999px; font-size: 10.5px;
+}
+
+/* WMS sync visual */
+.pk-fv-wms-head {
+  display: flex; gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ink);
+}
+.pk-fv-wms-head .op { opacity: 0.4; }
+.pk-fv-wms-row {
+  background: var(--linen-warm); border-radius: 10px; padding: 10px;
+  font-size: 11px;
+  display: flex; align-items: center; gap: 6px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-dot {
+  width: 6px; height: 6px; border-radius: 999px; background: var(--moss);
+  flex-shrink: 0;
+}
+
+/* Right-rail mini visual (in feature card) */
+.pk-fv-rail {
+  padding: 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.pk-fv-rail-row {
+  background: var(--linen-warm); border-radius: 8px; padding: 7px 11px;
+  font-size: 11px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-rail-row > span:first-child { flex: 1; }
+.pk-fv-rail-count {
+  background: var(--danger); color: var(--linen);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px; font-weight: 600;
+  padding: 1px 6px; border-radius: 999px;
+}
+
+/* Tasks visual */
+.pk-fv-task {
+  background: var(--linen-warm); border-radius: 10px; padding: 9px 12px;
+  font-size: 11px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-task-title { font-weight: 600; }
+.pk-fv-task-meta {
+  display: flex; justify-content: space-between;
+  margin-top: 2px; color: var(--ash); font-size: 10.5px;
+}
+
+/* Directory visual */
+.pk-fv-person {
+  background: var(--linen-warm); border-radius: 10px; padding: 7px 10px;
+  font-size: 11px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(58,46,42,0.04);
+}
+.pk-fv-person-text { flex: 1; }
+.pk-fv-person-name { font-weight: 600; }
+.pk-fv-person-role { color: var(--ash); font-size: 10px; }
+
+/* ===========================================================
+   TESTIMONIAL QUOTE CARDS
+   =========================================================== */
+.pk-quote-card {
+  border-radius: 24px; padding: 44px 40px;
+}
+.pk-quote-card.light {
+  background: var(--bone); box-shadow: 0 1px 3px rgba(58,46,42,0.06);
+}
+.pk-quote-card.sage {
+  background: var(--accent); color: var(--accent-ink);
+}
+.pk-quote-text { font-size: 26px; margin: 20px 0 28px; line-height: 1.25; }
+.pk-quote-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.pk-quote-name { font-weight: 600; font-size: 14px; }
+.pk-quote-role { color: var(--muted); font-size: 13px; }
+.pk-quote-card.sage .pk-quote-role { color: inherit; }
+
+/* ===========================================================
+   CTA BAND
+   =========================================================== */
+.pk-cta-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--moss-soft); text-transform: uppercase;
+}
+.pk-cta-sub {
+  color: rgba(250,241,226,0.65);
+  font-size: 15px; line-height: 1.5;
+  max-width: 480px; margin: 20px 0 0;
+}
+.pk-cta-form {
+  display: flex; flex-direction: column; gap: 10px; min-width: 220px;
+}
+.pk-cta-email {
+  color: rgba(250,241,226,0.7);
+  font-size: 13px; text-align: center; text-decoration: none;
+}
+.pk-cta-email:hover { color: rgba(250,241,226,0.95); }
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+.pk-footer-tagline {
+  color: var(--muted); font-size: 14px; line-height: 1.5;
+  margin-top: 16px; max-width: 300px;
+}
+
+/* ===========================================================
+   RESPONSIVE — extend the existing breakpoints
+   =========================================================== */
+@media (max-width: 1100px) {
+  .pk-dashboard {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .pk-dash-sidebar, .pk-dash-rail { display: none; }
+  .pk-pax-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 32px; }
+  .pk-pax-card { width: 100%; max-width: 460px; }
+  .pk-stat-strip { position: static; margin-top: 24px; }
+  .pk-collage { height: auto; }
+  .pk-collage-blob { display: none; }
+  .pk-chat-card, .pk-rail-card {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin-bottom: 16px;
+  }
+}
+/* (Mobile font sizes for pk-pax-h2 / pk-quote-text / pk-cta-band live in
+   the consolidated 640px block above.) */
+
+/* ============================================================
+   PRICING PAGE
+   /pricing — hero, calculator, plan card, "what's included"
+   ============================================================ */
+
+.pk-pricing-hero {
+  text-align: center;
+  padding: 140px 56px 56px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.pk-pricing-hero .pk-eyebrow {
+  display: inline-flex;
+  margin: 0 auto 18px;
+}
+.pk-pricing-hero h1 {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 18px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.pk-pricing-hero h1 em {
+  font-style: normal;
+  color: var(--moss);
+}
+.pk-pricing-hero .pk-pricing-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ash);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ---- Calculator card ---- */
+.pk-calc-section {
+  padding: 8px 56px 96px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pk-calc {
+  background: var(--moss);
+  color: var(--linen);
+  border-radius: 28px;
+  padding: 52px 56px;
+  box-shadow:
+    0 1px 3px rgba(58, 46, 42, 0.08),
+    0 32px 90px -28px rgba(31, 25, 22, 0.45);
+  display: grid;
+  gap: 40px;
+}
+
+.pk-calc-readout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+.pk-calc-block .pk-calc-label,
+.pk-calc-feature .pk-calc-label,
+.pk-calc-rate .pk-calc-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--linen) 70%, transparent);
+  margin: 0 0 10px;
+}
+.pk-calc-orders {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--linen);
+  font-variant-numeric: tabular-nums;
+}
+.pk-calc-orders-suffix {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18px;
+  color: color-mix(in oklab, var(--linen) 65%, transparent);
+  margin-left: 8px;
+  letter-spacing: 0;
+}
+.pk-calc-cost-block { text-align: right; }
+.pk-calc-cost {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--linen);
+  font-variant-numeric: tabular-nums;
+}
+.pk-calc-cost-suffix {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18px;
+  color: color-mix(in oklab, var(--linen) 65%, transparent);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.pk-calc-cost-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--linen) 78%, transparent);
+  margin: 14px 0 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pk-calc-cost-meta strong {
+  color: var(--linen);
+  font-weight: 700;
+}
+
+/* Save 25% pill */
+.pk-calc-save-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--warning);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* ---- Slider ---- */
+.pk-calc-slider-wrap { padding: 4px 0 0; }
+.pk-calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--moss-deep);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+.pk-calc-slider:focus-visible {
+  box-shadow: 0 0 0 3px rgba(250, 241, 226, 0.3);
+}
+.pk-calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background: var(--linen);
+  border-radius: 50%;
+  cursor: grab;
+  border: 4px solid var(--moss);
+  box-shadow: 0 4px 14px rgba(31, 25, 22, 0.45);
+  transition: transform 0.12s ease;
+}
+.pk-calc-slider::-webkit-slider-thumb:hover { transform: scale(1.08); }
+.pk-calc-slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.04); }
+.pk-calc-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  background: var(--linen);
+  border-radius: 50%;
+  cursor: grab;
+  border: 4px solid var(--moss);
+  box-shadow: 0 4px 14px rgba(31, 25, 22, 0.45);
+  transition: transform 0.12s ease;
+}
+.pk-calc-slider::-moz-range-thumb:hover { transform: scale(1.08); }
+.pk-calc-slider::-moz-range-thumb:active { cursor: grabbing; }
+
+.pk-calc-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: color-mix(in oklab, var(--linen) 60%, transparent);
+}
+
+/* ---- Trial + rate callout (cream panel inside the moss card) ---- */
+.pk-calc-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--linen-warm);
+  color: var(--ink);
+  border-radius: 14px;
+  border: 1px solid rgba(31, 25, 22, 0.06);
+}
+.pk-calc-rate-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pk-calc-rate-row + .pk-calc-rate-row {
+  padding-top: 14px;
+  border-top: 1px solid var(--hair);
+}
+.pk-calc-rate-row strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.pk-calc-rate-row span {
+  font-size: 14px;
+  color: var(--ash);
+}
+
+/* "30-Day Free Trial" pill — light moss-soft pill with dark ink text.
+   Brand-compliant high-contrast pair (~5.5:1) and visually distinct from
+   the amber SAVE 25% pill so the two communicate different ideas. */
+.pk-calc-trial-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--moss-soft);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  text-transform: none;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ---- Features row ---- */
+.pk-calc-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 36px;
+  border-top: 1px solid color-mix(in oklab, var(--linen) 18%, transparent);
+}
+.pk-calc-feature .pk-calc-feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--linen-warm);
+  color: var(--moss-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.pk-calc-feature h4 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--linen);
+  margin: 0 0 4px;
+  letter-spacing: -0.005em;
+}
+.pk-calc-feature p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--linen) 78%, transparent);
+  margin: 0;
+}
+
+/* ---- Enterprise note ---- */
+.pk-calc-enterprise {
+  text-align: center;
+  margin: 28px auto 0;
+  max-width: 620px;
+  font-size: 14px;
+  color: var(--ash);
+}
+.pk-calc-enterprise a {
+  color: var(--moss);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--moss) 40%, transparent);
+}
+.pk-calc-enterprise a:hover { color: var(--moss-deep); border-bottom-color: var(--moss-deep); }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .pk-pricing-hero { padding: 120px 32px 40px; }
+  .pk-pricing-hero h1 { font-size: 52px; }
+  .pk-pricing-hero .pk-pricing-sub { font-size: 17px; }
+  .pk-calc-section { padding: 0 32px 64px; }
+  .pk-calc { padding: 40px 36px; gap: 32px; }
+  .pk-calc-readout { grid-template-columns: 1fr; gap: 28px; }
+  .pk-calc-cost-block { text-align: left; }
+  .pk-calc-orders, .pk-calc-cost { font-size: 52px; }
+  .pk-calc-features { grid-template-columns: 1fr; gap: 20px; padding-top: 28px; }
+}
+
+@media (max-width: 640px) {
+  .pk-pricing-hero { padding: 100px 22px 32px; }
+  .pk-pricing-hero h1 { font-size: 38px; line-height: 1.08; }
+  .pk-pricing-hero .pk-pricing-sub { font-size: 16px; }
+  .pk-calc-section { padding: 0 22px 48px; }
+  .pk-calc { padding: 28px 22px; border-radius: 20px; gap: 28px; }
+  .pk-calc-orders, .pk-calc-cost { font-size: 42px; }
+  .pk-calc-orders-suffix, .pk-calc-cost-suffix { font-size: 15px; }
+  .pk-calc-rate { gap: 12px; padding: 16px 18px; }
+  .pk-calc-rate-row + .pk-calc-rate-row { padding-top: 12px; }
+  .pk-calc-rate-row strong { font-size: 16px; }
+  .pk-calc-ticks { font-size: 10px; }
+  .pk-calc-ticks span:nth-child(2),
+  .pk-calc-ticks span:nth-child(4) { display: none; }
+}
+
+@media (max-width: 380px) {
+  .pk-pricing-hero h1 { font-size: 32px; }
+  .pk-calc-orders, .pk-calc-cost { font-size: 36px; }
+}

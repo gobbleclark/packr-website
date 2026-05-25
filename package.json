@@ -1,0 +1,10 @@
+{
+  "name": "packr-site",
+  "version": "1.0.0",
+  "description": "Packr marketing homepage — static HTML/CSS",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}

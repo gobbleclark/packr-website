@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f5f3">
+
+<title>Pricing — Packr</title>
+<meta name="description" content="Simple, volume-based pricing. $6 per 1,000 orders. Unlimited brands, unlimited users, every feature included.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://packr.io/pricing">
+<meta property="og:title" content="Pricing — Packr">
+<meta property="og:description" content="$6 per 1,000 orders. Unlimited brands, unlimited users, every feature included.">
+<meta property="og:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing — Packr">
+<meta name="twitter:description" content="$6 per 1,000 orders. Unlimited brands, unlimited users.">
+<meta name="twitter:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-ink.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-shadow-ink.png">
+<link rel="apple-touch-icon" href="/assets/icon-shadow-ink.png">
+
+<!-- Fonts — Outfit (body/UI) + Fraunces (editorial headlines) + JetBrains Mono (micro labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Calendly popup widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body>
+
+<!-- ============================================================
+     SVG icon sprite
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></symbol>
+    <symbol id="i-infinity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 12c0-2 1.6-3.6 3.6-3.6 1.6 0 2.7.9 4.4 3.6s2.8 3.6 4.4 3.6c2 0 3.6-1.6 3.6-3.6S22 8.4 20 8.4c-1.6 0-2.7.9-4.4 3.6s-2.8 3.6-4.4 3.6c-2 0-3.6-1.6-3.6-3.6Z" transform="translate(-3 0)"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="pk-nav" id="nav">
+  <div class="pk-nav-inner">
+    <a href="/" class="pk-wordmark" aria-label="Packr — home">
+      <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+    <div class="pk-nav-links">
+      <a href="/">Home</a>
+      <a href="/pricing" aria-current="page">Pricing</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PRICING HERO
+     ============================================================ -->
+<header class="pk-pricing-hero">
+  <span class="pk-eyebrow">Pricing</span>
+  <h1>Simple pricing that <em>scales with you</em>.</h1>
+  <p class="pk-pricing-sub">
+    One usage-based plan. $6 per 1,000 orders. Unlimited brands, unlimited users,
+    every feature in the box. Slide to size it for your warehouse.
+  </p>
+</header>
+
+<!-- ============================================================
+     CALCULATOR
+     ============================================================ -->
+<section class="pk-calc-section">
+  <div class="pk-calc">
+    <!-- Top readout: orders / cost -->
+    <div class="pk-calc-readout">
+      <div class="pk-calc-block">
+        <p class="pk-calc-label">Orders per month</p>
+        <div>
+          <span class="pk-calc-orders" id="calc-orders">25,000</span><span class="pk-calc-orders-suffix">/mo</span>
+        </div>
+      </div>
+      <div class="pk-calc-block pk-calc-cost-block">
+        <p class="pk-calc-label">Your monthly cost</p>
+        <div>
+          <span class="pk-calc-cost" id="calc-monthly">$150</span><span class="pk-calc-cost-suffix">/mo</span>
+        </div>
+        <p class="pk-calc-cost-meta">
+          <span class="pk-calc-save-badge">Save 25%</span>
+          <span>or <strong id="calc-annual-monthly">$112</strong>/mo if you lock <strong id="calc-lock-vol">25,000</strong> orders/mo and pay annually <span style="opacity:.7">·</span> <strong id="calc-annual-savings">$450</strong>/yr saved</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="pk-calc-slider-wrap">
+      <input type="range" min="0" max="100" value="46" step="0.5" class="pk-calc-slider" id="calc-slider"
+             aria-label="Monthly order volume">
+      <div class="pk-calc-ticks" aria-hidden="true">
+        <span>1K</span>
+        <span>10K</span>
+        <span>50K</span>
+        <span>250K</span>
+        <span>1M+</span>
+      </div>
+    </div>
+
+    <!-- Trial + per-order rate callout -->
+    <div class="pk-calc-rate">
+      <div class="pk-calc-rate-row">
+        <span class="pk-calc-trial-pill">30-Day Free Trial</span>
+        <span>Full product, full team support.</span>
+      </div>
+      <div class="pk-calc-rate-row">
+        <strong>$6 per 1,000 orders.</strong>
+        <span>No contracts · No setup fees · No per-seat or per-brand fees.</span>
+      </div>
+    </div>
+
+    <!-- Features included -->
+    <div class="pk-calc-features">
+      <div class="pk-calc-feature">
+        <span class="pk-calc-feature-icon">
+          <svg width="18" height="18"><use href="#i-infinity"/></svg>
+        </span>
+        <h4>Unlimited brands</h4>
+        <p>Add every brand you ship for. Each gets its own workspace, branding, and SLA.</p>
+      </div>
+      <div class="pk-calc-feature">
+        <span class="pk-calc-feature-icon">
+          <svg width="18" height="18"><use href="#i-infinity"/></svg>
+        </span>
+        <h4>Unlimited users</h4>
+        <p>Bring your whole CS team and your brands' teams. No per-seat fees, ever.</p>
+      </div>
+      <div class="pk-calc-feature">
+        <span class="pk-calc-feature-icon">
+          <svg width="18" height="18"><use href="#i-bolt"/></svg>
+        </span>
+        <h4>Every feature included</h4>
+        <p>Pax AI, WMS sync, threaded chat, tasks, holds, and audit log — all on every plan.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="pk-calc-enterprise">
+    Doing more than 1M orders a month, or need a custom contract?
+    <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener">Talk to our team →</a>
+  </p>
+</section>
+
+<!-- ============================================================
+     CTA BAND (same as homepage)
+     ============================================================ -->
+<section id="demo" class="pk-section" style="padding-top:0">
+  <div class="pk-cta-band">
+    <div>
+      <span class="pk-cta-eyebrow">Book a demo</span>
+      <h2 class="pk-display" style="margin-top:18px">See exactly what you'd pay — on <em>your data</em>.</h2>
+      <p class="pk-cta-sub">30 minutes. We'll plug into your WMS sandbox and show your real numbers.</p>
+    </div>
+    <div class="pk-cta-form">
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-sage" style="padding:14px 22px;font-size:15px;justify-content:center">
+        Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg>
+      </a>
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-cta-email">or grab a time on Calendly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (same as homepage)
+     ============================================================ -->
+<footer class="pk-footer">
+  <div>
+    <a href="/" class="pk-wordmark lg" aria-label="Packr — home">
+      <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+    <p class="pk-footer-tagline">The customer service platform built exclusively for third-party logistics.</p>
+  </div>
+  <div>
+    <h5>Product</h5>
+    <ul><li><a href="/#product">Chat</a></li><li><a href="/#">Pax AI</a></li><li><a href="/#">WMS Sync</a></li><li><a href="/#">Tasks &amp; Holds</a></li></ul>
+  </div>
+  <div>
+    <h5>Company</h5>
+    <ul><li><a href="/#">About</a></li><li><a href="/#customers">Customers</a></li><li><a href="/#">Careers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li></ul>
+  </div>
+  <div>
+    <h5>Resources</h5>
+    <ul><li><a href="/pricing">Pricing</a></li><li><a href="#">Docs</a></li><li><a href="#">Changelog</a></li><li><a href="#">Security</a></li></ul>
+  </div>
+</footer>
+<div class="pk-footer-bottom">
+  <span>© 2026 Packr, Inc.</span>
+  <div style="display:flex;gap:20px">
+    <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+    <a href="#" style="color:var(--muted);text-decoration:none">Terms</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCRIPT — sticky-nav + pricing calculator
+     ============================================================ -->
+<script>
+(() => {
+  // Sticky nav scrolled state (same behavior as homepage)
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Intercept any link pointing at calendly.com and open it as a modal
+  // popup instead of navigating away. Falls back gracefully to a normal
+  // link click if Calendly's widget script hasn't loaded yet.
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="calendly.com"]');
+    if (!link || typeof Calendly === 'undefined') return;
+    e.preventDefault();
+    Calendly.initPopupWidget({ url: link.href });
+  });
+
+  // ---- Calculator ----
+  const slider          = document.getElementById('calc-slider');
+  const ordersEl        = document.getElementById('calc-orders');
+  const monthlyEl       = document.getElementById('calc-monthly');
+  const annualMonthlyEl = document.getElementById('calc-annual-monthly');
+  const lockVolEl       = document.getElementById('calc-lock-vol');
+  const annualSavingsEl = document.getElementById('calc-annual-savings');
+
+  // Pricing constants
+  const PRICE_PER_1K     = 6;     // dollars per 1,000 orders
+  const ANNUAL_DISCOUNT  = 0.25;  // 25% off if customer locks volume + pays annually
+
+  // Map slider 0..100 → orders 1,000..1,000,000 on a log curve so the
+  // small-and-mid-volume range is easy to land on.
+  const MIN_ORDERS = 1000;
+  const MAX_ORDERS = 1_000_000;
+  const LN_RATIO   = Math.log(MAX_ORDERS / MIN_ORDERS);
+
+  function sliderToOrders(t) {
+    const raw = MIN_ORDERS * Math.exp((t / 100) * LN_RATIO);
+    return niceRound(raw);
+  }
+
+  function niceRound(n) {
+    if (n < 5_000)    return Math.round(n / 100)    * 100;
+    if (n < 50_000)   return Math.round(n / 500)    * 500;
+    if (n < 250_000)  return Math.round(n / 1_000)  * 1_000;
+    if (n < 1_000_000) return Math.round(n / 5_000) * 5_000;
+    return Math.round(n / 10_000) * 10_000;
+  }
+
+  function fmt(n) { return n.toLocaleString('en-US'); }
+
+  function update() {
+    const t       = parseFloat(slider.value);
+    const orders  = sliderToOrders(t);
+    const monthly = (orders / 1000) * PRICE_PER_1K;
+
+    // Annual lock-in: 25% off, expressed as an effective monthly cost.
+    const annualMonthly  = monthly * (1 - ANNUAL_DISCOUNT);
+    const annualSavings  = (monthly - annualMonthly) * 12;
+
+    ordersEl.textContent        = fmt(orders);
+    monthlyEl.textContent       = '$' + fmt(Math.round(monthly));
+    annualMonthlyEl.textContent = '$' + fmt(Math.round(annualMonthly));
+    lockVolEl.textContent       = fmt(orders);
+    annualSavingsEl.textContent = '$' + fmt(Math.round(annualSavings));
+  }
+
+  slider.addEventListener('input', update);
+  update();
+})();
+</script>
+
+</body>
+</html>

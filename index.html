@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f5f3">
+
+<title>Packr — Built for the people behind the package.</title>
+<meta name="description" content="Packr is the customer service platform for 3PL's and Brands. All your communication, task management, an AI agent at your side, and full order management — one workspace for every brand you ship for.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://packr.io/">
+<meta property="og:title" content="Packr — Built for the people behind the package.">
+<meta property="og:description" content="The customer service platform for 3PLs. One workspace for every brand, threaded chat, an AI teammate (Pax), and live WMS sync.">
+<meta property="og:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Packr — Built for the people behind the package.">
+<meta name="twitter:description" content="The customer service platform for 3PLs. One workspace for every brand, threaded chat, AI teammate, live WMS sync.">
+<meta name="twitter:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
+
+<!-- Favicon — Packr bubble icon. Per brand book §01: drop the moss shadow at favicon sizes (≤32px). -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-ink.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-shadow-ink.png">
+<link rel="apple-touch-icon" href="/assets/icon-shadow-ink.png">
+
+<!-- Fonts — Outfit (body/UI/numbers) + Fraunces (editorial headlines) + JetBrains Mono (micro labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Calendly popup widget (loaded for the modal-on-click behavior) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body class="pk-page-home">
+
+<!-- ============================================================
+     SVG icon sprite — defined once, referenced via <use>.
+     Edit a symbol's path to update everywhere on the page.
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></symbol>
+    <symbol id="i-tasks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8" r="2.5"/><path d="M15 14.5c1.6 0 5 1 5 4"/></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 14a7.97 7.97 0 0 0 0-4l1.8-1.3-2-3.4-2.1.8a8 8 0 0 0-3.5-2L13 2h-2l-.6 2.1a8 8 0 0 0-3.5 2l-2.1-.8-2 3.4L4.6 10a7.97 7.97 0 0 0 0 4l-1.8 1.3 2 3.4 2.1-.8a8 8 0 0 0 3.5 2L11 22h2l.6-2.1a8 8 0 0 0 3.5-2l2.1.8 2-3.4z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 12 4 4l3 8-3 8z"/><path d="M7 12h13"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h3l2.5 12h11L22 8H6"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/></symbol>
+    <symbol id="i-timeline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="20" cy="12" r="1.5"/><circle cx="14" cy="18" r="1.5"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="pk-nav" id="nav">
+  <div class="pk-nav-inner">
+    <a href="#" class="pk-wordmark" aria-label="Packr — home">
+      <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+    <div class="pk-nav-links">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="pk-hero pk-hero-moss">
+  <div class="pk-hero-copy">
+    <span class="pk-chip pk-chip-onmoss">For 3PLs</span>
+    <h1 class="pk-display">
+      Built for the people behind the package.
+    </h1>
+    <p class="pk-hero-sub">
+      Packr is the customer service platform for 3PLs and Brands. All your communication,
+      task management, an AI agent at your side, and full order management —
+      one workspace for every brand you ship for.
+    </p>
+    <div class="pk-hero-cta">
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-onmoss">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+      <a href="#product" class="pk-btn pk-btn-ghost-onmoss">See the product →</a>
+    </div>
+    <div class="pk-hero-trust">
+      <div class="pk-avatar-stack">
+        <span class="pk-avatar" style="background:var(--moss-deep);">MH</span>
+        <span class="pk-avatar" style="background:var(--ink);">OP</span>
+        <span class="pk-avatar" style="background:var(--moss-soft);color:var(--ink);">PS</span>
+      </div>
+      <span>Trusted by 3PLs of all sizes</span>
+    </div>
+  </div>
+
+  <div class="pk-collage">
+    <div class="pk-collage-blob"></div>
+
+    <!-- Chat card -->
+    <div class="pk-chat-card" style="left:0;top:40px;transform:rotate(-2deg)">
+      <div class="pk-chat-head">
+        <span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">ME</span>
+        <div class="pk-chat-title"># Brand</div>
+        <div class="pk-chat-members"><svg class="ic" width="12" height="12"><use href="#i-users"/></svg> 30</div>
+      </div>
+      <div class="pk-chat-day">TODAY</div>
+      <div class="pk-chat-msg">
+        <span class="pk-avatar small" style="background:var(--moss)">OP</span>
+        <div class="pk-chat-msg-body">
+          <div class="pk-chat-meta"><span class="pk-chat-name">Owen Park</span><span class="pk-chat-time">9:12 AM</span></div>
+          <div class="pk-chat-text"><span class="pk-mention">@Mira Halden</span> Good morning! We have an issue with order <span class="pk-hl">227413</span>. Missing info — can you check?</div>
+        </div>
+      </div>
+      <div class="pk-chat-reply-row">
+        <div class="pk-chat-reply">
+          On it — pulling the order now. Looks like ship-to state is blank.
+          <div class="pk-chat-reply-meta">Tess Rinaldi · 9:14 AM</div>
+        </div>
+      </div>
+      <div class="pk-chat-divider">
+        <span class="pk-chat-divider-line"></span>
+        <span class="pk-chat-divider-label">1 UNREAD MESSAGE</span>
+        <span class="pk-chat-divider-line"></span>
+      </div>
+      <div class="pk-chat-msg">
+        <span class="pk-avatar small" style="background:var(--ink)">TR</span>
+        <div class="pk-chat-msg-body">
+          <div class="pk-chat-meta"><span class="pk-chat-name">Tess Rinaldi</span><span class="pk-chat-time">9:18 AM</span></div>
+          <div class="pk-chat-text">Thank you! 🙏</div>
+        </div>
+      </div>
+      <div class="pk-chat-composer">
+        <svg class="ic" width="14" height="14"><use href="#i-plus"/></svg>
+        <span class="pk-chat-composer-input">Type your message</span>
+        <span class="pk-chat-composer-send"><svg class="ic" width="13" height="13"><use href="#i-send"/></svg></span>
+      </div>
+    </div>
+
+    <!-- Right rail card -->
+    <div class="pk-rail-card" style="right:0;top:0;transform:rotate(1.5deg)">
+      <div class="pk-rail-head">
+        <svg class="ic" width="14" height="14" style="color:var(--ash)"><use href="#i-chart"/></svg>
+        <span class="pk-rail-title">Stats</span>
+        <svg class="ic" width="12" height="12" style="color:var(--ash);margin-left:auto"><use href="#i-chev-d"/></svg>
+      </div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg><span>Open Tasks</span><span class="pk-rail-count">2</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-pause"/></svg><span>Orders on Hold</span><span class="pk-rail-count">4</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-clock"/></svg><span>Orders on Backorder</span><span class="pk-rail-count">2</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-cart"/></svg><span>Wholesale Orders</span><span class="pk-rail-count sage">21</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-truck"/></svg><span>Open Inbound Shipments</span><span class="pk-rail-count">10</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-alert"/></svg><span>Shipping Errors</span><span class="pk-rail-count sage">0</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-paper"/></svg><span>Attachments</span></div>
+      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-timeline"/></svg><span>Timeline</span></div>
+    </div>
+
+    <!-- Floating mini stats -->
+    <div class="pk-stat-strip">
+      <div class="pk-stat-mini">
+        <div class="pk-stat-label">AVG RESPONSE</div>
+        <div class="pk-stat-value">10m 12s</div>
+        <div class="pk-stat-delta">↓ 128% vs. email</div>
+      </div>
+      <div class="pk-stat-mini">
+        <div class="pk-stat-label">TASKS CLOSED</div>
+        <div class="pk-stat-value">248</div>
+        <div class="pk-stat-delta">this week, across 14 brands</div>
+      </div>
+      <div class="pk-stat-mini">
+        <div class="pk-stat-label">ORDER EDITS</div>
+        <div class="pk-stat-value">1,820</div>
+        <div class="pk-stat-delta">↑ synced live to WMS</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     PRODUCT SHOWCASE
+     ============================================================ -->
+<section id="product" class="pk-section">
+  <div class="pk-section-header">
+    <div>
+      <span class="pk-eyebrow">The workspace</span>
+      <h2 class="pk-display">A workspace for <em>every brand</em> — and a single home for all your customer service.</h2>
+    </div>
+    <p>Packr brings 3PLs and the brands they ship for closer together — a shared workspace per brand that turns customer service into a win-win relationship, not a chain of forwarded emails.</p>
+  </div>
+
+  <div class="pk-dashboard">
+    <!-- Sidebar -->
+    <aside class="pk-dash-sidebar">
+      <div class="pk-dash-brand">
+        <img src="/assets/icon-ink.png" alt="" class="pk-wordmark-icon">
+        <span class="pk-wordmark-text">Packr</span>
+      </div>
+      <div class="pk-dash-nav-item is-active"><svg class="ic" width="14" height="14"><use href="#i-home"/></svg><span>Home</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-tasks"/></svg><span>Tasks</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-box"/></svg><span>Warehouse</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-drive"/></svg><span>Drive</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-heart"/></svg><span>Feedback</span><span class="pk-dash-badge">2</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-users"/></svg><span>Directory</span></div>
+      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-cog"/></svg><span>Settings</span></div>
+
+      <div class="pk-dash-section-label">PRIMARY CUSTOMERS</div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--linen-rich);color:var(--ink)">NF</span><span>Northstar Far…</span></div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">MV</span><span>Maverick</span></div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--moss-tint);color:var(--moss-deep)">SL</span><span>Sandhill Lo…</span></div>
+
+      <div class="pk-dash-section-label">WAREHOUSE TEAM</div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>CX</span></div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>Finance</span></div>
+      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>Managers</span></div>
+    </aside>
+
+    <!-- Main chat pane -->
+    <div class="pk-dash-main">
+      <div class="pk-dash-main-head">
+        <span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">ME</span>
+        <span class="pk-dash-channel"># Maverick</span>
+        <span class="pk-dash-members">31 members · 6 online</span>
+        <div class="pk-dash-head-actions">
+          <svg class="ic" width="15" height="15"><use href="#i-search"/></svg>
+          <svg class="ic" width="15" height="15"><use href="#i-users"/></svg>
+        </div>
+      </div>
+      <div class="pk-dash-thread">
+        <div class="pk-dash-day">TODAY</div>
+
+        <div class="pk-dash-msg">
+          <span class="pk-avatar med" style="background:var(--moss)">OP</span>
+          <div>
+            <div class="pk-dash-msg-meta"><span class="pk-dash-msg-name">Owen Park</span><span class="pk-dash-msg-time">9:12 AM</span></div>
+            <div class="pk-dash-msg-text"><span class="pk-mention">@Mira Halden</span> Good morning! We have an issue with order <span class="pk-hl">227413</span>. It looks like there's missing information. Can you check?</div>
+          </div>
+        </div>
+
+        <div class="pk-dash-msg-reply-row">
+          <div class="pk-dash-msg-reply">
+            On it. Pulling the order — ship-to state is blank. I'll update from the customer's Shopify note and reprocess.
+            <div class="pk-dash-msg-reply-meta">Mira · 9:14 AM</div>
+          </div>
+        </div>
+
+        <div class="pk-dash-msg">
+          <span class="pk-avatar med" style="background:var(--ink)">TR</span>
+          <div>
+            <div class="pk-dash-msg-meta"><span class="pk-dash-msg-name">Tess Rinaldi</span><span class="pk-dash-msg-time">9:18 AM</span></div>
+            <div class="pk-dash-msg-text">Thank you! Let us know if anything else is off.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pk-dash-composer">
+        <svg class="ic" width="14" height="14"><use href="#i-plus"/></svg>
+        <span class="pk-dash-composer-input">Type your message</span>
+        <span class="pk-dash-composer-send"><svg class="ic" width="14" height="14"><use href="#i-send"/></svg></span>
+      </div>
+    </div>
+
+    <!-- Right rail (embedded) -->
+    <aside class="pk-dash-rail">
+      <div class="pk-rail-card flat">
+        <div class="pk-rail-head">
+          <svg class="ic" width="14" height="14" style="color:var(--ash)"><use href="#i-chart"/></svg>
+          <span class="pk-rail-title">Stats</span>
+          <svg class="ic" width="12" height="12" style="color:var(--ash);margin-left:auto"><use href="#i-chev-d"/></svg>
+        </div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg><span>Open Tasks</span><span class="pk-rail-count">2</span></div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-pause"/></svg><span>Orders on Hold</span><span class="pk-rail-count">4</span></div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-clock"/></svg><span>Backorder</span><span class="pk-rail-count">2</span></div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-cart"/></svg><span>Wholesale Orders</span><span class="pk-rail-count sage">21</span></div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-truck"/></svg><span>Inbound</span><span class="pk-rail-count">10</span></div>
+        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-alert"/></svg><span>Shipping Errors</span><span class="pk-rail-count sage">0</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAX BAND
+     ============================================================ -->
+<section class="pk-section pk-pax-band">
+  <div class="pk-pax-inner">
+    <div>
+      <span class="pk-eyebrow">Meet Pax</span>
+      <h2 class="pk-display pk-pax-h2">An AI teammate who knows <em>every order</em>.</h2>
+      <p class="pk-pax-lead">Pax is grounded in your WMS. It can manage holds, change addresses, swap carriers, reprocess orders, and log errors — and it always shows its work.</p>
+      <div class="pk-pax-cta">
+        <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">See Pax in action <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        <a href="#" class="pk-btn pk-btn-ghost">Read the docs →</a>
+      </div>
+    </div>
+
+    <div class="pk-pax-card-wrap">
+      <div class="pk-pax-card">
+        <div class="pk-pax-icon-wrap">
+          <span class="pk-pax-icon"><svg class="ic" width="22" height="22"><use href="#i-box"/></svg></span>
+        </div>
+        <div class="pk-pax-greeting">Hey, Avery</div>
+        <div class="pk-pax-sub">What can I help you with today?</div>
+        <div class="pk-pax-input">
+          <span class="pk-pax-input-text">Ask Pax</span>
+          <span class="pk-pax-input-send"><svg class="ic" width="13" height="13"><use href="#i-chev-r"/></svg></span>
+        </div>
+        <div class="pk-pax-actions-label">PAX ACTIONS</div>
+        <div class="pk-pax-chips">
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Manage Order Holds</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Change Shipping Address</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Change Shipping Carrier</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Cancel Order</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Escalate Order</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Reprocess Order</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Record Shipping Error</span>
+          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Resolve Shipping Error</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES GRID
+     ============================================================ -->
+<section id="solutions" class="pk-section" style="padding-top:40px">
+  <div class="pk-section-header">
+    <div>
+      <span class="pk-eyebrow">What's inside</span>
+      <h2 class="pk-display">Every tool a CX team needs — <em>shaped for the warehouse and the brands</em>.</h2>
+    </div>
+    <p>Purpose-built for 3PL operations. Nothing retrofitted from a generic help desk.</p>
+  </div>
+
+  <div class="pk-grid-3">
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--moss-tint)">
+        <div class="pk-fv-stack">
+          <div class="pk-fv-row"><span class="pk-brand-tile" style="background:var(--linen-rich);color:var(--ink)">NF</span><span class="pk-fv-channel"># Northstar Farms</span></div>
+          <div class="pk-fv-bubble">Order <span class="pk-hl">9821</span> needs a carrier swap.</div>
+          <div class="pk-fv-bubble dark">Swapped to UPS Ground. Label reprinted.</div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">Threaded chat</span>
+      <h3>A channel per brand.</h3>
+      <p>Your team and theirs, in one place. Messages thread by order, so context never gets lost in a forwarded email.</p>
+    </article>
+
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--linen-deep)">
+        <div class="pk-fv-pax">
+          <span class="pk-fv-pax-icon"><svg class="ic" width="18" height="18"><use href="#i-box"/></svg></span>
+          <div class="pk-fv-pax-input"><span>Ask Pax</span><span class="pk-fv-pax-send"><svg class="ic" width="10" height="10"><use href="#i-chev-r"/></svg></span></div>
+          <div class="pk-fv-pax-tags"><span>Hold</span><span>Address</span><span>Carrier</span><span>Cancel</span></div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">Pax, the AI agent</span>
+      <h3>Ask. It ships.</h3>
+      <p>Pax edits orders, clears holds, records errors — grounded in your WMS data. Your team stays in the loop with an audit trail.</p>
+    </article>
+
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--moss-tint-deep)">
+        <div class="pk-fv-stack">
+          <div class="pk-fv-wms-head"><span>WMS</span><span class="op">↔</span><span>PACKR</span></div>
+          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Order 227413 · address updated</div>
+          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Hold cleared · 2s ago</div>
+          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Carrier changed · UPS Ground</div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">WMS sync</span>
+      <h3>Live, not screenshotted.</h3>
+      <p>Every edit writes back to your WMS in real time. No copy-paste, no reconciliation, no stale dashboards.</p>
+    </article>
+
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--linen-rich)">
+        <div class="pk-fv-rail">
+          <div class="pk-fv-rail-row"><span>Stats</span></div>
+          <div class="pk-fv-rail-row"><span>Open Tasks</span><span class="pk-fv-rail-count">2</span></div>
+          <div class="pk-fv-rail-row"><span>Orders on Hold</span><span class="pk-fv-rail-count">4</span></div>
+          <div class="pk-fv-rail-row"><span>Backorder</span><span class="pk-fv-rail-count">2</span></div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">Right rail</span>
+      <h3>Every metric, one click away.</h3>
+      <p>Stats, open tasks, holds, backorders, shipping errors — all scoped to the brand you're in.</p>
+    </article>
+
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--moss-tint)">
+        <div class="pk-fv-stack">
+          <div class="pk-fv-task"><div class="pk-fv-task-title">Missing ship-to</div><div class="pk-fv-task-meta"><span>Maverick</span><span>Due today</span></div></div>
+          <div class="pk-fv-task"><div class="pk-fv-task-title">Address correction</div><div class="pk-fv-task-meta"><span>Sandhill</span><span>2h</span></div></div>
+          <div class="pk-fv-task"><div class="pk-fv-task-title">Carrier swap</div><div class="pk-fv-task-meta"><span>Northstar</span><span>4h</span></div></div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">Tasks &amp; holds</span>
+      <h3>Nothing falls through.</h3>
+      <p>Every missing-info order, every stuck hold, every flagged shipment — tracked to close, with an SLA you can see.</p>
+    </article>
+
+    <article class="pk-feature">
+      <div class="pk-feature-visual" style="background:var(--linen-deep)">
+        <div class="pk-fv-stack">
+          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--moss)">MH</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Mira Halden</div><div class="pk-fv-person-role">CX Lead</div></div><span class="pk-fv-dot"></span></div>
+          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--ink)">OP</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Owen Park</div><div class="pk-fv-person-role">Manager</div></div><span class="pk-fv-dot"></span></div>
+          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--moss-deep)">PS</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Priya Shah</div><div class="pk-fv-person-role">CX</div></div><span class="pk-fv-dot"></span></div>
+        </div>
+      </div>
+      <span class="pk-micro pk-muted" style="margin-bottom:6px">Directory</span>
+      <h3>Everyone, in one roster.</h3>
+      <p>Brand contacts, warehouse teams, carriers — roles and permissions mapped to the channels they belong in.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIAL
+     ============================================================ -->
+<section id="customers" class="pk-section" style="padding-top:80px">
+  <div class="pk-grid-2" style="gap:40px">
+    <div class="pk-quote-card light">
+      <svg class="ic" width="22" height="22" style="color:var(--moss)"><use href="#i-spark"/></svg>
+      <p class="pk-display pk-quote-text">"We shut down four Slack connects and a shared inbox. <em>Packr replaced all of it</em> — and the brands like it better."</p>
+      <div class="pk-quote-author">
+        <span class="pk-avatar lg" style="background:var(--moss)">MH</span>
+        <div>
+          <div class="pk-quote-name">Mira Halden</div>
+          <div class="pk-quote-role">Head of CX · Riverbend 3PL</div>
+        </div>
+      </div>
+    </div>
+    <div class="pk-quote-card sage">
+      <svg class="ic" width="22" height="22"><use href="#i-spark"/></svg>
+      <p class="pk-display pk-quote-text">"Our CX team closes issues before the brand <em>even notices</em>. Pax just handles the small stuff."</p>
+      <div class="pk-quote-author">
+        <span class="pk-avatar lg" style="background:var(--ink)">OP</span>
+        <div>
+          <div class="pk-quote-name">Owen Park</div>
+          <div class="pk-quote-role" style="opacity:0.75">Operations · Sandhill Logistics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BAND
+     ============================================================ -->
+<section id="demo" class="pk-section" style="padding-top:0">
+  <div class="pk-cta-band">
+    <div>
+      <span class="pk-cta-eyebrow">Book a demo</span>
+      <h2 class="pk-display" style="margin-top:18px">3PLs shouldn't be running customer service on <em>email or Slack</em>.</h2>
+      <p class="pk-cta-sub">30 minutes. A real walkthrough with your WMS, on a sandbox with your data.</p>
+    </div>
+    <div class="pk-cta-form">
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-sage" style="padding:14px 22px;font-size:15px;justify-content:center">
+        Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg>
+      </a>
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-cta-email">or grab a time on Calendly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="pk-footer">
+  <div>
+    <a href="#" class="pk-wordmark lg" aria-label="Packr — home">
+      <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+    <p class="pk-footer-tagline">The customer service platform built exclusively for third-party logistics.</p>
+  </div>
+  <div>
+    <h5>Product</h5>
+    <ul><li><a href="#product">Chat</a></li><li><a href="#">Pax AI</a></li><li><a href="#">WMS Sync</a></li><li><a href="#">Tasks &amp; Holds</a></li></ul>
+  </div>
+  <div>
+    <h5>Company</h5>
+    <ul><li><a href="#">About</a></li><li><a href="#customers">Customers</a></li><li><a href="#">Careers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li></ul>
+  </div>
+  <div>
+    <h5>Resources</h5>
+    <ul><li><a href="/pricing">Pricing</a></li><li><a href="#">Docs</a></li><li><a href="#">Changelog</a></li><li><a href="#">Security</a></li></ul>
+  </div>
+</footer>
+<div class="pk-footer-bottom">
+  <span>© 2026 Packr, Inc.</span>
+  <div style="display:flex;gap:20px">
+    <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+    <a href="#" style="color:var(--muted);text-decoration:none">Terms</a>
+  </div>
+</div>
+
+<!-- Tiny script: sticky-nav scrolled state + Calendly popup interception -->
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Intercept any link pointing at calendly.com and open it as a modal
+  // popup instead of navigating away. Falls back gracefully to a normal
+  // link click if Calendly's widget script hasn't loaded yet.
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="calendly.com"]');
+    if (!link || typeof Calendly === 'undefined') return;
+    e.preventDefault();
+    Calendly.initPopupWidget({ url: link.href });
+  });
+})();
+</script>
+
+</body>
+</html>
