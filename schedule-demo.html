@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6B8264">
+
+<title>Schedule a Demo — Packr</title>
+<meta name="description" content="Book a 30-minute Packr demo. Pick a time that works for you and we'll show you the customer service platform built for 3PLs and brands.">
+<meta name="robots" content="noindex">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-ink.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-shadow-ink.png">
+<link rel="apple-touch-icon" href="/assets/icon-shadow-ink.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Calendly popup widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<style>
+  .pk-sd-wrap {
+    min-height: 100vh;
+    background: var(--moss);
+    color: var(--linen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .pk-sd-inner { max-width: 560px; }
+  .pk-sd-inner .pk-wordmark { justify-content: center; color: var(--linen); margin-bottom: 28px; }
+  .pk-sd-inner h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    color: var(--linen);
+    font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 14px;
+  }
+  .pk-sd-inner p {
+    color: rgba(250, 241, 226, 0.82);
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 0 28px;
+  }
+  .pk-sd-inner .pk-btn-onmoss { font-size: 16px; padding: 14px 24px; }
+</style>
+</head>
+<body class="pk-page-schedule">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<main class="pk-sd-wrap">
+  <div class="pk-sd-inner">
+    <a href="/" class="pk-wordmark lg" aria-label="Packr — home">
+      <img src="/assets/icon-cream.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+    <h1>Let's find a time.</h1>
+    <p>Grab a 30-minute slot and we'll walk you through Packr — the customer service platform built for 3PLs and the brands they ship for.</p>
+    <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-onmoss" id="sd-book">
+      Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg>
+    </a>
+  </div>
+</main>
+
+<script>
+(() => {
+  const CAL_URL = 'https://calendly.com/packr-demo/30min';
+
+  // Open the Calendly popup as soon as the widget script is ready.
+  let opened = false;
+  const open = () => {
+    if (opened || typeof Calendly === 'undefined') return;
+    opened = true;
+    Calendly.initPopupWidget({ url: CAL_URL });
+  };
+
+  // widget.js loads async, so poll briefly until Calendly is defined.
+  const started = performance.now();
+  const timer = setInterval(() => {
+    if (typeof Calendly !== 'undefined') { clearInterval(timer); open(); }
+    else if (performance.now() - started > 8000) { clearInterval(timer); } // give up quietly; button still works
+  }, 100);
+
+  // If the visitor closes the modal, the button below re-opens it.
+  document.getElementById('sd-book').addEventListener('click', (e) => {
+    if (typeof Calendly === 'undefined') return; // fall back to the normal link
+    e.preventDefault();
+    Calendly.initPopupWidget({ url: CAL_URL });
+  });
+})();
+</script>
+
+</body>
+</html>
