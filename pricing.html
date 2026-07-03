@@ -102,10 +102,6 @@
         <div>
           <span class="pk-calc-cost" id="calc-monthly">$250</span><span class="pk-calc-cost-suffix">/mo</span>
         </div>
-        <p class="pk-calc-cost-meta">
-          <span class="pk-calc-save-badge">Save 25%</span>
-          <span>or <strong id="calc-annual-monthly">$188</strong>/mo if you lock <strong id="calc-lock-vol">25,000</strong> orders/mo and pay annually <span style="opacity:.7">·</span> <strong id="calc-annual-savings">$750</strong>/yr saved</span>
-        </p>
       </div>
     </div>
 
@@ -242,9 +238,6 @@
   const slider          = document.getElementById('calc-slider');
   const ordersEl        = document.getElementById('calc-orders');
   const monthlyEl       = document.getElementById('calc-monthly');
-  const annualMonthlyEl = document.getElementById('calc-annual-monthly');
-  const lockVolEl       = document.getElementById('calc-lock-vol');
-  const annualSavingsEl = document.getElementById('calc-annual-savings');
 
   // Pricing constants
   const PRICE_PER_1K     = 10;    // dollars per 1,000 orders
@@ -276,15 +269,8 @@
     const orders  = sliderToOrders(t);
     const monthly = (orders / 1000) * PRICE_PER_1K;
 
-    // Annual lock-in: 25% off, expressed as an effective monthly cost.
-    const annualMonthly  = monthly * (1 - ANNUAL_DISCOUNT);
-    const annualSavings  = (monthly - annualMonthly) * 12;
-
-    ordersEl.textContent        = fmt(orders);
-    monthlyEl.textContent       = '$' + fmt(Math.round(monthly));
-    annualMonthlyEl.textContent = '$' + fmt(Math.round(annualMonthly));
-    lockVolEl.textContent       = fmt(orders);
-    annualSavingsEl.textContent = '$' + fmt(Math.round(annualSavings));
+    ordersEl.textContent  = fmt(orders);
+    monthlyEl.textContent = '$' + fmt(Math.round(monthly));
   }
 
   slider.addEventListener('input', update);
