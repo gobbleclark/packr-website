@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#6B8264">
+<meta name="theme-color" content="#23231A">
 
-<title>Schedule a Demo — Packr</title>
-<meta name="description" content="Book a 30-minute Packr demo. Pick a time that works for you and we'll show you the customer service platform built for 3PLs and brands.">
+<title>Book a Demo — Packr</title>
+<meta name="description" content="30 minutes. We'll plug into your WMS sandbox and walk your real numbers — no slides, just your warehouse.">
 <meta name="robots" content="noindex">
 
 <!-- Favicon -->
@@ -17,9 +17,9 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 
 <!-- Calendly popup widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -28,8 +28,8 @@
 <style>
   .pk-sd-wrap {
     min-height: 100vh;
-    background: var(--moss);
-    color: var(--linen);
+    background: var(--surface-dark);
+    color: var(--on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,20 +37,32 @@
     padding: 40px 24px;
   }
   .pk-sd-inner { max-width: 560px; }
-  .pk-sd-inner .pk-wordmark { justify-content: center; color: var(--linen); margin-bottom: 28px; }
+  .pk-sd-inner .pk-wordmark { justify-content: center; color: var(--on-dark); margin-bottom: 32px; }
+  .pk-sd-eyebrow {
+    display: block;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
   .pk-sd-inner h1 {
     font-family: "Fraunces", Georgia, serif;
-    font-weight: 600;
-    color: var(--linen);
-    font-size: clamp(30px, 6vw, 46px);
-    line-height: 1.08;
-    margin: 0 0 14px;
+    font-optical-sizing: auto;
+    font-weight: 640;
+    color: var(--on-dark);
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
   }
   .pk-sd-inner p {
-    color: rgba(250, 241, 226, 0.82);
+    color: var(--on-dark-muted);
     font-size: 17px;
-    line-height: 1.5;
-    margin: 0 0 28px;
+    line-height: 1.55;
+    margin: 0 0 30px;
   }
   .pk-sd-inner .pk-btn-onmoss { font-size: 16px; padding: 14px 24px; }
 </style>
@@ -69,8 +81,9 @@
       <img src="/assets/icon-cream.png" alt="" class="pk-wordmark-icon">
       <span class="pk-wordmark-text">Packr</span>
     </a>
-    <h1>Let's find a time.</h1>
-    <p>Grab a 30-minute slot and we'll walk you through Packr — the customer service platform built for 3PLs and the brands they ship for.</p>
+    <span class="pk-sd-eyebrow">Book a Demo</span>
+    <h1>See it on your data</h1>
+    <p>30 minutes. We'll plug into your WMS sandbox and walk your real numbers — no slides, just your warehouse.</p>
     <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-onmoss" id="sd-book">
       Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg>
     </a>

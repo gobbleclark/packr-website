@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5f5f3">
+<meta name="theme-color" content="#F0EEE2">
 
-<title>Pricing — Packr</title>
-<meta name="description" content="Simple, volume-based pricing. $8 per 1,000 orders. Unlimited brands, unlimited users, every feature included.">
+<title>Pricing — $8 per 1,000 orders · Packr</title>
+<meta name="description" content="One usage-based plan that scales with your warehouse. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://packr.io/pricing">
-<meta property="og:title" content="Pricing — Packr">
-<meta property="og:description" content="$8 per 1,000 orders. Unlimited brands, unlimited users, every feature included.">
+<meta property="og:title" content="Pricing — $8 per 1,000 orders · Packr">
+<meta property="og:description" content="One usage-based plan that scales with your warehouse. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
 <meta property="og:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pricing — Packr">
-<meta name="twitter:description" content="$8 per 1,000 orders. Unlimited brands, unlimited users.">
+<meta name="twitter:title" content="Pricing — $8 per 1,000 orders · Packr">
+<meta name="twitter:description" content="One usage-based plan. Unlimited brands, unlimited users, every feature. 30-day free trial.">
 <meta name="twitter:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Favicon -->
@@ -29,9 +29,10 @@
 <!-- Fonts — Outfit (body/UI) + Fraunces (editorial headlines) + JetBrains Mono (micro labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
+<script src="site.js?v=1" defer></script>
 
 <!-- Calendly popup widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -76,12 +77,16 @@
      PRICING HERO
      ============================================================ -->
 <header class="pk-pricing-hero">
-  <span class="pk-eyebrow">Pricing</span>
-  <h1>Simple pricing that <em>scales with you</em>.</h1>
+ 
+  <h1>One plan. <em>$8 per 1,000 orders.</em></h1>
   <p class="pk-pricing-sub">
-    One usage-based plan. $8 per 1,000 orders. Unlimited brands, unlimited users,
-    every feature in the box. Slide to size it for your warehouse.
+    One usage-based plan that scales with your warehouse. No per-seat or
+    per-brand fees, ever. Slide to size it for your volume.
   </p>
+  <div class="pk-hero-cta" style="justify-content:center;margin-top:28px">
+    <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+    <a href="https://app.packr.io/start" target="_blank" rel="noopener" class="pk-btn pk-btn-outline">Try free for 30 days</a>
+  </div>
 </header>
 
 <!-- ============================================================
@@ -116,6 +121,13 @@
         <span>250K</span>
         <span>1M+</span>
       </div>
+    </div>
+
+    <!-- Example volumes at the $8 / 1,000 rate -->
+    <div class="pk-calc-examples" aria-label="Example monthly costs">
+      <span class="pk-price-pill"><span class="pk-price-pill-orders">3K orders</span><strong>$24<span>/mo</span></strong></span>
+      <span class="pk-price-pill"><span class="pk-price-pill-orders">50K orders</span><strong>$400<span>/mo</span></strong></span>
+      <span class="pk-price-pill"><span class="pk-price-pill-orders">400K orders</span><strong>$3,200<span>/mo</span></strong></span>
     </div>
 
     <!-- Trial + per-order rate callout -->
@@ -190,19 +202,19 @@
       <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
       <span class="pk-wordmark-text">Packr</span>
     </a>
-    <p class="pk-footer-tagline">The customer service platform built exclusively for third-party logistics.</p>
+    <p class="pk-footer-tagline">Make customer support your competitive advantage.</p>
   </div>
   <div>
     <h5>Product</h5>
-    <ul><li><a href="/#product">Chat</a></li><li><a href="/#">Pax AI</a></li><li><a href="/#">WMS Sync</a></li><li><a href="/#">Tasks &amp; Holds</a></li></ul>
+    <ul><li><a href="/#chat">Chat</a></li><li><a href="/#pax">Pax AI</a></li><li><a href="/#analytics">Analytics &amp; SLA</a></li><li><a href="/#tasks">Tasks &amp; Holds</a></li></ul>
   </div>
   <div>
     <h5>Company</h5>
-    <ul><li><a href="/#">About</a></li><li><a href="/#customers">Customers</a></li><li><a href="/#">Careers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li></ul>
+    <ul><li><a href="/#feedback">Customers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li><li><a href="https://app.packr.io/login" target="_blank" rel="noopener">Login</a></li></ul>
   </div>
   <div>
     <h5>Resources</h5>
-    <ul><li><a href="/pricing">Pricing</a></li><li><a href="#">Docs</a></li><li><a href="#">Changelog</a></li><li><a href="#">Security</a></li></ul>
+    <ul><li><a href="/pricing">Pricing</a></li><li><a href="https://docs.packr.io/" target="_blank" rel="noopener">Docs</a></li><li><a href="/#demo">Book a demo</a></li></ul>
   </div>
 </footer>
 <div class="pk-footer-bottom">
@@ -214,34 +226,17 @@
 </div>
 
 <!-- ============================================================
-     SCRIPT — sticky-nav + pricing calculator
+     SCRIPT — pricing calculator (nav + Calendly live in site.js)
      ============================================================ -->
 <script>
 (() => {
-  // Sticky nav scrolled state (same behavior as homepage)
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Intercept any link pointing at calendly.com and open it as a modal
-  // popup instead of navigating away. Falls back gracefully to a normal
-  // link click if Calendly's widget script hasn't loaded yet.
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href*="calendly.com"]');
-    if (!link || typeof Calendly === 'undefined') return;
-    e.preventDefault();
-    Calendly.initPopupWidget({ url: link.href });
-  });
-
   // ---- Calculator ----
   const slider          = document.getElementById('calc-slider');
   const ordersEl        = document.getElementById('calc-orders');
   const monthlyEl       = document.getElementById('calc-monthly');
 
   // Pricing constants
-  const PRICE_PER_1K     = 8;     // dollars per 1,000 orders
-  const ANNUAL_DISCOUNT  = 0.25;  // 25% off if customer locks volume + pays annually
+  const PRICE_PER_1K = 8;  // dollars per 1,000 orders
 
   // Map slider 0..100 → orders 1,000..1,000,000 on a log curve so the
   // small-and-mid-volume range is easy to land on.

@@ -1,6 +1,6 @@
 # Packr — Marketing Site
 
-The Packr homepage. Plain HTML + CSS, no build step. ~35KB total.
+The Packr marketing site. Plain HTML + CSS + a small shared JS file, no build step.
 
 ## Edit it
 
@@ -40,20 +40,28 @@ Edit a file in Cursor → commit + push to GitHub → Vercel auto-deploys in ~30
 
 ```
 packr-site/
-├── index.html          ← all markup (single file)
-├── styles.css          ← all styling
-├── vercel.json         ← Vercel config (cache headers)
+├── index.html          ← homepage (deck-aligned narrative)
+├── pricing.html        ← /pricing (interactive calculator)
+├── schedule-demo.html  ← /schedule-demo (auto-opens Calendly)
+├── styles.css          ← all styling (design tokens in :root)
+├── site.js             ← shared nav / Calendly popup / scroll reveal / parallax
+├── vercel.json         ← Vercel config (cleanUrls + cache headers)
+├── assets/             ← logo PNGs
+│   └── screens/        ← product screenshots (see its README for the manifest)
 ├── README.md           ← this file
 ├── .gitignore
-└── package.json        ← so Cursor recognizes it as a project
+└── package.json        ← dev scripts (npm run dev)
 ```
+
+**Cache-busting:** `styles.css` and `site.js` are served with 1-year
+immutable caching — every reference uses a `?v=N` query string. Bump it
+whenever you edit either file.
 
 ## Things to update before launch
 
-- [ ] Replace the inline SVG favicon with a real `favicon.ico` / `favicon.svg`.
-- [ ] Add a real `og.png` (1200×630) and reference it in `<meta property="og:image">`.
-- [ ] Wire the "Book a Demo" button to a real form provider (Formspree, Tally, Cal.com). Currently it `mailto:`s `sales@packr.io`.
-- [ ] Add `<meta name="robots">` and a `sitemap.xml` if you want SEO.
+- [ ] Drop real product screenshots into `assets/screens/` (see `assets/screens/README.md` for exact filenames + sizes). Placeholder frames render until then.
+- [ ] Add a real `og-home.png` (1200×630) to `assets/screens/` and swap the `og:image` meta on `index.html`.
+- [ ] Add a `sitemap.xml` / `robots.txt` if you want SEO.
 - [ ] Plug in analytics (Plausible, Fathom, Vercel Analytics — your call).
 
 ## Fonts
