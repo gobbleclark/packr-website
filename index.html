@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5f5f3">
+<meta name="theme-color" content="#F0EEE2">
 
-<title>Packr — Built for the people behind the package.</title>
-<meta name="description" content="Packr is the customer service platform for 3PL's and Brands. All your communication, task management, an AI agent at your side, and full order management — one workspace for every brand you ship for.">
+<title>Packr — Make customer support your competitive advantage</title>
+<meta name="description" content="A modern customer service platform for 3PLs, integrated into your WMS. Every brand in one workspace, an AI teammate grounded in your orders. 30-day free trial, no contracts.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://packr.io/">
-<meta property="og:title" content="Packr — Built for the people behind the package.">
-<meta property="og:description" content="The customer service platform for 3PLs. One workspace for every brand, threaded chat, an AI teammate (Pax), and live WMS sync.">
+<meta property="og:title" content="Packr — Make customer support your competitive advantage">
+<meta property="og:description" content="A modern customer service platform for 3PLs, integrated into your WMS. Every brand in one workspace, an AI teammate grounded in your orders. 30-day free trial, no contracts.">
 <meta property="og:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Packr — Built for the people behind the package.">
-<meta name="twitter:description" content="The customer service platform for 3PLs. One workspace for every brand, threaded chat, AI teammate, live WMS sync.">
+<meta name="twitter:title" content="Packr — Make customer support your competitive advantage">
+<meta name="twitter:description" content="A modern customer service platform for 3PLs, integrated into your WMS. 30-day free trial, no contracts.">
 <meta name="twitter:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Favicon — Packr bubble icon. Per brand book §01: drop the moss shadow at favicon sizes (≤32px). -->
@@ -26,47 +26,39 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-shadow-ink.png">
 <link rel="apple-touch-icon" href="/assets/icon-shadow-ink.png">
 
-<!-- Fonts — Outfit (body/UI/numbers) + Fraunces (editorial headlines) + JetBrains Mono (micro labels) -->
+<!-- Fonts — Outfit (body/UI) + Fraunces variable (display serif, incl. italic for quotes) + JetBrains Mono (micro labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
+<script src="site.js?v=1" defer></script>
 
 <!-- Calendly popup widget (loaded for the modal-on-click behavior) -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
-<body class="pk-page-home">
+<body>
 
 <!-- ============================================================
      SVG icon sprite — defined once, referenced via <use>.
-     Edit a symbol's path to update everywhere on the page.
      ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></symbol>
-    <symbol id="i-tasks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
-    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
-    <symbol id="i-drive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
-    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8" r="2.5"/><path d="M15 14.5c1.6 0 5 1 5 4"/></symbol>
-    <symbol id="i-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 14a7.97 7.97 0 0 0 0-4l1.8-1.3-2-3.4-2.1.8a8 8 0 0 0-3.5-2L13 2h-2l-.6 2.1a8 8 0 0 0-3.5 2l-2.1-.8-2 3.4L4.6 10a7.97 7.97 0 0 0 0 4l-1.8 1.3 2 3.4 2.1-.8a8 8 0 0 0 3.5 2L11 22h2l.6-2.1a8 8 0 0 0 3.5-2l2.1.8 2-3.4z"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
-    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
-    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 12 4 4l3 8-3 8z"/><path d="M7 12h13"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
-    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
-    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h3l2.5 12h11L22 8H6"/></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-faq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.6 2.6 0 1 1 3.6 2.4c-.8.4-1.2.9-1.2 1.7v.4"/><path d="M12 17v.3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8" r="2.5"/><path d="M15 14.5c1.6 0 5 1 5 4"/></symbol>
     <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-tasks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
     <symbol id="i-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/></symbol>
-    <symbol id="i-timeline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="20" cy="12" r="1.5"/><circle cx="14" cy="18" r="1.5"/></symbol>
   </defs>
 </svg>
 
@@ -75,7 +67,7 @@
      ============================================================ -->
 <nav class="pk-nav" id="nav">
   <div class="pk-nav-inner">
-    <a href="#" class="pk-wordmark" aria-label="Packr — home">
+    <a href="/" class="pk-wordmark" aria-label="Packr — home">
       <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
       <span class="pk-wordmark-text">Packr</span>
     </a>
@@ -92,423 +84,549 @@
 </nav>
 
 <!-- ============================================================
-     HERO
+     1 · HERO — cream
      ============================================================ -->
-<header class="pk-hero pk-hero-moss">
+<header class="pk-hero">
   <div class="pk-hero-copy">
-    <span class="pk-chip pk-chip-onmoss">For 3PLs</span>
-    <h1 class="pk-display">
-      Built for the people behind the package.
-    </h1>
+    <span class="pk-chip-deck">3PL Owners</span>
+    <h1 class="pk-display">Make customer support your <em>competitive advantage</em></h1>
     <p class="pk-hero-sub">
-      Packr is the customer service platform for 3PLs and Brands. All your communication,
-      task management, an AI agent at your side, and full order management —
-      one workspace for every brand you ship for.
+      A modern customer service platform for 3PLs that's integrated into your WMS.
     </p>
     <div class="pk-hero-cta">
-      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-onmoss">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
-      <a href="https://app.packr.io/start" target="_blank" rel="noopener" class="pk-btn pk-btn-ghost-onmoss">Create Account →</a>
+      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+      <a href="https://app.packr.io/start" target="_blank" rel="noopener" class="pk-btn pk-btn-outline">Try free for 30 days</a>
     </div>
     <div class="pk-hero-trust">
-      <div class="pk-avatar-stack">
-        <span class="pk-avatar" style="background:var(--moss-deep);">MH</span>
-        <span class="pk-avatar" style="background:var(--ink);">OP</span>
-        <span class="pk-avatar" style="background:var(--moss-soft);color:var(--ink);">PS</span>
-      </div>
-      <span>Trusted by 3PLs of all sizes</span>
+      <span class="pk-micro pk-muted">30-day free trial · No contracts · No setup fees</span>
     </div>
   </div>
 
-  <div class="pk-collage">
-    <div class="pk-collage-blob"></div>
-
-    <!-- Chat card -->
-    <div class="pk-chat-card" style="left:0;top:40px;transform:rotate(-2deg)">
-      <div class="pk-chat-head">
-        <span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">ME</span>
-        <div class="pk-chat-title"># Brand</div>
-        <div class="pk-chat-members"><svg class="ic" width="12" height="12"><use href="#i-users"/></svg> 30</div>
-      </div>
-      <div class="pk-chat-day">TODAY</div>
-      <div class="pk-chat-msg">
-        <span class="pk-avatar small" style="background:var(--moss)">OP</span>
-        <div class="pk-chat-msg-body">
-          <div class="pk-chat-meta"><span class="pk-chat-name">Owen Park</span><span class="pk-chat-time">9:12 AM</span></div>
-          <div class="pk-chat-text"><span class="pk-mention">@Mira Halden</span> Good morning! We have an issue with order <span class="pk-hl">227413</span>. Missing info — can you check?</div>
-        </div>
-      </div>
-      <div class="pk-chat-reply-row">
-        <div class="pk-chat-reply">
-          On it — pulling the order now. Looks like ship-to state is blank.
-          <div class="pk-chat-reply-meta">Tess Rinaldi · 9:14 AM</div>
-        </div>
-      </div>
-      <div class="pk-chat-divider">
-        <span class="pk-chat-divider-line"></span>
-        <span class="pk-chat-divider-label">1 UNREAD MESSAGE</span>
-        <span class="pk-chat-divider-line"></span>
-      </div>
-      <div class="pk-chat-msg">
-        <span class="pk-avatar small" style="background:var(--ink)">TR</span>
-        <div class="pk-chat-msg-body">
-          <div class="pk-chat-meta"><span class="pk-chat-name">Tess Rinaldi</span><span class="pk-chat-time">9:18 AM</span></div>
-          <div class="pk-chat-text">Thank you! 🙏</div>
-        </div>
-      </div>
-      <div class="pk-chat-composer">
-        <svg class="ic" width="14" height="14"><use href="#i-plus"/></svg>
-        <span class="pk-chat-composer-input">Type your message</span>
-        <span class="pk-chat-composer-send"><svg class="ic" width="13" height="13"><use href="#i-send"/></svg></span>
-      </div>
-    </div>
-
-    <!-- Right rail card -->
-    <div class="pk-rail-card" style="right:0;top:0;transform:rotate(1.5deg)">
-      <div class="pk-rail-head">
-        <svg class="ic" width="14" height="14" style="color:var(--ash)"><use href="#i-chart"/></svg>
-        <span class="pk-rail-title">Stats</span>
-        <svg class="ic" width="12" height="12" style="color:var(--ash);margin-left:auto"><use href="#i-chev-d"/></svg>
-      </div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg><span>Open Tasks</span><span class="pk-rail-count">2</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-pause"/></svg><span>Orders on Hold</span><span class="pk-rail-count">4</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-clock"/></svg><span>Orders on Backorder</span><span class="pk-rail-count">2</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-cart"/></svg><span>Wholesale Orders</span><span class="pk-rail-count sage">21</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-truck"/></svg><span>Open Inbound Shipments</span><span class="pk-rail-count">10</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-alert"/></svg><span>Shipping Errors</span><span class="pk-rail-count sage">0</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-paper"/></svg><span>Attachments</span></div>
-      <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-timeline"/></svg><span>Timeline</span></div>
-    </div>
-
-    <!-- Floating mini stats -->
-    <div class="pk-stat-strip">
-      <div class="pk-stat-mini">
-        <div class="pk-stat-label">AVG RESPONSE</div>
-        <div class="pk-stat-value">10m 12s</div>
-        <div class="pk-stat-delta">↓ 128% vs. email</div>
-      </div>
-      <div class="pk-stat-mini">
-        <div class="pk-stat-label">TASKS CLOSED</div>
-        <div class="pk-stat-value">248</div>
-        <div class="pk-stat-delta">this week, across 14 brands</div>
-      </div>
-      <div class="pk-stat-mini">
-        <div class="pk-stat-label">ORDER EDITS</div>
-        <div class="pk-stat-value">1,820</div>
-        <div class="pk-stat-delta">↑ synced live to WMS</div>
-      </div>
-    </div>
+  <!-- Desktop workspace + phone mockup, drifting at different speeds -->
+  <div class="pk-shot-fan" aria-label="Screenshots of the Packr app">
+    <figure class="pk-shot" style="left:0;top:20px;width:88%;--shot-ratio:1723/957;--shot-tilt:-2deg" data-label="Screen · Chat workspace" data-parallax="0.07" data-parallax-max="32">
+      <img src="/assets/hero2.png" alt="Packr chat workspace with a brand channel next to live order data" width="3446" height="1914" loading="eager" fetchpriority="high" onerror="this.parentElement.classList.add('is-pending');this.remove()">
+    </figure>
+    <figure class="pk-shot pk-shot-phone" style="right:0;bottom:10px;width:24%;--shot-tilt:3deg" data-label="Phone · Chat" data-parallax="-0.06" data-parallax-max="26">
+      <img src="/assets/herophone1.png" alt="The same brand channel in Packr on a phone" width="1170" height="2535" loading="eager" onerror="this.parentElement.classList.add('is-pending');this.remove()">
+    </figure>
   </div>
 </header>
 
+<!-- Shot frames use --shot-ratio via inline style where the default 16/10 doesn't apply -->
+
 <!-- ============================================================
-     PRODUCT SHOWCASE
+     2 · UNTANGLE — problem + shift merged (dark)
+     Tangled dashed paths flow through the tool chips, converge
+     into the Packr icon, and exit as one clean gold line.
      ============================================================ -->
-<section id="product" class="pk-section">
-  <div class="pk-section-header">
-    <div>
-      <span class="pk-eyebrow">The workspace</span>
-      <h2 class="pk-display">A workspace for <em>every brand</em> — and a single home for all your customer service.</h2>
+<div class="pk-surface-dark" id="platform">
+  <section class="pk-section pk-untangle-section">
+    <div class="pk-untangle-head" data-reveal>
+        The Shift</span>
+      <h2 class="pk-display"><em>Untangle your customer support</em> with one platform for every brand</h2>
+      <p>Customer support can't thrive in fragmented systems. Every channel, every brand — funneled into one shared room, so customer service becomes a relationship, not a chain of forwarded emails.</p>
+      <div class="pk-hero-cta" style="justify-content:center">
+        <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ondark" style="padding:14px 24px;font-size:15px">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+      </div>
     </div>
-    <p>Packr brings 3PLs and the brands they ship for closer together — a shared workspace per brand that turns customer service into a win-win relationship, not a chain of forwarded emails.</p>
+
+    <div class="pk-untangle-viz" data-reveal aria-hidden="true">
+      <svg class="pk-tangle-svg" viewBox="0 0 1000 400" preserveAspectRatio="none" fill="none">
+        <!-- One path per pill: starts behind the pill, loops through the
+             knot, converges at (620,200), left of the icon -->
+        <path class="flow" style="--flow-dur:3.4s" d="M105 42 C 240 90, 140 200, 300 170 C 420 148, 320 60, 250 130 C 200 180, 480 210, 620 200" stroke="rgba(232,168,61,0.5)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:2.8s" d="M355 26 C 300 130, 480 120, 420 190 C 390 226, 320 150, 400 120 C 480 90, 560 170, 620 200" stroke="rgba(203,103,76,0.45)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3.7s" d="M495 58 C 420 110, 520 160, 460 190 C 420 210, 480 230, 540 215 C 580 206, 600 202, 620 200" stroke="rgba(240,238,226,0.32)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3.1s" d="M205 106 C 120 160, 260 240, 340 200 C 420 160, 300 100, 260 160 C 230 210, 460 230, 620 200" stroke="rgba(172,176,152,0.45)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:2.5s" d="M435 130 C 380 180, 500 200, 470 240 C 440 275, 360 220, 430 190 C 500 165, 560 185, 620 200" stroke="rgba(232,168,61,0.38)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3.9s" d="M75 194 C 180 140, 160 280, 280 260 C 380 244, 330 190, 260 220 C 200 246, 440 235, 620 200" stroke="rgba(203,103,76,0.38)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3.3s" d="M355 226 C 300 280, 440 290, 480 250 C 510 220, 440 180, 400 220 C 380 240, 500 220, 620 200" stroke="rgba(240,238,226,0.26)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3s" d="M135 282 C 240 340, 360 320, 330 270 C 305 230, 220 270, 300 310 C 380 350, 520 250, 620 200" stroke="rgba(172,176,152,0.35)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:4.2s" d="M395 322 C 480 350, 560 300, 500 270 C 460 250, 420 290, 480 300 C 560 312, 600 240, 620 200" stroke="rgba(232,168,61,0.32)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path class="flow" style="--flow-dur:3.6s" d="M455 362 C 560 380, 620 320, 560 290 C 520 270, 480 310, 540 320 C 600 330, 615 250, 620 200" stroke="rgba(203,103,76,0.3)" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <!-- One clean line from the convergence point through the icon to the edge -->
+        <path class="flow" style="--flow-dur:2s" d="M620 200 H 1000" stroke="rgba(232,168,61,0.8)" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
+        <!-- Glow nodes at crossings -->
+        <circle class="pk-tangle-node" cx="300" cy="170" r="3" fill="rgba(240,238,226,0.9)"/>
+        <circle class="pk-tangle-node" style="animation-delay:-0.9s" cx="470" cy="240" r="2.5" fill="rgba(232,168,61,0.9)"/>
+        <circle class="pk-tangle-node" style="animation-delay:-1.7s" cx="400" cy="120" r="2.5" fill="rgba(240,238,226,0.8)"/>
+        <circle class="pk-tangle-node" style="animation-delay:-0.4s" cx="280" cy="260" r="3" fill="rgba(232,168,61,0.8)"/>
+        <circle class="pk-tangle-node" style="animation-delay:-2.1s" cx="330" cy="270" r="2.5" fill="rgba(203,103,76,0.8)"/>
+        <circle class="pk-tangle-node" style="animation-delay:-1.3s" cx="620" cy="200" r="3.5" fill="rgba(232,168,61,0.95)"/>
+      </svg>
+
+      <span class="pk-tool-chip" style="left:5%;top:6%;--chip-ic:var(--gold)"><svg class="ic" width="14" height="14"><use href="#i-chat"/></svg>Communication</span>
+      <span class="pk-tool-chip" style="left:30%;top:2%;--chip-ic:var(--moss-soft)"><svg class="ic" width="14" height="14"><use href="#i-paper"/></svg>Surveys</span>
+      <span class="pk-tool-chip" style="left:44%;top:10%;--chip-ic:var(--danger)"><svg class="ic" width="14" height="14"><use href="#i-mail"/></svg>Shared Inbox</span>
+      <span class="pk-tool-chip" style="left:14%;top:22%;--chip-ic:var(--danger)"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg>User Management</span>
+      <span class="pk-tool-chip" style="left:38%;top:28%;--chip-ic:var(--gold)"><svg class="ic" width="14" height="14"><use href="#i-truck"/></svg>WMS Portal</span>
+      <span class="pk-tool-chip" style="left:2%;top:44%;--chip-ic:var(--warning)"><svg class="ic" width="14" height="14"><use href="#i-chart"/></svg>Analytics</span>
+      <span class="pk-tool-chip" style="left:30%;top:52%;--chip-ic:var(--moss-soft)"><svg class="ic" width="14" height="14"><use href="#i-drive"/></svg>Google Drive</span>
+      <span class="pk-tool-chip" style="left:8%;top:66%;--chip-ic:var(--gold)"><svg class="ic" width="14" height="14"><use href="#i-tasks"/></svg>Todo Lists</span>
+      <span class="pk-tool-chip" style="left:34%;top:76%;--chip-ic:var(--warning)"><svg class="ic" width="14" height="14"><use href="#i-grid"/></svg>Spreadsheets</span>
+      <span class="pk-tool-chip" style="left:42%;top:86%;--chip-ic:var(--moss-soft)"><svg class="ic" width="14" height="14"><use href="#i-faq"/></svg>FAQ</span>
+
+      <span class="pk-viz-break"></span>
+      <div class="pk-untangle-icon">
+        <img src="/assets/icon-moss.png" alt="">
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     3–8 · CORE MODULES — sage band with a pinned header that the
+     feature cards scroll up and over (sticky-pin flow)
+     ============================================================ -->
+<div class="pk-surface-sage">
+  <div class="pk-modules">
+
+    <!-- Pinned header — stays centered while the cards pass over it -->
+    <div class="pk-modules-pin">
+        What's inside</span>
+      <h2 class="pk-display">Everything your CX team needs. <em>All of it, in one place.</em></h2>
+      <p>Chat, analytics, an AI teammate, tasks, and brand feedback — live from your WMS, scoped to every brand you ship for.</p>
+    </div>
+
+    <div class="pk-modules-cards">
+
+      <!-- 4 · STRUCTURED CHAT -->
+      <article class="pk-module-card" id="chat" data-reveal>
+        <div class="pk-module-copy">
+            Structured Chat</span>
+          <h3 class="pk-display">Organized communication, next to your data</h3>
+          <p>Your team and theirs, in one place. Messages thread by order, so context never gets lost in a forwarded email.</p>
+          <!-- <div class="pk-bigstat">
+            <div class="pk-bigstat-num">Unlimited brands</div>
+            <div class="pk-bigstat-caption">All in one shared workspace · A channel each</div>
+          </div> -->
+          <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink pk-module-cta">See a live channel <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        </div>
+        <div class="pk-module-media" style="background:linear-gradient(150deg,#DFE1D1 0%,#C2C6AE 100%)">
+          <div class="pk-fx pk-fx--chat" aria-hidden="true">
+            <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
+              <div class="pk-fx-head">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span>
+                <span class="pk-fx-bar strong" style="width:34%"></span>
+                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+              </div>
+              <div class="pk-fx-bubble in pk-fx-anim" style="--d:.2s">
+                <span class="pk-fx-bar" style="width:130px"></span>
+                <span class="pk-fx-bar" style="width:88px"></span>
+              </div>
+              <div class="pk-fx-bubble out pk-fx-anim" style="--d:.32s">
+                <span class="pk-fx-bar" style="width:104px"></span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.44s;margin-top:2px">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-truck"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:72%"></span><span class="pk-fx-bar"></span></span>
+                <span class="pk-fx-pill moss">Order #4021</span>
+              </div>
+            </div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.54s">
+              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:52%"></span></div>
+              <div class="pk-fx-bubble in" style="max-width:92%"><span class="pk-fx-bar" style="width:82%"></span></div>
+              <div class="pk-fx-bubble out" style="max-width:92%"><span class="pk-fx-bar" style="width:60%"></span></div>
+              <div class="pk-fx-bubble in" style="max-width:92%"><span class="pk-fx-bar" style="width:70%"></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 · ANALYTICS · SLA -->
+      <article class="pk-module-card" id="analytics" data-reveal>
+        <div class="pk-module-copy">
+            Analytics · SLA</span>
+          <h3 class="pk-display">Every number, one glance</h3>
+          <p>Response time, SLA hit-rate, shipping errors, tasks closed — pulled live from your WMS and scoped to each brand. Walk into every review with the receipts.</p>
+          <!-- <div class="pk-bigstat">
+            <div class="pk-bigstat-num">10m 12s</div>
+            <div class="pk-bigstat-caption">Avg first response · Down from 4 hrs on email</div>
+          </div> -->
+          <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink pk-module-cta">Walk your numbers <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        </div>
+        <div class="pk-module-media" style="background:linear-gradient(150deg,#EFE3C4 0%,#DFC894 100%)">
+          <div class="pk-fx pk-fx--sla" aria-hidden="true">
+            <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
+              <div class="pk-fx-head">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
+                <span class="pk-fx-bar strong" style="width:30%"></span>
+                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center">
+                <div class="pk-fx-ring pk-fx-anim" style="--d:.2s">
+                  <svg width="104" height="104" viewBox="0 0 104 104">
+                    <circle class="track" cx="52" cy="52" r="42" stroke-width="10"/>
+                    <circle class="val" cx="52" cy="52" r="42" stroke-width="10" style="--circ:264;--off:16;--d:.45s"/>
+                  </svg>
+                  <span class="cap" style="font-size:22px">94%</span>
+                </div>
+                <div class="pk-fx-stack" style="flex:1">
+                  <div class="pk-fx-tile pk-fx-anim" style="--d:.32s"><span class="pk-fx-bar" style="width:52%"></span><b>10m 12s</b></div>
+                  <div class="pk-fx-tile pk-fx-anim" style="--d:.42s"><span class="pk-fx-bar" style="width:60%"></span><b>1,248</b></div>
+                </div>
+              </div>
+              <div class="pk-fx-cols pk-fx-anim" style="--d:.5s;height:52px">
+                <span class="c"><i style="--h:42%;--d:.55s"></i></span>
+                <span class="c"><i style="--h:64%;--d:.62s"></i></span>
+                <span class="c gold"><i style="--h:90%;--d:.69s"></i></span>
+                <span class="c"><i style="--h:56%;--d:.76s"></i></span>
+                <span class="c"><i style="--h:74%;--d:.83s"></i></span>
+                <span class="c"><i style="--h:48%;--d:.9s"></i></span>
+              </div>
+            </div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
+              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:46%"></span></div>
+              <div class="pk-fx-ring" style="margin:8px auto 4px">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <circle class="track" cx="36" cy="36" r="28" stroke-width="8"/>
+                  <circle class="val" cx="36" cy="36" r="28" stroke-width="8" style="--circ:176;--off:14;--d:.75s"/>
+                </svg>
+                <span class="cap" style="font-size:14px">92%</span>
+              </div>
+              <div class="pk-fx-row" style="padding:7px 8px"><span class="col"><span class="pk-fx-bar" style="width:72%"></span></span><span class="pk-fx-pill moss">SLA</span></div>
+              <div class="pk-fx-row" style="padding:7px 8px"><span class="col"><span class="pk-fx-bar" style="width:60%"></span></span><span class="pk-fx-pill gold">98%</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 · PAX · THE AI TEAMMATE -->
+      <article class="pk-module-card" id="pax" data-reveal>
+        <div class="pk-module-copy">
+            Pax · The AI Teammate</span>
+          <h3 class="pk-display">An AI teammate who knows <em>every order</em></h3>
+          <p>Grounded in your WMS. Ask in plain language — Pax takes the action and always shows its work with a full audit trail.</p>
+          <div class="pk-action-chips">
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Manage holds</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Change address</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Swap carrier</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Reprocess order</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Record error</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Cancel</span>
+            <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Escalate</span>
+          </div>
+          <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink pk-module-cta">Meet Pax <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        </div>
+        <div class="pk-module-media" style="background:linear-gradient(150deg,#2A2A1F 0%,#3E3E2E 100%)">
+          <div class="pk-fx pk-fx--pax pk-fx--phone-left" aria-hidden="true">
+            <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
+              <div class="pk-fx-head">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-tasks"/></svg></span>
+                <span class="pk-fx-bar strong" style="width:26%"></span>
+                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+              </div>
+              <div class="pk-fx-bubble out pk-fx-anim" style="--d:.18s"><span class="pk-fx-bar" style="width:132px"></span></div>
+              <div class="pk-fx-bubble in pk-fx-anim" style="--d:.3s">
+                <span class="pk-fx-bar" style="width:150px"></span>
+                <span class="pk-fx-bar" style="width:104px"></span>
+              </div>
+              <div class="pk-fx-anim" style="--d:.42s;display:flex;gap:8px;flex-wrap:wrap">
+                <span class="pk-fx-pill gold">Change address</span>
+                <span class="pk-fx-pill moss">Swap carrier</span>
+                <span class="pk-fx-pill">Reprocess</span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.54s">
+                <span class="pk-fx-check done" style="--d:.74s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:64%"></span><span class="pk-fx-bar"></span></span>
+                <span class="pk-fx-pill done">Done</span>
+              </div>
+            </div>
+            <div class="pk-fx-phone at-left pk-fx-anim" style="--d:.5s">
+              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:44%"></span></div>
+              <span class="pk-fx-pill gold" style="align-self:flex-start">Manage holds</span>
+              <span class="pk-fx-pill moss" style="align-self:flex-start">Change address</span>
+              <span class="pk-fx-pill" style="align-self:flex-start">Cancel order</span>
+              <div class="pk-fx-row" style="padding:7px 8px;margin-top:auto"><span class="pk-fx-check done" style="--d:.9s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:66%"></span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 · TASKS & HOLDS -->
+      <article class="pk-module-card" id="tasks" data-reveal>
+        <div class="pk-module-copy">
+           Tasks</span>
+          <h3 class="pk-display">Turn chaos into a checklist</h3>
+          <p>Missing info, stuck holds, flagged shipments — each one becomes a task with an owner and an SLA. Close the loop before the brand ever asks.</p>
+          <!-- <div class="pk-bigstat">
+            <div class="pk-bigstat-num">248</div>
+            <div class="pk-bigstat-caption">Tasks closed this week · Across 14 brands</div>
+          </div> -->
+          <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink pk-module-cta">See tasks in action <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        </div>
+        <div class="pk-module-media" style="background:linear-gradient(150deg,#C9CCB6 0%,#A8AD91 100%)">
+          <div class="pk-fx pk-fx--tasks" aria-hidden="true">
+            <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
+              <div class="pk-fx-head">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-tasks"/></svg></span>
+                <span class="pk-fx-bar strong" style="width:28%"></span>
+                <span class="pk-fx-pill danger" style="margin-left:auto">3 overdue</span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.18s">
+                <span class="pk-fx-check done" style="--d:.42s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:78%"></span></span>
+                <span class="pk-fx-pill moss">High</span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.28s">
+                <span class="pk-fx-check done" style="--d:.52s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:64%"></span></span>
+                <span class="pk-fx-pill danger">Overdue</span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.38s">
+                <span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:70%"></span></span>
+                <span class="pk-fx-pill gold">Med</span>
+              </div>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.48s">
+                <span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-bar" style="width:56%"></span></span>
+                <span class="pk-fx-pill">Low</span>
+              </div>
+            </div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
+              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:50%"></span></div>
+              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check done" style="--d:.8s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:80%"></span></span></div>
+              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:66%"></span></span></div>
+              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:74%"></span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 · FEEDBACK & SURVEYS -->
+      <article class="pk-module-card" id="feedback" data-reveal>
+        <div class="pk-module-copy">
+            Feedback &amp; Surveys</span>
+          <h3 class="pk-display">Hear it straight from your brands</h3>
+          <p>Send surveys, watch responses land, and track satisfaction by brand — so you know how each account really feels.</p>
+          <div class="pk-deck-quote">
+            <p>"Our CX team closes issues before the brand even notices."</p>
+            <cite>Courtney Clark · Boxio</cite>
+          </div>
+          <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink pk-module-cta">See surveys live <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        </div>
+        <div class="pk-module-media" style="background:linear-gradient(150deg,#ECE9DB 0%,#D6D2BC 100%)">
+          <div class="pk-fx pk-fx--survey" aria-hidden="true">
+            <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
+              <div class="pk-fx-head">
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-paper"/></svg></span>
+                <span class="pk-fx-bar strong" style="width:38%"></span>
+                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+              </div>
+              <span class="pk-fx-bar pk-fx-anim" style="--d:.16s;width:66%"></span>
+              <div class="pk-fx-stars pk-fx-anim" style="--d:.26s">
+                <svg class="on" style="--d:.4s"  viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.48s" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.56s" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.64s" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+              </div>
+              <div class="pk-fx-tile pk-fx-anim" style="--d:.42s">
+                <div style="display:flex;align-items:center;gap:8px"><span class="pk-fx-bar" style="width:36%"></span><span class="pk-fx-pill moss" style="margin-left:auto">NPS 72</span></div>
+                <div class="pk-fx-cols" style="height:36px">
+                  <span class="c gold"><i style="--h:82%;--d:.5s"></i></span>
+                  <span class="c gold"><i style="--h:94%;--d:.57s"></i></span>
+                  <span class="c"><i style="--h:62%;--d:.64s"></i></span>
+                  <span class="c"><i style="--h:46%;--d:.71s"></i></span>
+                  <span class="c"><i style="--h:34%;--d:.78s"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
+              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:56%"></span></div>
+              <span class="pk-fx-bar" style="width:80%"></span>
+              <div class="pk-fx-stars" style="justify-content:center;margin:4px 0">
+                <svg class="on" style="--d:.75s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.82s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.89s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.96s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+              </div>
+              <div class="pk-fx-row" style="padding:7px 8px;margin-top:auto"><span class="pk-fx-check done" style="--d:1s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:60%"></span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div><!-- /sage band -->
+
+<!-- ============================================================
+     9 · RESULTS — rotating stats + quotes carousel
+     ============================================================ -->
+<section class="pk-section" id="results">
+  <div class="pk-results-head" data-reveal>
+      By the numbers</span>
+    <h2 class="pk-display">Results 3PLs see when they <em>switch</em></h2>
+    <p>Across chat, tasks, SLAs, and the brands you ship for.</p>
   </div>
 
-  <div class="pk-dashboard">
-    <!-- Sidebar -->
-    <aside class="pk-dash-sidebar">
-      <div class="pk-dash-brand">
-        <img src="/assets/icon-ink.png" alt="" class="pk-wordmark-icon">
-        <span class="pk-wordmark-text">Packr</span>
-      </div>
-      <div class="pk-dash-nav-item is-active"><svg class="ic" width="14" height="14"><use href="#i-home"/></svg><span>Home</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-tasks"/></svg><span>Tasks</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-box"/></svg><span>Warehouse</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-drive"/></svg><span>Drive</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-heart"/></svg><span>Feedback</span><span class="pk-dash-badge">2</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-users"/></svg><span>Directory</span></div>
-      <div class="pk-dash-nav-item"><svg class="ic" width="14" height="14"><use href="#i-cog"/></svg><span>Settings</span></div>
+  <div class="pk-carousel" data-carousel data-reveal>
+    <div class="pk-carousel-stage">
+      <article class="pk-result-card is-stat" style="--card-tint:var(--moss-tint);--tag-color:var(--moss)">
+        <div class="pk-result-tag"><span class="pk-result-tag-dot"></span>Scale</div>
+        <div class="pk-result-stat-num">60</div>
+        <p class="pk-result-stat-caption">Brands running customer support through one shared Packr workspace — a channel each.</p>
+      </article>
 
-      <div class="pk-dash-section-label">PRIMARY CUSTOMERS</div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--linen-rich);color:var(--ink)">NF</span><span>Northstar Far…</span></div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">MV</span><span>Maverick</span></div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile" style="background:var(--moss-tint);color:var(--moss-deep)">SL</span><span>Sandhill Lo…</span></div>
-
-      <div class="pk-dash-section-label">WAREHOUSE TEAM</div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>CX</span></div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>Finance</span></div>
-      <div class="pk-dash-brand-row"><span class="pk-brand-tile dark">BxO</span><span>Managers</span></div>
-    </aside>
-
-    <!-- Main chat pane -->
-    <div class="pk-dash-main">
-      <div class="pk-dash-main-head">
-        <span class="pk-brand-tile" style="background:var(--linen-deep);color:var(--ink)">ME</span>
-        <span class="pk-dash-channel"># Maverick</span>
-        <span class="pk-dash-members">31 members · 6 online</span>
-        <div class="pk-dash-head-actions">
-          <svg class="ic" width="15" height="15"><use href="#i-search"/></svg>
-          <svg class="ic" width="15" height="15"><use href="#i-users"/></svg>
-        </div>
-      </div>
-      <div class="pk-dash-thread">
-        <div class="pk-dash-day">TODAY</div>
-
-        <div class="pk-dash-msg">
-          <span class="pk-avatar med" style="background:var(--moss)">OP</span>
+      <article class="pk-result-card is-quote">
+        <div class="pk-result-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg></div>
+        <p class="pk-result-quote">"We shut down four Slack Connects and a shared inbox. Packr replaced all of it — and the brands like it better."</p>
+        <div class="pk-result-author">
+          <span class="pk-result-avatar" style="background:var(--moss)">MH</span>
           <div>
-            <div class="pk-dash-msg-meta"><span class="pk-dash-msg-name">Owen Park</span><span class="pk-dash-msg-time">9:12 AM</span></div>
-            <div class="pk-dash-msg-text"><span class="pk-mention">@Mira Halden</span> Good morning! We have an issue with order <span class="pk-hl">227413</span>. It looks like there's missing information. Can you check?</div>
+            <div class="pk-result-author-name">Mira Halden</div>
+            <div class="pk-result-author-role">Head of CX · Riverbend 3PL</div>
           </div>
         </div>
+      </article>
 
-        <div class="pk-dash-msg-reply-row">
-          <div class="pk-dash-msg-reply">
-            On it. Pulling the order — ship-to state is blank. I'll update from the customer's Shopify note and reprocess.
-            <div class="pk-dash-msg-reply-meta">Mira · 9:14 AM</div>
-          </div>
-        </div>
+      <article class="pk-result-card is-stat" style="--card-tint:#EFE3C4;--tag-color:var(--warning)">
+        <div class="pk-result-tag"><span class="pk-result-tag-dot"></span>Speed</div>
+        <div class="pk-result-stat-num">10m 12s</div>
+        <p class="pk-result-stat-caption">Average first response — down from 4 hours on email.</p>
+      </article>
 
-        <div class="pk-dash-msg">
-          <span class="pk-avatar med" style="background:var(--ink)">TR</span>
+      <article class="pk-result-card is-quote">
+        <div class="pk-result-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg></div>
+        <p class="pk-result-quote">"Our CX team closes issues before the brand even notices."</p>
+        <div class="pk-result-author">
+          <span class="pk-result-avatar" style="background:var(--ink)">CC</span>
           <div>
-            <div class="pk-dash-msg-meta"><span class="pk-dash-msg-name">Tess Rinaldi</span><span class="pk-dash-msg-time">9:18 AM</span></div>
-            <div class="pk-dash-msg-text">Thank you! Let us know if anything else is off.</div>
+            <div class="pk-result-author-name">Courtney Clark</div>
+            <div class="pk-result-author-role">CX Lead · Boxio</div>
           </div>
         </div>
-      </div>
-      <div class="pk-dash-composer">
-        <svg class="ic" width="14" height="14"><use href="#i-plus"/></svg>
-        <span class="pk-dash-composer-input">Type your message</span>
-        <span class="pk-dash-composer-send"><svg class="ic" width="14" height="14"><use href="#i-send"/></svg></span>
-      </div>
+      </article>
+
+      <article class="pk-result-card is-stat" style="--card-tint:var(--moss-tint-deep);--tag-color:var(--moss-deep)">
+        <div class="pk-result-tag"><span class="pk-result-tag-dot"></span>Throughput</div>
+        <div class="pk-result-stat-num">248</div>
+        <p class="pk-result-stat-caption">Tasks closed in one week, across 14 brands — each with an owner and an SLA.</p>
+      </article>
+
+      <article class="pk-result-card is-quote">
+        <div class="pk-result-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-star"/></svg></div>
+        <p class="pk-result-quote">"Pax just handles the small stuff. My team only sees the exceptions."</p>
+        <div class="pk-result-author">
+          <span class="pk-result-avatar" style="background:var(--moss-deep)">OP</span>
+          <div>
+            <div class="pk-result-author-name">Owen Park</div>
+            <div class="pk-result-author-role">Operations · Sandhill Logistics</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pk-result-card is-stat" style="--card-tint:#EAD9C9;--tag-color:var(--danger)">
+        <div class="pk-result-tag"><span class="pk-result-tag-dot"></span>Lost threads</div>
+        <div class="pk-result-stat-num">Zero</div>
+        <p class="pk-result-stat-caption">Order edits lost between chat and the WMS — every change writes back, with an audit trail.</p>
+      </article>
     </div>
 
-    <!-- Right rail (embedded) -->
-    <aside class="pk-dash-rail">
-      <div class="pk-rail-card flat">
-        <div class="pk-rail-head">
-          <svg class="ic" width="14" height="14" style="color:var(--ash)"><use href="#i-chart"/></svg>
-          <span class="pk-rail-title">Stats</span>
-          <svg class="ic" width="12" height="12" style="color:var(--ash);margin-left:auto"><use href="#i-chev-d"/></svg>
-        </div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg><span>Open Tasks</span><span class="pk-rail-count">2</span></div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-pause"/></svg><span>Orders on Hold</span><span class="pk-rail-count">4</span></div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-clock"/></svg><span>Backorder</span><span class="pk-rail-count">2</span></div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-cart"/></svg><span>Wholesale Orders</span><span class="pk-rail-count sage">21</span></div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-truck"/></svg><span>Inbound</span><span class="pk-rail-count">10</span></div>
-        <div class="pk-rail-row"><svg class="ic" width="14" height="14"><use href="#i-alert"/></svg><span>Shipping Errors</span><span class="pk-rail-count sage">0</span></div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAX BAND
-     ============================================================ -->
-<section class="pk-section pk-pax-band">
-  <div class="pk-pax-inner">
-    <div>
-      <span class="pk-eyebrow">Meet Pax</span>
-      <h2 class="pk-display pk-pax-h2">An AI teammate who knows <em>every order</em>.</h2>
-      <p class="pk-pax-lead">Pax is grounded in your WMS. It can manage holds, change addresses, swap carriers, reprocess orders, and log errors — and it always shows its work.</p>
-      <div class="pk-pax-cta">
-        <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">See Pax in action <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
-        <a href="#" class="pk-btn pk-btn-ghost">Read the docs →</a>
-      </div>
-    </div>
-
-    <div class="pk-pax-card-wrap">
-      <div class="pk-pax-card">
-        <div class="pk-pax-icon-wrap">
-          <span class="pk-pax-icon"><svg class="ic" width="22" height="22"><use href="#i-box"/></svg></span>
-        </div>
-        <div class="pk-pax-greeting">Hey, Avery</div>
-        <div class="pk-pax-sub">What can I help you with today?</div>
-        <div class="pk-pax-input">
-          <span class="pk-pax-input-text">Ask Pax</span>
-          <span class="pk-pax-input-send"><svg class="ic" width="13" height="13"><use href="#i-chev-r"/></svg></span>
-        </div>
-        <div class="pk-pax-actions-label">PAX ACTIONS</div>
-        <div class="pk-pax-chips">
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Manage Order Holds</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Change Shipping Address</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Change Shipping Carrier</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Cancel Order</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Escalate Order</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Reprocess Order</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Record Shipping Error</span>
-          <span class="pk-pax-chip"><span class="pk-pax-chip-dot"></span>Resolve Shipping Error</span>
-        </div>
-      </div>
+    <div class="pk-carousel-nav">
+      <button type="button" class="pk-carousel-btn" data-carousel-prev aria-label="Previous"><svg class="ic" width="16" height="16"><use href="#i-chev-l"/></svg></button>
+      <div class="pk-carousel-dots" aria-label="Carousel position"></div>
+      <button type="button" class="pk-carousel-btn" data-carousel-next aria-label="Next"><svg class="ic" width="16" height="16"><use href="#i-chev-r"/></svg></button>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     FEATURES GRID
-     ============================================================ -->
-<section id="solutions" class="pk-section" style="padding-top:40px">
-  <div class="pk-section-header">
-    <div>
-      <span class="pk-eyebrow">What's inside</span>
-      <h2 class="pk-display">Every tool a CX team needs — <em>shaped for the warehouse and the brands</em>.</h2>
-    </div>
-    <p>Purpose-built for 3PL operations. Nothing retrofitted from a generic help desk.</p>
-  </div>
-
-  <div class="pk-grid-3">
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--moss-tint)">
-        <div class="pk-fv-stack">
-          <div class="pk-fv-row"><span class="pk-brand-tile" style="background:var(--linen-rich);color:var(--ink)">NF</span><span class="pk-fv-channel"># Northstar Farms</span></div>
-          <div class="pk-fv-bubble">Order <span class="pk-hl">9821</span> needs a carrier swap.</div>
-          <div class="pk-fv-bubble dark">Swapped to UPS Ground. Label reprinted.</div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">Threaded chat</span>
-      <h3>A channel per brand.</h3>
-      <p>Your team and theirs, in one place. Messages thread by order, so context never gets lost in a forwarded email.</p>
-    </article>
-
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--linen-deep)">
-        <div class="pk-fv-pax">
-          <span class="pk-fv-pax-icon"><svg class="ic" width="18" height="18"><use href="#i-box"/></svg></span>
-          <div class="pk-fv-pax-input"><span>Ask Pax</span><span class="pk-fv-pax-send"><svg class="ic" width="10" height="10"><use href="#i-chev-r"/></svg></span></div>
-          <div class="pk-fv-pax-tags"><span>Hold</span><span>Address</span><span>Carrier</span><span>Cancel</span></div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">Pax, the AI agent</span>
-      <h3>Ask. It ships.</h3>
-      <p>Pax edits orders, clears holds, records errors — grounded in your WMS data. Your team stays in the loop with an audit trail.</p>
-    </article>
-
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--moss-tint-deep)">
-        <div class="pk-fv-stack">
-          <div class="pk-fv-wms-head"><span>WMS</span><span class="op">↔</span><span>PACKR</span></div>
-          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Order 227413 · address updated</div>
-          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Hold cleared · 2s ago</div>
-          <div class="pk-fv-wms-row"><span class="pk-fv-dot"></span>Carrier changed · UPS Ground</div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">WMS sync</span>
-      <h3>Live, not screenshotted.</h3>
-      <p>Every edit writes back to your WMS in real time. No copy-paste, no reconciliation, no stale dashboards.</p>
-    </article>
-
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--linen-rich)">
-        <div class="pk-fv-rail">
-          <div class="pk-fv-rail-row"><span>Stats</span></div>
-          <div class="pk-fv-rail-row"><span>Open Tasks</span><span class="pk-fv-rail-count">2</span></div>
-          <div class="pk-fv-rail-row"><span>Orders on Hold</span><span class="pk-fv-rail-count">4</span></div>
-          <div class="pk-fv-rail-row"><span>Backorder</span><span class="pk-fv-rail-count">2</span></div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">Right rail</span>
-      <h3>Every metric, one click away.</h3>
-      <p>Stats, open tasks, holds, backorders, shipping errors — all scoped to the brand you're in.</p>
-    </article>
-
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--moss-tint)">
-        <div class="pk-fv-stack">
-          <div class="pk-fv-task"><div class="pk-fv-task-title">Missing ship-to</div><div class="pk-fv-task-meta"><span>Maverick</span><span>Due today</span></div></div>
-          <div class="pk-fv-task"><div class="pk-fv-task-title">Address correction</div><div class="pk-fv-task-meta"><span>Sandhill</span><span>2h</span></div></div>
-          <div class="pk-fv-task"><div class="pk-fv-task-title">Carrier swap</div><div class="pk-fv-task-meta"><span>Northstar</span><span>4h</span></div></div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">Tasks &amp; holds</span>
-      <h3>Nothing falls through.</h3>
-      <p>Every missing-info order, every stuck hold, every flagged shipment — tracked to close, with an SLA you can see.</p>
-    </article>
-
-    <article class="pk-feature">
-      <div class="pk-feature-visual" style="background:var(--linen-deep)">
-        <div class="pk-fv-stack">
-          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--moss)">MH</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Mira Halden</div><div class="pk-fv-person-role">CX Lead</div></div><span class="pk-fv-dot"></span></div>
-          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--ink)">OP</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Owen Park</div><div class="pk-fv-person-role">Manager</div></div><span class="pk-fv-dot"></span></div>
-          <div class="pk-fv-person"><span class="pk-avatar small" style="background:var(--moss-deep)">PS</span><div class="pk-fv-person-text"><div class="pk-fv-person-name">Priya Shah</div><div class="pk-fv-person-role">CX</div></div><span class="pk-fv-dot"></span></div>
-        </div>
-      </div>
-      <span class="pk-micro pk-muted" style="margin-bottom:6px">Directory</span>
-      <h3>Everyone, in one roster.</h3>
-      <p>Brand contacts, warehouse teams, carriers — roles and permissions mapped to the channels they belong in.</p>
-    </article>
-  </div>
-</section>
+<div class="pk-divider"></div>
 
 <!-- ============================================================
-     TESTIMONIAL
+     9b · FAQ
      ============================================================ -->
-<section id="customers" class="pk-section" style="padding-top:80px">
-  <div class="pk-grid-2" style="gap:40px">
-    <div class="pk-quote-card light">
-      <svg class="ic" width="22" height="22" style="color:var(--moss)"><use href="#i-spark"/></svg>
-      <p class="pk-display pk-quote-text">"We shut down four Slack connects and a shared inbox. <em>Packr replaced all of it</em> — and the brands like it better."</p>
-      <div class="pk-quote-author">
-        <span class="pk-avatar lg" style="background:var(--moss)">MH</span>
-        <div>
-          <div class="pk-quote-name">Mira Halden</div>
-          <div class="pk-quote-role">Head of CX · Riverbend 3PL</div>
-        </div>
-      </div>
+<section class="pk-section" id="faq">
+  <div class="pk-faq-wrap">
+    <div class="pk-faq-head" data-reveal>
+        FAQ</span>
+      <h2 class="pk-display">Frequently asked <em>questions</em></h2>
     </div>
-    <div class="pk-quote-card sage">
-      <svg class="ic" width="22" height="22"><use href="#i-spark"/></svg>
-      <p class="pk-display pk-quote-text">"Our CX team closes issues before the brand <em>even notices</em>. Pax just handles the small stuff."</p>
-      <div class="pk-quote-author">
-        <span class="pk-avatar lg" style="background:var(--ink)">OP</span>
-        <div>
-          <div class="pk-quote-name">Owen Park</div>
-          <div class="pk-quote-role" style="opacity:0.75">Operations · Sandhill Logistics</div>
-        </div>
-      </div>
+
+    <div data-reveal>
+      <details class="pk-faq-item" open>
+        <summary class="pk-faq-q">We ship for dozens of brands. Does every brand get its own workspace?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Yes. Every brand you ship for gets its own channel and workspace — with its own branding, contacts, and SLA. Brands are unlimited on every plan, so adding your next account never changes the bill.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">How is Packr different from Slack Connect or a shared inbox?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Conversations in Packr live next to the order data they're about, pulled live from your WMS. Messages thread by order, every request can become a task with an owner and an SLA, and edits write back to the warehouse — nothing gets lost in a forwarded email or a fourth Slack workspace.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">How long does it take to get set up?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Connecting is instant — just your WMS login (email and password) and you're linked. From there we kick off a background job that pulls in your full order history, which can take around 7 hours to finish. You don't have to wait for it: you can start working in Packr the moment you connect, and your data fills in as it syncs. <a href="https://app.packr.io/start" target="_blank" rel="noopener">Start your 30-day free trial&nbsp;&rarr;</a></p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">Which WMS do you integrate with?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Today we integrate with <strong>ShipHero</strong>. It's a deep, two-way sync — orders, holds, shipments, and errors all flow both directions. More WMS integrations are actively in development, so if you're on a different platform, <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener">talk to us</a> about what's next on the roadmap.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">How does the SLA work, and why is it more accurate than ShipHero's?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Packr measures your SLA from the order's <strong>allocation start date</strong> — the moment the order is actually ready to be worked — instead of the raw order date. That means holds don't count against you: if an order is paused waiting on a customer, a stock issue, or an address fix, the clock isn't punishing your team for time they couldn't act on. ShipHero's on-time numbers don't account for that, so the same warehouse looks better — and more honestly — measured in Packr.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">Can Pax actually make changes to orders?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Yes. Pax can manage holds, change addresses, swap carriers, reprocess orders, and record shipping errors — all grounded in your WMS. Every action is permission-scoped and lands in a full audit trail, so your team always sees exactly what changed and why.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">How many users and features do we get?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">Everything is unlimited. Add your entire CX team and every one of your brands' teams — there are no per-seat fees, ever. Every feature is included too: Pax AI, WMS sync, threaded chat, tasks, holds, SLAs, surveys, and the full audit log. No tiers, no add-ons, no "contact sales to unlock." <a href="/pricing">See the pricing&nbsp;&rarr;</a></p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">Are we locked into a contract?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">No contracts, ever. Sign up whenever you're ready and cancel any time — no annual commitment, no setup fees, no cancellation penalty. Start with a 30-day free trial and only keep going if Packr earns it.</p>
+      </details>
+      <details class="pk-faq-item">
+        <summary class="pk-faq-q">What does it cost?<span class="pk-faq-icon" aria-hidden="true"></span></summary>
+        <p class="pk-faq-a">One usage-based plan: $8 per 1,000 orders, with unlimited brands, unlimited users, and every feature included. Start with a 30-day free trial — no contracts, no setup fees. <a href="/pricing">Size it for your volume on the pricing calculator&nbsp;&rarr;</a></p>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CTA BAND
+     10 · BOOK A DEMO — dark
      ============================================================ -->
-<section id="demo" class="pk-section" style="padding-top:0">
-  <div class="pk-cta-band">
-    <div>
-      <span class="pk-cta-eyebrow">Book a demo</span>
-      <h2 class="pk-display" style="margin-top:18px">3PLs shouldn't be running customer service on <em>email or Slack</em>.</h2>
-      <p class="pk-cta-sub">30 minutes. A real walkthrough with your WMS, on a sandbox with your data.</p>
+<div class="pk-surface-dark" id="demo">
+  <section class="pk-section">
+    <div class="pk-demo-band" data-reveal>
+        Book a Demo</span>
+      <h2 class="pk-display">See it on your data</h2>
+      <p>30 minutes. We'll plug into your WMS sandbox and walk your real numbers — no slides, just your warehouse.</p>
+      <div class="pk-hero-cta">
+        <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ondark" style="padding:14px 24px;font-size:15px">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+        <a href="https://app.packr.io/start" target="_blank" rel="noopener" class="pk-btn pk-btn-ghost-ondark">or try free for 30 days →</a>
+      </div>
     </div>
-    <div class="pk-cta-form">
-      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-sage" style="padding:14px 22px;font-size:15px;justify-content:center">
-        Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg>
-      </a>
-      <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-cta-email">or grab a time on Calendly</a>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer class="pk-footer">
   <div>
-    <a href="#" class="pk-wordmark lg" aria-label="Packr — home">
+    <a href="/" class="pk-wordmark lg" aria-label="Packr — home">
       <img src="/assets/icon-shadow-ink.png" alt="" class="pk-wordmark-icon">
       <span class="pk-wordmark-text">Packr</span>
     </a>
-    <p class="pk-footer-tagline">The customer service platform built exclusively for third-party logistics.</p>
+    <p class="pk-footer-tagline">Make customer support your competitive advantage.</p>
   </div>
   <div>
     <h5>Product</h5>
-    <ul><li><a href="#product">Chat</a></li><li><a href="#">Pax AI</a></li><li><a href="#">WMS Sync</a></li><li><a href="#">Tasks &amp; Holds</a></li></ul>
+    <ul><li><a href="#chat">Chat</a></li><li><a href="#pax">Pax AI</a></li><li><a href="#analytics">Analytics &amp; SLA</a></li><li><a href="#tasks">Tasks &amp; Holds</a></li></ul>
   </div>
   <div>
     <h5>Company</h5>
-    <ul><li><a href="#">About</a></li><li><a href="#customers">Customers</a></li><li><a href="#">Careers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li></ul>
+    <ul><li><a href="#feedback">Customers</a></li><li><a href="mailto:hello@packr.io">Contact</a></li><li><a href="https://app.packr.io/login" target="_blank" rel="noopener">Login</a></li></ul>
   </div>
   <div>
     <h5>Resources</h5>
-    <ul><li><a href="/pricing">Pricing</a></li><li><a href="#">Docs</a></li><li><a href="#">Changelog</a></li><li><a href="#">Security</a></li></ul>
+    <ul><li><a href="/pricing">Pricing</a></li><li><a href="https://docs.packr.io/" target="_blank" rel="noopener">Docs</a></li><li><a href="#demo">Book a demo</a></li></ul>
   </div>
 </footer>
 <div class="pk-footer-bottom">
@@ -518,26 +636,6 @@
     <a href="#" style="color:var(--muted);text-decoration:none">Terms</a>
   </div>
 </div>
-
-<!-- Tiny script: sticky-nav scrolled state + Calendly popup interception -->
-<script>
-(() => {
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Intercept any link pointing at calendly.com and open it as a modal
-  // popup instead of navigating away. Falls back gracefully to a normal
-  // link click if Calendly's widget script hasn't loaded yet.
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href*="calendly.com"]');
-    if (!link || typeof Calendly === 'undefined') return;
-    e.preventDefault();
-    Calendly.initPopupWidget({ url: link.href });
-  });
-})();
-</script>
 
 </body>
 </html>
