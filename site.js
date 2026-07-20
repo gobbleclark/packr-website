@@ -47,6 +47,35 @@
     }
   }
 
+  /* ---- Count-up numbers ----
+     [data-count] elements tick from 0 to their target when scrolled
+     into view. The element's markup already holds the final value, so
+     no-JS and reduced-motion users just see the number. */
+  const counters = Array.from(document.querySelectorAll('[data-count]'));
+  if (counters.length && !reducedMotion.matches && 'IntersectionObserver' in window) {
+    const runCount = (el) => {
+      const target = parseFloat(el.getAttribute('data-count')) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      const dur = 1100;
+      const t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const countIO = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        runCount(entry.target);
+        countIO.unobserve(entry.target);
+      }
+    }, { threshold: 0.6 });
+    counters.forEach((el) => countIO.observe(el));
+  }
+
   /* ---- Results carousel ----
      Coverflow of stat/quote cards: active card centered, neighbors
      scaled/faded behind. Auto-rotates every 5s; paused on hover or

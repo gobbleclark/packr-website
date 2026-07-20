@@ -31,8 +31,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=2">
-<script src="site.js?v=1" defer></script>
+<link rel="stylesheet" href="styles.css?v=3">
+<script src="site.js?v=2" defer></script>
 
 <!-- Calendly popup widget (loaded for the modal-on-click behavior) -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -206,29 +206,53 @@
         <div class="pk-module-media" style="background:linear-gradient(150deg,#DFE1D1 0%,#C2C6AE 100%)">
           <div class="pk-fx pk-fx--chat" aria-hidden="true">
             <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
-              <div class="pk-fx-head">
-                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span>
-                <span class="pk-fx-bar strong" style="width:34%"></span>
-                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+              <div class="pk-fx-chat">
+                <div class="pk-fx-msg pk-fx-anim-l" style="--d:.16s">
+                  <span class="pk-fx-av">SJ</span>
+                  <div class="pk-fx-mb">
+                    <span class="pk-fx-name">Stephanie Jackson</span>
+                    <div class="pk-fx-txt">Order <b>MO2765</b> is being returned by the carrier — no updated address yet.</div>
+                  </div>
+                </div>
+                <div class="pk-fx-msg out pk-fx-anim-r" style="--d:.32s">
+                  <span class="pk-fx-av alt">VJ</span>
+                  <div class="pk-fx-mb">
+                    <div class="pk-fx-txt">On it — this is in the urgent queue and ships today.</div>
+                  </div>
+                </div>
+                <div class="pk-fx-msg pk-fx-anim-l" style="--d:.48s">
+                  <span class="pk-fx-av">JT</span>
+                  <div class="pk-fx-mb">
+                    <span class="pk-fx-name">Jessica Thompson</span>
+                    <div class="pk-fx-txt">order <b>247904</b> rerouted — new address is out of zone for Ontrac.</div>
+                  </div>
+                </div>
+                <div class="pk-fx-msg out pk-fx-anim-r" style="--d:.64s">
+                  <span class="pk-fx-av alt">VJ</span>
+                  <div class="pk-fx-mb">
+                    <div class="pk-fx-txt">Hold on order <b>246913</b> confirmed with the customer — okay to release.</div>
+                  </div>
+                </div>
               </div>
-              <div class="pk-fx-bubble in pk-fx-anim" style="--d:.2s">
-                <span class="pk-fx-bar" style="width:130px"></span>
-                <span class="pk-fx-bar" style="width:88px"></span>
-              </div>
-              <div class="pk-fx-bubble out pk-fx-anim" style="--d:.32s">
-                <span class="pk-fx-bar" style="width:104px"></span>
-              </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.44s;margin-top:2px">
-                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-truck"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:72%"></span><span class="pk-fx-bar"></span></span>
-                <span class="pk-fx-pill moss">Order #4021</span>
+              <div class="pk-fx-rail">
+                <div class="pk-fx-sec-h pk-fx-anim" style="--d:.36s"><span>Work</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="pk-fx-rrow pk-fx-anim" style="--d:.42s"><span class="ric"><svg viewBox="0 0 24 24"><use href="#i-list"/></svg></span>Open Tasks<span class="pk-fx-count pk-fx-pop" style="--d:.62s">1</span></div>
+                <div class="pk-fx-rrow pk-fx-anim" style="--d:.48s"><span class="ric"><svg viewBox="0 0 24 24"><use href="#i-tasks"/></svg></span>Threads<span class="pk-fx-count pk-fx-pop" style="--d:.68s" data-count="23">23</span></div>
+                <div class="pk-fx-rdiv"></div>
+                <div class="pk-fx-sec-h pk-fx-anim" style="--d:.54s"><span>Orders</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="pk-fx-rrow pk-fx-anim" style="--d:.6s"><span class="ric"><svg viewBox="0 0 24 24"><use href="#i-truck"/></svg></span>On Hold<span class="pk-fx-count warn pk-fx-pop" style="--d:.8s">3</span></div>
+                <div class="pk-fx-rrow pk-fx-anim" style="--d:.66s"><span class="ric"><svg viewBox="0 0 24 24"><use href="#i-truck"/></svg></span>Backorder<span class="pk-fx-count warn pk-fx-pop" style="--d:.86s" data-count="31">31</span></div>
+                <div class="pk-fx-rdiv"></div>
+                <div class="pk-fx-sec-h pk-fx-anim" style="--d:.72s"><span>Shipping</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="pk-fx-rrow pk-fx-anim" style="--d:.78s"><span class="ric"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>Errors<span class="pk-fx-count warn pk-fx-pop" style="--d:.92s" data-count="20">20</span></div>
               </div>
             </div>
-            <div class="pk-fx-phone pk-fx-anim" style="--d:.54s">
-              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:52%"></span></div>
-              <div class="pk-fx-bubble in" style="max-width:92%"><span class="pk-fx-bar" style="width:82%"></span></div>
-              <div class="pk-fx-bubble out" style="max-width:92%"><span class="pk-fx-bar" style="width:60%"></span></div>
-              <div class="pk-fx-bubble in" style="max-width:92%"><span class="pk-fx-bar" style="width:70%"></span></div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.62s">
+              <div class="pk-fx-ph-head"><span class="pk-fx-ph-title"># General</span></div>
+              <div class="pk-fx-pm in">Order <b>MO2765</b> returned — no address.</div>
+              <div class="pk-fx-pm out">In the urgent queue now.</div>
+              <div class="pk-fx-pm in">Thanks! Following <b>246913</b>.</div>
+              <div class="pk-fx-pm out">Confirmed — okay to release.</div>
             </div>
           </div>
         </div>
@@ -251,42 +275,38 @@
             <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
               <div class="pk-fx-head">
                 <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
-                <span class="pk-fx-bar strong" style="width:30%"></span>
-                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+                <span class="pk-fx-ttl" style="font-weight:700">SLA performance</span>
+                <span class="pk-fx-pill pk-fx-pop" style="--d:.24s;margin-left:auto">Last 7 days</span>
               </div>
-              <div style="display:flex;gap:16px;align-items:center">
+              <div style="display:flex;gap:14px;align-items:center">
                 <div class="pk-fx-ring pk-fx-anim" style="--d:.2s">
-                  <svg width="104" height="104" viewBox="0 0 104 104">
-                    <circle class="track" cx="52" cy="52" r="42" stroke-width="10"/>
-                    <circle class="val" cx="52" cy="52" r="42" stroke-width="10" style="--circ:264;--off:16;--d:.45s"/>
+                  <svg width="94" height="94" viewBox="0 0 94 94">
+                    <circle class="track" cx="47" cy="47" r="38" stroke-width="9"/>
+                    <circle class="val" cx="47" cy="47" r="38" stroke-width="9" style="--circ:239;--off:14;--d:.42s"/>
                   </svg>
-                  <span class="cap" style="font-size:22px">94%</span>
+                  <span class="cap" style="font-size:18px" data-count="94" data-suffix="%">94%</span>
                 </div>
-                <div class="pk-fx-stack" style="flex:1">
-                  <div class="pk-fx-tile pk-fx-anim" style="--d:.32s"><span class="pk-fx-bar" style="width:52%"></span><b>10m 12s</b></div>
-                  <div class="pk-fx-tile pk-fx-anim" style="--d:.42s"><span class="pk-fx-bar" style="width:60%"></span><b>1,248</b></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+                  <div class="pk-fx-tile pk-fx-pop" style="--d:.34s"><span class="pk-fx-cap">Avg response</span><span class="pk-fx-num">10m 12s</span></div>
+                  <div class="pk-fx-tile pk-fx-pop" style="--d:.42s"><span class="pk-fx-cap">Tasks closed</span><span class="pk-fx-num" data-count="1248">1,248</span></div>
                 </div>
               </div>
-              <div class="pk-fx-cols pk-fx-anim" style="--d:.5s;height:52px">
-                <span class="c"><i style="--h:42%;--d:.55s"></i></span>
-                <span class="c"><i style="--h:64%;--d:.62s"></i></span>
-                <span class="c gold"><i style="--h:90%;--d:.69s"></i></span>
-                <span class="c"><i style="--h:56%;--d:.76s"></i></span>
-                <span class="c"><i style="--h:74%;--d:.83s"></i></span>
-                <span class="c"><i style="--h:48%;--d:.9s"></i></span>
-              </div>
+              <div class="pk-fx-rdiv"></div>
+              <div class="pk-fx-brow pk-fx-anim" style="--d:.5s"><span class="pk-fx-ttl" style="flex:1">Peak Athletics</span><span class="pk-fx-track"><i style="--w:96%;--d:.6s"></i></span><span class="pk-fx-val">96%</span></div>
+              <div class="pk-fx-brow pk-fx-anim" style="--d:.58s"><span class="pk-fx-ttl" style="flex:1">Northwind Coffee</span><span class="pk-fx-track"><i style="--w:91%;--d:.68s"></i></span><span class="pk-fx-val">91%</span></div>
+              <div class="pk-fx-brow pk-fx-anim" style="--d:.66s"><span class="pk-fx-ttl" style="flex:1">Aurora Skincare</span><span class="pk-fx-track"><i style="--w:88%;--d:.76s"></i></span><span class="pk-fx-val">88%</span></div>
             </div>
-            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
-              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:46%"></span></div>
-              <div class="pk-fx-ring" style="margin:8px auto 4px">
-                <svg width="72" height="72" viewBox="0 0 72 72">
-                  <circle class="track" cx="36" cy="36" r="28" stroke-width="8"/>
-                  <circle class="val" cx="36" cy="36" r="28" stroke-width="8" style="--circ:176;--off:14;--d:.75s"/>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.6s">
+              <div class="pk-fx-ph-head"><span class="pk-fx-ph-title">SLA</span></div>
+              <div class="pk-fx-ring" style="margin:6px auto 3px">
+                <svg width="62" height="62" viewBox="0 0 62 62">
+                  <circle class="track" cx="31" cy="31" r="24" stroke-width="7"/>
+                  <circle class="val" cx="31" cy="31" r="24" stroke-width="7" style="--circ:151;--off:12;--d:.85s"/>
                 </svg>
-                <span class="cap" style="font-size:14px">92%</span>
+                <span class="cap" style="font-size:12px" data-count="92" data-suffix="%">92%</span>
               </div>
-              <div class="pk-fx-row" style="padding:7px 8px"><span class="col"><span class="pk-fx-bar" style="width:72%"></span></span><span class="pk-fx-pill moss">SLA</span></div>
-              <div class="pk-fx-row" style="padding:7px 8px"><span class="col"><span class="pk-fx-bar" style="width:60%"></span></span><span class="pk-fx-pill gold">98%</span></div>
+              <div class="pk-fx-brow" style="gap:6px"><span class="pk-fx-sub" style="flex:1">On-time</span><span class="pk-fx-val" style="font-size:9px;min-width:0">92%</span></div>
+              <div class="pk-fx-brow" style="gap:6px"><span class="pk-fx-sub" style="flex:1">Errors</span><span class="pk-fx-pill danger pk-fx-pop" style="--d:1s;height:15px;font-size:8px">20</span></div>
             </div>
           </div>
         </div>
@@ -313,32 +333,33 @@
           <div class="pk-fx pk-fx--pax pk-fx--phone-left" aria-hidden="true">
             <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
               <div class="pk-fx-head">
-                <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-tasks"/></svg></span>
-                <span class="pk-fx-bar strong" style="width:26%"></span>
+                <span class="pk-fx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg></span>
+                <span class="pk-fx-ttl" style="font-weight:700">Pax</span>
                 <span class="pk-fx-dots"><i></i><i></i><i></i></span>
               </div>
-              <div class="pk-fx-bubble out pk-fx-anim" style="--d:.18s"><span class="pk-fx-bar" style="width:132px"></span></div>
-              <div class="pk-fx-bubble in pk-fx-anim" style="--d:.3s">
-                <span class="pk-fx-bar" style="width:150px"></span>
-                <span class="pk-fx-bar" style="width:104px"></span>
+              <div class="pk-fx-msg out pk-fx-anim-r" style="--d:.2s">
+                <div class="pk-fx-mb"><div class="pk-fx-txt">Change the shipping address on order <b>#20594</b>.</div></div>
               </div>
-              <div class="pk-fx-anim" style="--d:.42s;display:flex;gap:8px;flex-wrap:wrap">
-                <span class="pk-fx-pill gold">Change address</span>
-                <span class="pk-fx-pill moss">Swap carrier</span>
-                <span class="pk-fx-pill">Reprocess</span>
+              <div class="pk-fx-msg pk-fx-anim-l" style="--d:.36s">
+                <span class="pk-fx-av alt"><svg viewBox="0 0 24 24" fill="#fff" style="width:11px;height:11px"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></span>
+                <div class="pk-fx-mb"><span class="pk-fx-name">Pax</span><div class="pk-fx-txt">Done — <b>#20594</b> was still Processing, so I updated it.</div></div>
               </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.54s">
-                <span class="pk-fx-check done" style="--d:.74s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:64%"></span><span class="pk-fx-bar"></span></span>
-                <span class="pk-fx-pill done">Done</span>
+              <div class="pk-fx-row pk-fx-anim" style="--d:.52s">
+                <span class="col"><span class="pk-fx-ttl">Order #20594 · Peak Athletics</span><span class="pk-fx-sub">FedEx · Address updated</span></span>
+                <span class="pk-fx-pill done pk-fx-pop" style="--d:.72s">Done</span>
+              </div>
+              <div class="pk-fx-anim" style="--d:.6s;display:flex;gap:7px;flex-wrap:wrap">
+                <span class="pk-fx-pill gold pk-fx-pop" style="--d:.66s">Manage holds</span>
+                <span class="pk-fx-pill moss pk-fx-pop" style="--d:.72s">Swap carrier</span>
+                <span class="pk-fx-pill pk-fx-pop" style="--d:.78s">Reprocess</span>
               </div>
             </div>
             <div class="pk-fx-phone at-left pk-fx-anim" style="--d:.5s">
-              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:44%"></span></div>
-              <span class="pk-fx-pill gold" style="align-self:flex-start">Manage holds</span>
-              <span class="pk-fx-pill moss" style="align-self:flex-start">Change address</span>
-              <span class="pk-fx-pill" style="align-self:flex-start">Cancel order</span>
-              <div class="pk-fx-row" style="padding:7px 8px;margin-top:auto"><span class="pk-fx-check done" style="--d:.9s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:66%"></span></span></div>
+              <div class="pk-fx-ph-head"><span class="pk-fx-ph-title">Pax</span></div>
+              <div class="pk-fx-pm out">Update <b>#20594</b> address</div>
+              <div class="pk-fx-pm in">Done — audit logged.</div>
+              <span class="pk-fx-pill gold pk-fx-pop" style="--d:.9s;align-self:flex-start">Manage holds</span>
+              <span class="pk-fx-pill moss pk-fx-pop" style="--d:.96s;align-self:flex-start">Swap carrier</span>
             </div>
           </div>
         </div>
@@ -361,35 +382,35 @@
             <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
               <div class="pk-fx-head">
                 <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-tasks"/></svg></span>
-                <span class="pk-fx-bar strong" style="width:28%"></span>
-                <span class="pk-fx-pill danger" style="margin-left:auto">3 overdue</span>
+                <span class="pk-fx-ttl" style="font-weight:700">Assigned to me</span>
+                <span class="pk-fx-pill danger pk-fx-pop" style="--d:.24s;margin-left:auto">3 overdue</span>
               </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.18s">
-                <span class="pk-fx-check done" style="--d:.42s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:78%"></span></span>
-                <span class="pk-fx-pill moss">High</span>
+              <div class="pk-fx-row pk-fx-anim-l" style="--d:.2s">
+                <span class="pk-fx-check done" style="--d:.46s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-ttl">Follow up on backorder — Peak Athletics</span></span>
+                <span class="pk-fx-pill moss pk-fx-pop" style="--d:.52s">High</span>
               </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.28s">
-                <span class="pk-fx-check done" style="--d:.52s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:64%"></span></span>
-                <span class="pk-fx-pill danger">Overdue</span>
+              <div class="pk-fx-row pk-fx-anim-l" style="--d:.3s">
+                <span class="pk-fx-check done" style="--d:.56s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+                <span class="col"><span class="pk-fx-ttl">Audit inventory — Northwind Coffee</span></span>
+                <span class="pk-fx-pill danger pk-fx-pop" style="--d:.62s">Overdue</span>
               </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.38s">
+              <div class="pk-fx-row pk-fx-anim-l" style="--d:.4s">
                 <span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:70%"></span></span>
-                <span class="pk-fx-pill gold">Med</span>
+                <span class="col"><span class="pk-fx-ttl">Review returns — Aurora Skincare</span></span>
+                <span class="pk-fx-pill danger pk-fx-pop" style="--d:.72s">Urgent</span>
               </div>
-              <div class="pk-fx-row pk-fx-anim" style="--d:.48s">
+              <div class="pk-fx-row pk-fx-anim-l" style="--d:.5s">
                 <span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
-                <span class="col"><span class="pk-fx-bar" style="width:56%"></span></span>
-                <span class="pk-fx-pill">Low</span>
+                <span class="col"><span class="pk-fx-ttl">Resolve billing question — Boxio</span></span>
+                <span class="pk-fx-pill gold pk-fx-pop" style="--d:.82s">Med</span>
               </div>
             </div>
-            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
-              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:50%"></span></div>
-              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check done" style="--d:.8s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:80%"></span></span></div>
-              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:66%"></span></span></div>
-              <div class="pk-fx-row" style="padding:7px 8px"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:74%"></span></span></div>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.6s">
+              <div class="pk-fx-ph-head"><span class="pk-fx-ph-title">Tasks</span></div>
+              <div class="pk-fx-prow"><span class="pk-fx-check done" style="--d:.88s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="pk-fx-sub" style="flex:1">Backorder — Peak</span></div>
+              <div class="pk-fx-prow"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="pk-fx-sub" style="flex:1">Returns — Aurora</span></div>
+              <div class="pk-fx-prow"><span class="pk-fx-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="pk-fx-sub" style="flex:1">Billing — Boxio</span></div>
             </div>
           </div>
         </div>
@@ -412,10 +433,10 @@
             <div class="pk-fx-desk pk-fx-anim" style="--d:.05s">
               <div class="pk-fx-head">
                 <span class="pk-fx-ico"><svg viewBox="0 0 24 24"><use href="#i-paper"/></svg></span>
-                <span class="pk-fx-bar strong" style="width:38%"></span>
-                <span class="pk-fx-dots"><i></i><i></i><i></i></span>
+                <span class="pk-fx-ttl" style="font-weight:700">Shipping quality</span>
+                <span class="pk-fx-pill moss pk-fx-pop" style="--d:.22s;margin-left:auto">Sent</span>
               </div>
-              <span class="pk-fx-bar pk-fx-anim" style="--d:.16s;width:66%"></span>
+              <span class="pk-fx-sub pk-fx-anim" style="--d:.16s">How was your delivery experience?</span>
               <div class="pk-fx-stars pk-fx-anim" style="--d:.26s">
                 <svg class="on" style="--d:.4s"  viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
                 <svg class="on" style="--d:.48s" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
@@ -423,28 +444,31 @@
                 <svg class="on" style="--d:.64s" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
               </div>
-              <div class="pk-fx-tile pk-fx-anim" style="--d:.42s">
-                <div style="display:flex;align-items:center;gap:8px"><span class="pk-fx-bar" style="width:36%"></span><span class="pk-fx-pill moss" style="margin-left:auto">NPS 72</span></div>
-                <div class="pk-fx-cols" style="height:36px">
-                  <span class="c gold"><i style="--h:82%;--d:.5s"></i></span>
-                  <span class="c gold"><i style="--h:94%;--d:.57s"></i></span>
-                  <span class="c"><i style="--h:62%;--d:.64s"></i></span>
-                  <span class="c"><i style="--h:46%;--d:.71s"></i></span>
+              <div class="pk-fx-rdiv"></div>
+              <div style="display:flex;gap:12px;align-items:center">
+                <div class="pk-fx-tile pk-fx-pop" style="--d:.42s;flex:none;min-width:74px"><span class="pk-fx-cap">NPS</span><span class="pk-fx-num" data-count="72">72</span></div>
+                <div class="pk-fx-cols pk-fx-anim" style="--d:.48s;height:44px;flex:1">
+                  <span class="c gold"><i style="--h:82%;--d:.54s"></i></span>
+                  <span class="c gold"><i style="--h:94%;--d:.6s"></i></span>
+                  <span class="c"><i style="--h:62%;--d:.66s"></i></span>
+                  <span class="c"><i style="--h:46%;--d:.72s"></i></span>
                   <span class="c"><i style="--h:34%;--d:.78s"></i></span>
                 </div>
               </div>
+              <div class="pk-fx-brow pk-fx-anim" style="--d:.64s"><span class="pk-fx-ttl" style="flex:1">Peak Athletics</span><span class="pk-fx-minstars">★★★★★</span></div>
+              <div class="pk-fx-brow pk-fx-anim" style="--d:.72s"><span class="pk-fx-ttl" style="flex:1">Northwind Coffee</span><span class="pk-fx-minstars">★★★★<span class="off">★</span></span></div>
             </div>
-            <div class="pk-fx-phone pk-fx-anim" style="--d:.55s">
-              <div class="pk-fx-head"><span class="pk-fx-bar strong" style="width:56%"></span></div>
-              <span class="pk-fx-bar" style="width:80%"></span>
-              <div class="pk-fx-stars" style="justify-content:center;margin:4px 0">
-                <svg class="on" style="--d:.75s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
-                <svg class="on" style="--d:.82s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
-                <svg class="on" style="--d:.89s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
-                <svg class="on" style="--d:.96s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+            <div class="pk-fx-phone pk-fx-anim" style="--d:.6s">
+              <div class="pk-fx-ph-head"><span class="pk-fx-ph-title">Survey</span></div>
+              <span class="pk-fx-sub">Rate your delivery</span>
+              <div class="pk-fx-stars" style="justify-content:center;margin:3px 0">
+                <svg class="on" style="--d:.8s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.86s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.92s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
+                <svg class="on" style="--d:.98s;width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
                 <svg style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M12 2.5 15 9l7 .8-5.2 4.7 1.4 6.9L12 17.9 5.8 21.4l1.4-6.9L2 9.8 9 9z"/></svg>
               </div>
-              <div class="pk-fx-row" style="padding:7px 8px;margin-top:auto"><span class="pk-fx-check done" style="--d:1s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="col"><span class="pk-fx-bar" style="width:60%"></span></span></div>
+              <div class="pk-fx-prow" style="margin-top:auto"><span class="pk-fx-check done" style="--d:1.05s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="pk-fx-sub" style="flex:1">Submitted</span></div>
             </div>
           </div>
         </div>

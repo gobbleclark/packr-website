@@ -1112,7 +1112,7 @@ html, body { overflow-x: clip; }
 
 /* Desktop surface — content-sized, vertically centered */
 .pk-fx-desk {
-  width: 82%;
+  width: 80%;
   background: var(--fx-card);
   border: 1px solid var(--fx-edge);
   border-radius: 16px;
@@ -1129,7 +1129,7 @@ html, body { overflow-x: clip; }
   position: absolute;
   right: 0;
   bottom: 4%;
-  width: 23%;
+  width: 22%;
   aspect-ratio: 9 / 18.5;
   background: var(--fx-card);
   border: 4px solid var(--ink);
@@ -1237,6 +1237,111 @@ html, body { overflow-x: clip; }
 .pk-fx--pax .pk-fx-phone { border-color: #14140F; }
 .pk-fx--pax .pk-fx-bubble.in { background: rgba(240, 238, 226, 0.14); }
 
+/* ---- Structured Chat card — a real message thread beside a work rail ---- */
+.pk-fx--chat .pk-fx-desk {
+  width: 80%;
+  padding: 0;
+  flex-direction: row;
+  gap: 0;
+  align-items: stretch;
+}
+.pk-fx-chat {
+  flex: 1.4;
+  min-width: 0;
+  padding: 14px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.pk-fx-rail {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(35, 35, 26, 0.025);
+  border-left: 1px solid var(--fx-edge);
+}
+.pk-fx-msg { display: flex; gap: 8px; align-items: flex-start; }
+.pk-fx-msg.out { flex-direction: row-reverse; }
+.pk-fx-av {
+  width: 21px; height: 21px; border-radius: 50%; flex: none;
+  background: var(--moss); color: #fff;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.02em;
+  display: grid; place-items: center;
+}
+.pk-fx-av.alt { background: var(--moss-deep); }
+.pk-fx-mb { display: flex; flex-direction: column; gap: 3px; min-width: 0; max-width: 86%; }
+.pk-fx-msg.out .pk-fx-mb { align-items: flex-end; }
+.pk-fx-name { font-size: 8.5px; font-weight: 700; color: var(--fx-sub); padding-left: 2px; }
+.pk-fx-txt {
+  font-size: 10.5px; line-height: 1.35; color: var(--fx-ink);
+  background: var(--fx-line); padding: 6px 9px;
+  border-radius: 11px; border-top-left-radius: 3px;
+}
+.pk-fx-msg.out .pk-fx-txt {
+  background: var(--moss); color: #fff;
+  border-top-left-radius: 11px; border-top-right-radius: 3px;
+}
+.pk-fx-txt b { color: var(--moss-deep); font-weight: 700; }
+.pk-fx-msg.out .pk-fx-txt b { color: #fff; }
+
+.pk-fx-sec-h {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.09em;
+  color: var(--fx-sub); text-transform: uppercase;
+  padding: 3px 1px 1px;
+}
+.pk-fx-sec-h svg { width: 11px; height: 11px; stroke: var(--fx-sub); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+.pk-fx-rrow { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 500; color: var(--fx-ink); padding: 4px 2px; }
+.pk-fx-rrow .ric { width: 13px; height: 13px; flex: none; }
+.pk-fx-rrow .ric svg { width: 100%; height: 100%; stroke: var(--fx-ink); fill: none; stroke-width: 1.7; opacity: 0.5; }
+.pk-fx-count {
+  margin-left: auto; min-width: 17px; height: 15px; padding: 0 5px;
+  border-radius: 8px; background: var(--fx-line); color: var(--fx-sub);
+  font-size: 8.5px; font-weight: 700; display: grid; place-items: center;
+}
+.pk-fx-count.warn { background: rgba(176, 83, 60, 0.15); color: var(--danger); }
+.pk-fx-rdiv { height: 1px; background: var(--fx-edge); margin: 3px 0; }
+
+/* ---- Concrete-content primitives (shared across all cards) ---- */
+.pk-fx-ttl { font-size: 10.5px; font-weight: 600; color: var(--fx-ink); line-height: 1.3; }
+.pk-fx-sub { font-size: 9px; color: var(--fx-sub); line-height: 1.3; }
+.pk-fx-cap { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fx-sub); }
+.pk-fx-num { font-size: 18px; font-weight: 800; color: var(--fx-ink); line-height: 1; letter-spacing: -0.01em; }
+
+/* Brand row with a filling progress track */
+.pk-fx-brow { display: flex; align-items: center; gap: 9px; }
+.pk-fx-track { flex: 1.1; height: 6px; border-radius: 4px; background: var(--fx-line); overflow: hidden; }
+.pk-fx-track i { display: block; height: 100%; width: 0; border-radius: 4px; background: var(--moss); }
+.pk-fx-val { font-size: 10px; font-weight: 700; color: var(--fx-ink); min-width: 26px; text-align: right; }
+.pk-fx-minstars { color: var(--gold); font-size: 11px; letter-spacing: 1px; }
+.pk-fx-minstars .off { color: var(--fx-line-2); }
+
+/* Phone concrete content */
+.pk-fx-ph-head { padding-bottom: 5px; border-bottom: 1px solid var(--fx-edge); margin-bottom: 1px; }
+.pk-fx-ph-title { font-size: 9px; font-weight: 700; color: var(--fx-ink); }
+.pk-fx-pm { font-size: 8.5px; line-height: 1.32; padding: 5px 7px; border-radius: 9px; max-width: 94%; }
+.pk-fx-pm.in  { align-self: flex-start; background: var(--fx-line); border-bottom-left-radius: 3px; color: var(--fx-ink); }
+.pk-fx-pm.out { align-self: flex-end; background: var(--moss); color: #fff; border-bottom-right-radius: 3px; }
+.pk-fx-pm b { color: var(--moss-deep); font-weight: 700; }
+.pk-fx-pm.out b { color: #fff; }
+.pk-fx-prow { display: flex; align-items: center; gap: 6px; }
+.pk-fx-phone .pk-fx-check { width: 15px; height: 15px; border-width: 1.6px; }
+.pk-fx-phone .pk-fx-check svg { width: 9px; height: 9px; }
+
+/* Track fill on reveal */
+html.js .pk-fx-track i {
+  width: 0;
+  transition: width 0.9s cubic-bezier(0.3, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0s);
+}
+html.js .pk-module-card.is-revealed .pk-fx-track i { width: var(--w); }
+@media (prefers-reduced-motion: reduce) {
+  html.js .pk-fx-track i { width: var(--w); transition: none; }
+}
+
 /* ---- Reveal-triggered animation ----
    Elements marked .pk-fx-anim rise+fade in with a per-element
    --d stagger once the parent card gets .is-revealed. */
@@ -1247,6 +1352,26 @@ html.js .pk-fx-anim {
   transition-delay: var(--d, 0s);
 }
 html.js .pk-module-card.is-revealed .pk-fx-anim { opacity: 1; transform: none; }
+
+/* Directional slide-ins — chat messages arrive from their side */
+html.js .pk-fx-anim-l, html.js .pk-fx-anim-r {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.75, 0.2, 1);
+  transition-delay: var(--d, 0s);
+}
+html.js .pk-fx-anim-l { transform: translateX(-22px) translateY(4px); }
+html.js .pk-fx-anim-r { transform: translateX(22px) translateY(4px); }
+html.js .pk-module-card.is-revealed .pk-fx-anim-l,
+html.js .pk-module-card.is-revealed .pk-fx-anim-r { opacity: 1; transform: none; }
+
+/* Spring pop — badges, counts, checks land with a little overshoot */
+html.js .pk-fx-pop {
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--d, 0s);
+}
+html.js .pk-module-card.is-revealed .pk-fx-pop { opacity: 1; transform: none; }
 
 /* Ring draws from empty to --off */
 html.js .pk-fx-ring .val {
@@ -1282,7 +1407,10 @@ html.js .pk-fx-stars svg.on path {
 html.js .pk-module-card.is-revealed .pk-fx-stars svg.on path { fill: var(--gold); }
 
 @media (prefers-reduced-motion: reduce) {
-  html.js .pk-fx-anim { opacity: 1; transform: none; transition: none; }
+  html.js .pk-fx-anim,
+  html.js .pk-fx-anim-l,
+  html.js .pk-fx-anim-r,
+  html.js .pk-fx-pop { opacity: 1; transform: none; transition: none; }
   html.js .pk-fx-ring .val { stroke-dashoffset: var(--off); transition: none; }
   html.js .pk-fx-cols .c i { height: var(--h); transition: none; }
   html.js .pk-fx-check svg path { stroke-dashoffset: 0; transition: none; }
