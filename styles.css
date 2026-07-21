@@ -2067,3 +2067,225 @@ html.pk-parallax-on [data-parallax] { will-change: transform; }
 @media (max-width: 380px) {
   .pk-demo-band h2 { font-size: 30px; }
 }
+
+/* ===========================================================
+   PARTNERS PAGE
+   Centered hero reuses .pk-pricing-hero. This block adds the
+   hero logo strip, the "why partner" cards, and the partner
+   marketplace grid + tiles. The closing CTA reuses .pk-cta-band.
+   =========================================================== */
+
+/* ---- Hero logo strip ---- */
+.pk-partners-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px 40px;
+  max-width: 760px;
+  margin: 52px auto 0;
+}
+.pk-plogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ash);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  opacity: 0.62;
+  transition: opacity .2s ease;
+}
+/* Dim the strip on hover, then lift the one being pointed at */
+.pk-partners-logos:hover .pk-plogo { opacity: 0.38; }
+.pk-partners-logos .pk-plogo:hover { opacity: 0.95; }
+.pk-plogo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: var(--linen-deep);
+  color: var(--moss-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Centered section head (why partner + marketplace) ---- */
+.pk-partners-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 52px;
+}
+.pk-partners-head .pk-eyebrow {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.pk-partners-head h2 {
+  font-size: 46px;
+  margin: 0;
+}
+.pk-partners-head p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 580px;
+  margin: 18px auto 0;
+}
+
+/* ---- Why partner ---- */
+.pk-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pk-why-card {
+  background: var(--bone);
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  padding: 34px 32px;
+}
+.pk-why-card h3 {
+  color: var(--moss);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.pk-why-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---- Partner marketplace grid ---- */
+.pk-market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+/* Two-partner layout — keeps the pair centered and balanced until there
+   are enough partners to fill three columns. Remove `is-duo` in the HTML
+   once the grid has 3+ tiles. */
+.pk-market-grid.is-duo {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 780px;
+  margin-inline: auto;
+}
+.pk-partner-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  padding: 28px 28px 30px;
+  background: var(--bone);
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.pk-partner-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--hair-strong);
+  box-shadow: 0 1px 3px rgba(25,25,18,0.06), 0 18px 46px -22px rgba(25,25,18,0.28);
+}
+.pk-partner-arrow {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  color: var(--ash);
+  transition: color .18s ease, transform .18s ease;
+}
+.pk-partner-tile:hover .pk-partner-arrow {
+  color: var(--moss);
+  transform: translate(2px, -2px);
+}
+.pk-partner-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: auto;   /* pushes the body block to the bottom of the tile */
+  background: var(--linen);
+  border: 1px solid var(--hair);
+  color: var(--moss-deep);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+/* Real logo image inside a tile (used instead of the .pk-partner-logo
+   monogram). Each logo sits in a fixed-height white plaque so mixed
+   wordmarks + icon marks are normalized and the cards line up evenly. */
+.pk-partner-logo-img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;   /* hug the logo, don't stretch full width */
+  height: 64px;
+  min-width: 64px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(25,25,18,0.04);
+}
+.pk-partner-logo-img img {
+  max-height: 34px;
+  max-width: 150px;
+  width: auto;
+  object-fit: contain;
+}
+.pk-partner-body { margin-top: 0; }
+.pk-partner-cat {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 9px;
+}
+.pk-partner-name {
+  font-family: var(--font-headline);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+.pk-partner-desc {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 0;
+}
+/* CTA tile — the "your tool here" slot */
+.pk-partner-tile.is-cta {
+  background: var(--moss-tint);
+  border-color: transparent;
+  justify-content: flex-end;
+}
+.pk-partner-tile.is-cta .pk-partner-logo { display: none; }
+.pk-partner-tile.is-cta .pk-partner-arrow { color: var(--moss-deep); }
+
+/* ---- Partners responsive ---- */
+@media (max-width: 900px) {
+  .pk-partners-head h2 { font-size: 36px; }
+  .pk-why-grid,
+  .pk-market-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .pk-partners-head h2 { font-size: 30px; }
+  .pk-partners-logos { gap: 14px 26px; }
+  .pk-why-grid,
+  .pk-market-grid,
+  .pk-market-grid.is-duo { grid-template-columns: 1fr; }
+  .pk-partner-tile { min-height: 0; }
+}
