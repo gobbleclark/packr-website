@@ -2292,14 +2292,22 @@ html.pk-parallax-on [data-parallax] { will-change: transform; }
 
 /* ===========================================================
    LEGAL PAGES (Privacy Policy, etc.)
+   Full-bleed page shell + a centered reading column so long-form
+   copy stays comfortable on wide monitors.
    =========================================================== */
 .pk-legal {
-  max-width: 760px;
+  width: 100%;
+  padding: 120px 56px 100px;
+}
+.pk-legal-inner {
+  width: 100%;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 100px 56px 80px;
 }
 .pk-legal-hero {
-  margin-bottom: 48px;
+  margin-bottom: 52px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--hair);
 }
 .pk-legal-hero .pk-eyebrow {
   margin-bottom: 18px;
@@ -2319,19 +2327,19 @@ html.pk-parallax-on [data-parallax] { will-change: transform; }
   margin: 0;
 }
 .pk-legal-body {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 16.5px;
+  line-height: 1.75;
   color: var(--ink);
 }
 .pk-legal-body p {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
 .pk-legal-body h2 {
   font-family: var(--font-headline);
   font-size: 26px;
   font-weight: 500;
   letter-spacing: -0.015em;
-  margin: 44px 0 14px;
+  margin: 48px 0 14px;
   line-height: 1.25;
 }
 .pk-legal-body h3 {
@@ -2341,11 +2349,11 @@ html.pk-parallax-on [data-parallax] { will-change: transform; }
   margin: 28px 0 10px;
 }
 .pk-legal-body ul {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   padding-left: 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .pk-legal-body li {
   padding-left: 4px;
@@ -2358,13 +2366,19 @@ html.pk-parallax-on [data-parallax] { will-change: transform; }
   color: var(--ink);
 }
 
+@media (min-width: 1200px) {
+  .pk-legal {
+    padding: 140px 80px 120px;
+  }
+}
 @media (max-width: 1100px) {
-  .pk-legal { padding: 80px 32px 64px; }
+  .pk-legal { padding: 100px 32px 80px; }
   .pk-legal-hero h1 { font-size: 44px; }
 }
 @media (max-width: 640px) {
-  .pk-legal { padding: 72px 22px 56px; }
+  .pk-legal { padding: 80px 22px 64px; }
+  .pk-legal-hero { margin-bottom: 36px; padding-bottom: 28px; }
   .pk-legal-hero h1 { font-size: 36px; }
-  .pk-legal-body { font-size: 15px; }
+  .pk-legal-body { font-size: 15.5px; }
   .pk-legal-body h2 { font-size: 22px; margin-top: 36px; }
 }
