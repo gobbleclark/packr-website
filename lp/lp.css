@@ -1,0 +1,382 @@
+/* ============================================================
+   Packr — ad landing pages (/lp/*)
+   Layered on top of /styles.css. One page per ad theme; the hero
+   headline can swap per ad via ?v=<key> (see the head script in
+   each page). Bump ?v=N on every <link> when this file changes.
+   ============================================================ */
+
+/* ---- Nav on colored heroes ---- */
+.lp-nav--dark, .lp-nav--sage { color: var(--on-dark); }
+.lp-nav--dark { background: var(--surface-dark); }
+.lp-nav--sage { background: var(--surface-sage); }
+.lp-nav--dark .pk-wordmark, .lp-nav--sage .pk-wordmark { color: var(--on-dark); }
+.lp-nav--dark.is-scrolled { background: rgba(35, 35, 26, 0.92); border-bottom-color: rgba(240, 238, 226, 0.08); }
+.lp-nav--sage.is-scrolled { background: rgba(108, 115, 85, 0.94); border-bottom-color: rgba(255, 255, 255, 0.12); }
+.lp-nav-trust { font-size: 13px; opacity: 0.72; }
+
+/* ---- Hero ---- */
+.lp-hero-band { overflow: hidden; }
+.lp-hero {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 56px 0;
+}
+.lp-hero-copy { max-width: 1040px; }
+.lp-hero h1 {
+  font-size: clamp(44px, 7.4vw, 108px);
+  line-height: 0.98;
+  margin: 26px 0 26px;
+  max-width: 11.5em;
+}
+.lp-hero h1.lp-h1--long { font-size: clamp(38px, 5.6vw, 80px); line-height: 1.02; max-width: 15em; }
+/* The ads set the accent phrase in italic — mirror them here */
+.lp-hero h1 em { font-style: italic; font-weight: 520; }
+.lp-em-sage .lp-hero h1 em { color: #A9BC94; }
+.lp-hero-sub {
+  font-size: clamp(17px, 1.7vw, 22px);
+  line-height: 1.5;
+  max-width: 640px;
+  margin: 0 0 34px;
+  color: var(--on-dark-muted);
+}
+.pk-surface-sage .lp-hero-sub { color: var(--on-sage-soft); }
+.lp-hero .pk-hero-trust { margin-top: 22px; color: inherit; opacity: 0.72; }
+.lp-hero .pk-chip-deck { background: rgba(240, 238, 226, 0.1); color: var(--gold-bright); }
+.pk-surface-sage .lp-hero .pk-chip-deck { background: rgba(35, 35, 26, 0.18); }
+
+/* App screenshot that bleeds off the right and bottom, like the ads */
+.lp-hero-media {
+  position: relative;
+  height: clamp(250px, 38vw, 560px);
+  margin-top: 64px;
+}
+.lp-app {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: min(1440px, 116%);
+  margin: 0;
+  border: 6px solid var(--ink);
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  background: var(--linen-warm);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.6);
+}
+.lp-app img { display: block; width: 100%; height: auto; }
+
+/* Pax alert card — the agents hero visual */
+.lp-hero-card-wrap { padding: 64px 0 96px; }
+.lp-alert {
+  max-width: 940px;
+  background: var(--bone);
+  color: var(--ink);
+  border-radius: 22px;
+  padding: 26px 30px 24px;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.7);
+}
+.lp-alert-head { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.lp-alert-head img { width: 22px; height: auto; }
+.lp-alert-head b { font-weight: 700; }
+.lp-alert-head .pk-muted { font-size: 13px; color: var(--ash); }
+.lp-badge {
+  display: inline-flex; align-items: center;
+  padding: 5px 11px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; line-height: 1;
+  background: #F4E1D4; color: #8E4A2E;
+}
+.lp-badge--moss { background: var(--moss-tint); color: var(--moss-deep); }
+.lp-badge--muted { background: transparent; color: var(--ash); box-shadow: inset 0 0 0 1px var(--hair-strong); }
+.lp-alert-head .lp-badge { margin-left: auto; }
+.lp-alert-body { font-size: 18px; line-height: 1.5; margin: 16px 0 20px; }
+.lp-alert-body i { font-style: italic; }
+.lp-alert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hair-strong);
+}
+.lp-alert-grid span { display: block; font-size: 13px; color: var(--ash); margin-bottom: 4px; }
+.lp-alert-grid b { font-size: 14px; font-weight: 700; }
+.lp-alert-actions { display: flex; gap: 8px; margin-top: 18px; }
+.lp-alert-actions .pk-btn { padding: 9px 16px; font-size: 13px; }
+
+/* ---- Hero variants ----
+   Default copy has no data-v; ad-specific copy carries data-v="<key>".
+   The head script sets <html data-v> only for keys the page knows. */
+.lp-v[data-v] { display: none; }
+html[data-v] .lp-v:not([data-v]) { display: none; }
+html[data-v="platform"] .lp-v[data-v="platform"],
+html[data-v="email"]    .lp-v[data-v="email"],
+html[data-v="scaling"]  .lp-v[data-v="scaling"],
+html[data-v="sentence"] .lp-v[data-v="sentence"],
+html[data-v="pick"]     .lp-v[data-v="pick"] { display: block; }
+
+/* ---- Section heads ---- */
+.lp-head { max-width: 860px; margin: 0 auto 56px; text-align: center; }
+.lp-head .pk-eyebrow { justify-content: center; }
+.lp-head h2 { font-size: clamp(32px, 4.4vw, 56px); margin: 18px 0 18px; }
+.lp-head p { font-size: 17px; line-height: 1.6; color: var(--ash); max-width: 620px; margin: 0 auto; }
+.pk-surface-dark .lp-head p { color: var(--on-dark-muted); }
+.pk-surface-sage .lp-head p { color: var(--on-sage-soft); }
+
+/* ---- Slack vs Packr comparison ---- */
+.lp-compare {
+  max-width: 1040px;
+  margin: 0 auto;
+  background: var(--bone);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(25, 25, 18, 0.06), 0 30px 70px -40px rgba(25, 25, 18, 0.35);
+}
+.lp-compare-row {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 32px;
+  font-size: 16px;
+}
+.lp-compare-row + .lp-compare-row { border-top: 1px solid var(--hair); }
+.lp-compare-row.is-head {
+  background: var(--linen-rich);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.lp-compare-row.is-head .lp-col-packr { color: var(--ink); }
+.lp-cell { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ash); }
+.lp-cell.is-yes { color: var(--ink); font-weight: 600; }
+.lp-cell .lp-mark {
+  flex-shrink: 0;
+  width: 22px; height: 22px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  background: var(--linen-deep); color: var(--ash);
+}
+.lp-cell.is-yes .lp-mark { background: var(--moss); color: #fff; }
+
+/* ---- Challenge / solution split (brands page) ---- */
+.lp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.lp-panel {
+  background: var(--bone);
+  border-radius: 24px;
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(25, 25, 18, 0.06), 0 30px 70px -40px rgba(25, 25, 18, 0.35);
+}
+.lp-panel--warm { background: var(--linen-warm); }
+.lp-panel-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.lp-panel-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--moss-deep);
+}
+.lp-panel--warm .lp-panel-kicker { color: var(--danger); }
+.lp-panel h3 { font-size: 24px; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; margin: 12px 0 22px; }
+.lp-asks { display: flex; flex-direction: column; gap: 10px; }
+.lp-ask { background: var(--linen-deep); border-radius: 12px; padding: 13px 16px; font-size: 15px; color: #4B4A3E; }
+.lp-panel-foot { margin-top: auto; padding-top: 24px; font-size: 13.5px; font-style: italic; color: var(--ash); }
+.lp-stat-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 0; font-size: 15px;
+  border-bottom: 1px solid var(--hair);
+}
+.lp-count {
+  min-width: 30px; padding: 3px 9px; border-radius: 999px; text-align: center;
+  font-size: 12.5px; font-weight: 700; background: var(--linen-deep);
+}
+.lp-count.warn { background: #F4D9D2; color: #8E3A28; }
+.lp-count.good { background: var(--moss-tint); color: var(--moss-deep); }
+.lp-bubble-row { display: flex; align-items: center; gap: 10px; margin-top: 18px; }
+.lp-av {
+  width: 28px; height: 28px; border-radius: 999px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: #fff; background: #C47F6B;
+}
+.lp-bubble { background: var(--linen-deep); border-radius: 14px; padding: 9px 14px; font-size: 14px; }
+.lp-tagline { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 22px; font-weight: 700; font-size: 14px; color: var(--moss-deep); }
+.lp-tagline img { width: 16px; height: auto; }
+
+/* ---- Pull quote ---- */
+.lp-quote { max-width: 900px; margin: 0 auto; text-align: center; }
+.lp-quote p {
+  font-family: var(--font-headline);
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+.lp-quote cite { font-style: normal; font-size: 14px; color: var(--ash); }
+.lp-quote cite b { color: var(--ink); }
+
+/* ---- Numbered steps ---- */
+.lp-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  counter-reset: lp-step;
+}
+.lp-step {
+  background: var(--bone);
+  border-radius: 22px;
+  padding: 30px 28px 32px;
+  counter-increment: lp-step;
+  box-shadow: 0 1px 3px rgba(25, 25, 18, 0.05);
+}
+.lp-step::before {
+  content: counter(lp-step, decimal-leading-zero);
+  display: block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  color: var(--moss);
+  margin-bottom: 18px;
+}
+.lp-step h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 10px; }
+.lp-step p { font-size: 15px; line-height: 1.6; color: var(--ash); margin: 0; }
+
+/* ---- Module cards outside the homepage's sticky band ---- */
+.lp-cards .pk-module-card { margin-bottom: 32px; min-height: 520px; }
+.lp-cards .pk-module-card:last-child { margin-bottom: 0; }
+.lp-module-shot { margin: 0; border-radius: 14px; overflow: hidden; border: 5px solid var(--ink); box-shadow: 0 30px 60px -30px rgba(25, 25, 18, 0.5); }
+.lp-module-shot img { display: block; width: 100%; height: auto; }
+
+/* ---- @Pax prompt (agents page) ---- */
+.lp-prompt-wrap { max-width: 980px; margin: 0 auto; }
+.lp-prompt {
+  display: flex; gap: 14px; align-items: baseline;
+  background: var(--bone); color: var(--ink);
+  border-radius: 18px;
+  padding: 24px 28px;
+  font-size: clamp(17px, 1.9vw, 22px);
+  line-height: 1.45;
+}
+.lp-prompt-at { color: var(--moss); font-weight: 700; flex-shrink: 0; }
+.lp-trace {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0 4px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #B5C2A2;
+}
+.lp-trace li::before { content: '\2192  '; }
+.lp-trace li:last-child { color: var(--gold-bright); font-weight: 600; }
+.lp-prompt-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.lp-prompt-chip {
+  padding: 10px 16px; border-radius: 999px;
+  font-size: 14px; color: var(--on-dark);
+  box-shadow: inset 0 0 0 1px var(--chip-dark-line);
+}
+
+/* ---- Agent catalog ---- */
+.lp-agents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.lp-agent {
+  background: var(--bone);
+  color: var(--ink);
+  border-radius: 20px;
+  padding: 24px 24px 28px;
+  min-height: 210px;
+}
+.lp-agent.is-soon { background: rgba(255, 255, 255, 0.1); color: var(--on-sage); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.lp-agent-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; }
+.lp-agent-top img { width: 20px; height: auto; }
+.lp-agent.is-soon .lp-agent-top img { opacity: 0.6; }
+.lp-agent.is-soon .lp-badge--muted { color: var(--on-sage-soft); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3); }
+.lp-agent h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
+.lp-agent p { font-size: 15px; line-height: 1.5; margin: 0; color: var(--ash); }
+.lp-agent.is-soon p { color: var(--on-sage-soft); }
+
+/* ---- Trust trio ---- */
+.lp-trust {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.lp-trust > div { border-top: 2px solid var(--ink); padding-top: 22px; }
+.lp-trust h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 10px; }
+.lp-trust p { font-size: 15px; line-height: 1.6; color: var(--ash); margin: 0; }
+
+/* ---- Compact footer ---- */
+.lp-footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 36px 56px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ash);
+}
+.lp-footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.lp-footer a { color: var(--ash); text-decoration: none; }
+.lp-footer a:hover { color: var(--ink); }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .lp-hero { padding: 36px 32px 0; }
+  .lp-footer { padding: 32px; }
+  .lp-agents { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .lp-split, .lp-steps, .lp-trust { grid-template-columns: 1fr; }
+  .lp-steps, .lp-trust { max-width: 560px; }
+  .lp-nav-trust { display: none; }
+}
+
+@media (max-width: 640px) {
+  .lp-hero { padding: 24px 20px 0; }
+  .lp-hero h1 { margin: 18px 0 18px; }
+  .lp-hero-sub { margin-bottom: 26px; }
+  .lp-hero-media { margin-top: 40px; height: 300px; }
+  .lp-app { width: 210%; border-width: 4px; border-radius: 14px 14px 0 0; }
+  .lp-hero-card-wrap { padding: 40px 0 64px; }
+  .lp-alert { padding: 20px 18px; border-radius: 18px; }
+  .lp-alert-body { font-size: 16px; }
+  .lp-alert-grid { grid-template-columns: 1fr; gap: 12px; }
+  .lp-head { margin-bottom: 36px; }
+  .lp-compare-row { grid-template-columns: 1.3fr 0.85fr 0.85fr; padding: 14px 16px; gap: 10px; font-size: 14px; }
+  .lp-cell { font-size: 12.5px; gap: 6px; }
+  .lp-cell .lp-mark { width: 18px; height: 18px; font-size: 10px; }
+  .lp-panel { padding: 24px 20px; }
+  .lp-agents { grid-template-columns: 1fr; }
+  .lp-agent { min-height: 0; }
+  .lp-prompt { flex-direction: column; gap: 4px; padding: 18px 20px; }
+  .lp-trace { font-size: 11.5px; line-height: 1.8; }
+  .lp-cards .pk-module-card { min-height: 0; margin-bottom: 24px; }
+  .lp-footer { padding: 28px 20px 36px; flex-direction: column; align-items: flex-start; }
+}
+
+/* Keep hyphenated accent words on one line ("self-sufficient") */
+.lp-nw { white-space: nowrap; }
+
+/* Eyebrows without the leading rule */
+.pk-eyebrow::before { content: none; }
