@@ -49,6 +49,6 @@
     if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
     redirecting = true;
     try { sessionStorage.setItem('pk_lp_booked', theme); } catch (_) { /* thanks page fails open */ }
-    setTimeout(() => { window.location.assign(`/lp/thanks?from=${encodeURIComponent(theme)}`); }, 1500);
+    setTimeout(() => { window.location.assign('/lp/thanks'); }, 1500);
   });
 })();
