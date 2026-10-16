@@ -32,3 +32,23 @@
     a.href = url.toString();
   });
 })();
+
+/* After a Calendly booking, send the visitor to /lp/thanks. The flag in
+   sessionStorage is what lets the thanks page render, so only someone who
+   booked from a landing page in this tab ever sees that URL — which makes
+   a LinkedIn "URL contains /lp/thanks" conversion count bookings exactly.
+   The short delay lets the page's own lintrk conversion request go out. */
+(() => {
+  'use strict';
+
+  const theme = document.body.getAttribute('data-lp') || 'unknown';
+  let redirecting = false;
+
+  window.addEventListener('message', (e) => {
+    if (redirecting || e.origin.indexOf('calendly.com') === -1) return;
+    if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
+    redirecting = true;
+    try { sessionStorage.setItem('pk_lp_booked', theme); } catch (_) { /* thanks page fails open */ }
+    setTimeout(() => { window.location.assign(`/lp/thanks?from=${encodeURIComponent(theme)}`); }, 1500);
+  });
+})();

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#23231A">
+
+<!-- Thank-you page for demos booked from the ad landing pages (/lp/*).
+     lp.js sends people here after Calendly reports a booking. The booking
+     flag is used up on the first view, so each booking produces exactly one
+     load of this URL (the LinkedIn "URL contains /lp/thanks" conversion).
+     A reload, a shared link or a direct visit goes to the homepage. -->
+<script>
+(function () {
+  var booked = true;
+  try {
+    booked = !!sessionStorage.getItem('pk_lp_booked');
+    sessionStorage.removeItem('pk_lp_booked');
+  } catch (_) { /* storage blocked — show the page */ }
+  if (!booked) location.replace('/');
+})();
+</script>
+
+<title>You're booked | Packr</title>
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-ink.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-shadow-ink.png">
+<link rel="apple-touch-icon" href="/assets/icon-shadow-ink.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="stylesheet" href="/lp/lp.css?v=3">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<main class="pk-surface-dark lp-thanks">
+  <div class="lp-thanks-inner">
+    <a href="/" class="pk-wordmark" aria-label="Packr home">
+      <img src="/assets/icon-cream.png" alt="" class="pk-wordmark-icon">
+      <span class="pk-wordmark-text">Packr</span>
+    </a>
+
+    <span class="pk-chip-deck lp-thanks-chip">You're booked</span>
+    <h1 class="pk-display">Thanks. <em>See you soon.</em></h1>
+    <p class="lp-thanks-sub">Your calendar invite is on its way. In 30 minutes we'll plug into your WMS sandbox and walk your real brands and orders. No slides, just your warehouse.</p>
+
+    <div class="lp-thanks-steps">
+      <div>
+        <span class="pk-micro">01</span>
+        <h2>Check your inbox</h2>
+        <p>The invite and meeting link come from Calendly. Need a different time? Use the reschedule link in that email.</p>
+      </div>
+      <div>
+        <span class="pk-micro">02</span>
+        <h2>Bring your team</h2>
+        <p>Forward the invite to whoever answers your brands today. They'll get the most out of it.</p>
+      </div>
+      <div>
+        <span class="pk-micro">03</span>
+        <h2>Come with a real question</h2>
+        <p>The order that always causes a thread, the brand that always asks. We'll show you how it looks in Packr.</p>
+      </div>
+    </div>
+
+    <div class="pk-hero-cta">
+      <a href="https://docs.packr.io/" target="_blank" rel="noopener" class="pk-btn pk-btn-ondark">Browse the docs <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
+      <a href="/pricing" class="pk-btn pk-btn-ghost-ondark">See pricing →</a>
+    </div>
+  </div>
+</main>
+
+<!-- LinkedIn Insight Tag (page view only; the booking conversion fires on the landing page) -->
+<script type="text/javascript">
+_linkedin_partner_id = "9882162";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9882162&fmt=gif" />
+</noscript>
+
+</body>
+</html>

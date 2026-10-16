@@ -380,3 +380,33 @@ html[data-v="pick"]     .lp-v[data-v="pick"] { display: block; }
 
 /* Eyebrows without the leading rule */
 .pk-eyebrow::before { content: none; }
+
+/* ---- Thank-you page (/lp/thanks) ---- */
+.lp-thanks {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 56px 24px;
+}
+.lp-thanks-inner { max-width: 960px; margin: 0 auto; width: 100%; }
+.lp-thanks .pk-wordmark { color: var(--on-dark); }
+.lp-thanks-chip { display: table; margin-top: 56px; background: rgba(240, 238, 226, 0.1); color: var(--gold-bright); }
+.lp-thanks h1 { font-size: clamp(44px, 7vw, 96px); line-height: 1; margin: 24px 0 22px; }
+.lp-thanks h1 em { font-style: italic; font-weight: 520; }
+.lp-thanks-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.55; color: var(--on-dark-muted); max-width: 620px; margin: 0 0 48px; }
+.lp-thanks-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.lp-thanks-steps > div { border-top: 1px solid var(--chip-dark-line); padding-top: 18px; }
+.lp-thanks-steps .pk-micro { color: var(--gold); }
+.lp-thanks-steps h2 { font-size: 18px; font-weight: 700; margin: 10px 0 8px; }
+.lp-thanks-steps p { font-size: 14.5px; line-height: 1.6; color: var(--on-dark-muted); margin: 0; }
+
+@media (max-width: 760px) {
+  .lp-thanks { align-items: flex-start; padding: 28px 20px 48px; }
+  .lp-thanks-chip { margin-top: 40px; }
+  .lp-thanks-steps { grid-template-columns: 1fr; gap: 18px; }
+}
