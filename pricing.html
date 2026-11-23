@@ -6,19 +6,19 @@
 <meta name="theme-color" content="#F0EEE2">
 
 <title>Pricing — $8 per 1,000 orders · Packr</title>
-<meta name="description" content="One usage-based plan that scales with your warehouse. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
+<meta name="description" content="One usage-based plan that scales with your warehouse: $8 per 1,000 orders with a $150 monthly minimum. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://packr.io/pricing">
 <meta property="og:title" content="Pricing — $8 per 1,000 orders · Packr">
-<meta property="og:description" content="One usage-based plan that scales with your warehouse. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
+<meta property="og:description" content="One usage-based plan that scales with your warehouse: $8 per 1,000 orders with a $150 monthly minimum. Unlimited brands, unlimited users, every feature. 30-day free trial, no setup fees.">
 <meta property="og:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pricing — $8 per 1,000 orders · Packr">
-<meta name="twitter:description" content="One usage-based plan. Unlimited brands, unlimited users, every feature. 30-day free trial.">
+<meta name="twitter:description" content="One usage-based plan, $150 monthly minimum. Unlimited brands, unlimited users, every feature. 30-day free trial.">
 <meta name="twitter:image" content="https://packr.io/assets/logo-h-shadow-ink.png">
 
 <!-- Favicon -->
@@ -81,8 +81,8 @@
  
   <h1>One plan. <em>$8 per 1,000 orders.</em></h1>
   <p class="pk-pricing-sub">
-    One usage-based plan that scales with your warehouse. No per-seat or
-    per-brand fees, ever. Slide to size it for your volume.
+    One usage-based plan from $150 a month. No per-seat or per-brand
+    fees, ever. Slide to size it for your volume.
   </p>
   <div class="pk-hero-cta" style="justify-content:center;margin-top:28px">
     <a href="https://calendly.com/packr-demo/30min" target="_blank" rel="noopener" class="pk-btn pk-btn-ink">Book a Demo <svg class="ic" width="14" height="14"><use href="#i-chev-r"/></svg></a>
@@ -104,7 +104,7 @@
         </div>
       </div>
       <div class="pk-calc-block pk-calc-cost-block">
-        <p class="pk-calc-label">Your monthly cost</p>
+        <p class="pk-calc-label">Your monthly cost<span id="calc-floor-note" hidden> · $150 minimum</span></p>
         <div>
           <span class="pk-calc-cost" id="calc-monthly">$200</span><span class="pk-calc-cost-suffix">/mo</span>
         </div>
@@ -124,9 +124,9 @@
       </div>
     </div>
 
-    <!-- Example volumes at the $8 / 1,000 rate -->
+    <!-- Example volumes: the $150 minimum covers the first 18,750 orders, then $8 / 1,000 -->
     <div class="pk-calc-examples" aria-label="Example monthly costs">
-      <span class="pk-price-pill"><span class="pk-price-pill-orders">3K orders</span><strong>$24<span>/mo</span></strong></span>
+      <span class="pk-price-pill"><span class="pk-price-pill-orders">Up to 18,750 orders</span><strong>$150<span>/mo</span></strong></span>
       <span class="pk-price-pill"><span class="pk-price-pill-orders">50K orders</span><strong>$400<span>/mo</span></strong></span>
       <span class="pk-price-pill"><span class="pk-price-pill-orders">400K orders</span><strong>$3,200<span>/mo</span></strong></span>
     </div>
@@ -139,7 +139,7 @@
       </div>
       <div class="pk-calc-rate-row">
         <strong>$8 per 1,000 orders.</strong>
-        <span>No contracts · No setup fees · No per-seat or per-brand fees.</span>
+        <span>$150 monthly minimum · No contracts · No setup fees · No per-seat or per-brand fees.</span>
       </div>
     </div>
 
@@ -235,9 +235,11 @@
   const slider          = document.getElementById('calc-slider');
   const ordersEl        = document.getElementById('calc-orders');
   const monthlyEl       = document.getElementById('calc-monthly');
+  const floorNoteEl     = document.getElementById('calc-floor-note');
 
   // Pricing constants
-  const PRICE_PER_1K = 8;  // dollars per 1,000 orders
+  const PRICE_PER_1K = 8;    // dollars per 1,000 orders
+  const MIN_MONTHLY  = 150;  // dollars; the minimum covers the first 18,750 orders
 
   // Map slider 0..100 → orders 1,000..1,000,000 on a log curve so the
   // small-and-mid-volume range is easy to land on.
@@ -263,10 +265,12 @@
   function update() {
     const t       = parseFloat(slider.value);
     const orders  = sliderToOrders(t);
-    const monthly = (orders / 1000) * PRICE_PER_1K;
+    const usage   = (orders / 1000) * PRICE_PER_1K;
+    const monthly = Math.max(MIN_MONTHLY, usage);
 
     ordersEl.textContent  = fmt(orders);
     monthlyEl.textContent = '$' + fmt(Math.round(monthly));
+    floorNoteEl.hidden    = usage >= MIN_MONTHLY;
   }
 
   slider.addEventListener('input', update);
